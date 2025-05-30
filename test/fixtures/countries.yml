@@ -1,0 +1,31 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  currency: MyString
+  capital: MyString
+  language_one: MyString
+  language_two: MyString
+  language_three: MyString
+  continent: MyString
+  region: MyString
+  flag: MyString
+  timezone: MyString
+  population: 1
+  latitude: 1
+  longitude: 1
+
+two:
+  name: MyString
+  currency: MyString
+  capital: MyString
+  language_one: MyString
+  language_two: MyString
+  language_three: MyString
+  continent: MyString
+  region: MyString
+  flag: MyString
+  timezone: MyString
+  population: 1
+  latitude: 1
+  longitude: 1
