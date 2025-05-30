@@ -1,24 +1,13 @@
-# README
+## The Country Club - facts about countries and travel tracker
+This is a solo project. I love travelling and learning Geography facts, and so I wanted to create a space where the two come together. This is an ongoing project.
+I'm using it as an opportunity to practise TypeScript more, and so I am using Vite. I am also using MySQL, as my past projects have all used PostgreSQL. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Tech Stack
+- Ruby on Rails
+- HTML5
+- CSS3
+- JavaScript
+- TypeScript
+- MySQL
+- Git
+- Github
