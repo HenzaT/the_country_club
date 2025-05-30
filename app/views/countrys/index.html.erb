@@ -1,3 +1,10 @@
-<div data-controller="hello">
-<!-- Stimulus controller will connect here -->
-</div>
+<section class="banner" id="seven-continents">
+  <h1>Hello</h1>
+  <% @europe.each do |country| %>
+    <%= country.name %>
+  <% end %>
+</section>
+
+<section class="explanation">
+  <h1>How to use The Country Club</h1>
+</section>
