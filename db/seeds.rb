@@ -13,27 +13,54 @@ require 'open-uri'
 puts 'cleaning database...'
 Country.destroy_all
 
-url = 'https://restcountries.com/v3.1/name/deutschland'
+# separate urls for each region
+africa_url = 'https://restcountries.com/v3.1/region/africa'
+america_url = 'https://restcountries.com/v3.1/region/america'
+asia_url = 'https://restcountries.com/v3.1/region/asia'
+europe_url = 'https://restcountries.com/v3.1/region/europe'
+oceania_url = 'https://restcountries.com/v3.1/region/oceania'
 
-countries_json = URI.parse(url).read
-countries = JSON.parse(countries_json)
+# array of urls
+urls = [africa_url, america_url, asia_url, europe_url, oceania_url]
 
-countries.each do |country|
-  puts 'creating country...'
-  currency_hash = country['currencies'].values[0]
-  Country.create!(
-    name: country['name'].values[0],
-    currency: currency_hash.values[1],
-    capital: country['capital'][0],
-    language_one: country['languages'].values[0],
-    continent: country['region'],
-    region: country['subregion'],
-    flag: country['flags'].values[0],
-    timezone: country['timezones'][0],
-    population: country['population'],
-    latitude: country['latlng'][0],
-    longitude: country['latlng'][1]
-  )
+# iterate over the urls array, parse and create country
+urls.each do |url|
+  countries_json = URI.parse(url).read
+  countries = JSON.parse(countries_json)
+
+  countries.each do |country|
+    puts 'creating country...'
+    country_name = country['name']['common']
+    currency_hash = country['currencies'].values[0] || 'None'
+    currency = currency_hash.values[1] || 'None'
+    capital = country['capital']&.first || 'None'
+    language_one = country['languages'].values[0]
+    language_two = country['languages'].values[1] || 'None'
+    language_three = country['languages'].values[2] || 'None'
+    continent = country['region']
+    region = country['subregion'] || 'None'
+    flag = country['flags']['png']
+    timezone = country['timezones']&.first
+    population = country['population']
+    latitude = country['latlng']&.first
+    longitude = country['latlng']&.last
+
+    Country.create!(
+      name: country_name,
+      currency: currency,
+      capital: capital,
+      language_one: language_one,
+      language_two: language_two,
+      language_three: language_three,
+      continent: continent,
+      region: region,
+      flag: flag,
+      timezone: timezone,
+      population: population,
+      latitude: latitude,
+      longitude: longitude
+    )
+  end
 end
 
 puts "finished! created #{Country.count} countries!"
