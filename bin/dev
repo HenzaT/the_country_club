@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Run Rails server in background
+bundle exec rails server &
+
+# Run Vite dev server in foreground
+npm run dev
