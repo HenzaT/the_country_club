@@ -1,6 +1,8 @@
 ## The Country Club - facts about countries and travel tracker
-This is a solo project. I love travelling and learning Geography facts, and so I wanted to create a space where the two come together. This is an ongoing project.
-I'm using it as an opportunity to practise TypeScript more, and so I am using Vite. I am also using MySQL, as my past projects have all used PostgreSQL. 
+This is a solo project. I love travelling and learning geography facts, and so I wanted to create a space where the two come together. This is an ongoing project, and I plan to use it as an opportunity to practise some new technologies:
+- TypeScript
+- MySQL
+- React (for certain parts)
 
 ## Tech Stack
 - Ruby on Rails
