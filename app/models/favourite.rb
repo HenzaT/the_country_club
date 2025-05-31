@@ -1,6 +1,7 @@
-class Visit < ApplicationRecord
+class Favourite < ApplicationRecord
   belongs_to :country
   belongs_to :user
+  validates :user_id, uniqueness: { scope: :country_id }
   validates :visit_date, :rating, :times_visited, presence: true
   # date as "YYYY-MM-DD" in MySQL
   validates :rating, :times_visited, numericality: true
