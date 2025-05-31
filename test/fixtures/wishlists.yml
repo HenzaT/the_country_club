@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  desire_rating: 1
+  note: MyText
+  future_visit_date: 2025-05-31
+  country: one
+  user: one
+
+two:
+  desire_rating: 1
+  note: MyText
+  future_visit_date: 2025-05-31
+  country: two
+  user: two

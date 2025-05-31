@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_05_31_075333) do
+ActiveRecord::Schema[7.1].define(version: 2025_05_31_083841) do
   create_table "countries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "currency"
@@ -29,6 +29,19 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_31_075333) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "favourites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.date "visit_date"
+    t.text "note"
+    t.integer "rating"
+    t.integer "times_visited"
+    t.bigint "country_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_favourites_on_country_id"
+    t.index ["user_id"], name: "index_favourites_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -41,19 +54,20 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_31_075333) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "visits", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.date "visit_date"
+  create_table "wishlists", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "desire_rating"
     t.text "note"
-    t.integer "rating"
-    t.integer "times_visited"
+    t.date "future_visit_date"
     t.bigint "country_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["country_id"], name: "index_visits_on_country_id"
-    t.index ["user_id"], name: "index_visits_on_user_id"
+    t.index ["country_id"], name: "index_wishlists_on_country_id"
+    t.index ["user_id"], name: "index_wishlists_on_user_id"
   end
 
-  add_foreign_key "visits", "countries"
-  add_foreign_key "visits", "users"
+  add_foreign_key "favourites", "countries"
+  add_foreign_key "favourites", "users"
+  add_foreign_key "wishlists", "countries"
+  add_foreign_key "wishlists", "users"
 end
