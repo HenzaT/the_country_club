@@ -1,12 +1,18 @@
 class CountrysController < ApplicationController
-  # home, continents, country
+  # home, continents, show
   def home
-    @all = Country.all
+    @continents = Country.select('continent').group('continent')
+    @africa = Country.where(continent: 'Africa')
+    @europe = Country.where(continent: 'Europe')
+    @asia = Country.where(continent: 'Asia')
+    @oceania = Country.where(continent: 'Oceania')
+    @north_america = Country.where(region: 'North America')
+    @central_america = Country.where(region: 'Central America')
+    @south_america = Country.where(region: 'South America')
   end
 
   # show individual continent
-  def show
-    @continents = Country.select('continent').group('continent')
+  def continent
   end
 
   # show individual country

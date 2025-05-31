@@ -1,10 +1,19 @@
 <section class="banner" id="seven-continents">
-  <h1>Hello</h1>
-  <% @all.each do |country| %>
-    <%= country.name %>
+  <h1>Choose a continent</h1>
+  <% @continents.each do |continent| %>
+    <%= continent.continent %>
   <% end %>
+
 </section>
 
 <section class="explanation">
   <h1>How to use The Country Club</h1>
 </section>
+
+<% @africa.each do |country| %>
+  <%= country.name %>
+<% end %>
+
+<% @south_america.each do |country| %>
+  <%= country.name %>
+<% end %>
