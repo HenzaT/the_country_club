@@ -1,0 +1,24 @@
+<%# Country show %>
+<%= image_tag(@country.flag, alt: "flag of #{@country.name}") %>
+<%= @country.name %>
+<%= @country.capital %>
+<%= @country.language_one %>
+
+<div>
+  <%= link_to 'Add to wishlist', new_country_wishlist_path(@country) %>
+</div>
+
+<div>
+
+  <% @user_wishlists.each do |wishlist| %>
+    <ul>
+      <li>How much you want to visit: <%= wishlist.desire_rating %></li>
+      <li>Notes: <%= wishlist.note %></li>
+      <li>Future Visit Date: <%= wishlist.future_visit_date %></li>
+    </ul>
+  <% end %>
+</div>
+
+<div>
+  <%= render 'shared/back_button' %>
+</div>
