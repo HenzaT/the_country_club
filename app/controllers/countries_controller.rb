@@ -1,4 +1,4 @@
-class CountrysController < ApplicationController
+class CountriesController < ApplicationController
   # home, continents, show
   def home
     @continents = Country.select('continent').group('continent')
@@ -14,5 +14,6 @@ class CountrysController < ApplicationController
   # show individual country
   def show
     @country = Country.find(params[:id])
+    @user_wishlists = @country.wishlists.where(user_id: current_user)
   end
 end
