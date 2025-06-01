@@ -1,1 +1,7 @@
+<%# Country show %>
+<%= image_tag(@country.flag, alt: "flag of #{@country.name}") %>
 <%= @country.name %>
+<%= @country.capital %>
+<%= @country.language_one %>
+
+<%= render 'shared/back_button' %>
