@@ -14,7 +14,7 @@
   </div>
 
   <div class="wishlist">
-    <% if @wishlist_already_created %>
+    <% if @wishlist_already_created || @favourite_already_created %>
       <h2>Wishlist</h2>
       <%= link_to 'Edit wishlist', edit_country_wishlist_path(@country) %>
       <% @user_wishlists.each do |wishlist| %>
@@ -24,9 +24,20 @@
           <li>Future Visit Date: <%= wishlist.future_visit_date %></li>
         </ul>
       <% end %>
+      <h2>Favourite</h2>
+      <%= link_to 'Edit favourite', edit_country_favourite_path(@country) %>
+      <% @user_favourites.each do |favourite| %>
+        <ul>
+          <li>Your rating: <%= favourite.rating %></li>
+          <li>Notes: <%= favourite.note %></li>
+          <li>Visit Date: <%= favourite.visit_date %></li>
+          <li>Times visited: <%= favourite.times_visited %></li>
+        </ul>
+      <% end %>
     <% else %>
       <div>
         <%= link_to 'Add to wishlist', new_country_wishlist_path(@country) %>
+        <%= link_to 'Add to Favourite', new_country_favourite_path(@country) %>
       </div>
     <% end %>
   </div>
