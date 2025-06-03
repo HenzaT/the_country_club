@@ -1,10 +1,10 @@
-<h1>hello</h1>
+<h1>Create wishlist</h1>
 
 <% if @wishlist_already_created %>
   <h2>You have already added this country to a wishlist!</h2>
   <h3>Update your wishlist instead?</h3>
 <% else %>
-  <div class="new-form">
+  <div class="form">
     <%= simple_form_for [@country, @wishlist] do |f| %>
       <%= f.input :desire_rating %>
       <%= f.input :note %>
