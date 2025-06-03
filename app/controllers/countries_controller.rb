@@ -15,5 +15,7 @@ class CountriesController < ApplicationController
   def show
     @country = Country.find(params[:id])
     @user_wishlists = @country.wishlists.where(user_id: current_user)
+    @wishlist_already_created = Wishlist.exists?(user_id: current_user, country_id: @country)
+    @wishlist = Wishlist.where(user_id: current_user, country_id: @country)
   end
 end
