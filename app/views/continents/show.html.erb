@@ -1,8 +1,17 @@
 <%# Continent show %>
-<% @countries.each do |country| %>
-  <%= link_to country_path(country) do %>
-    <%= country.name %>
+<div class="continent-region-page">
+  <% @countries.each do |country| %>
+    <%= link_to country_path(country) do %>
+      <div class="country-card-small">
+        <div class="card-image">
+          <%= image_tag(country.flag, alt: "flag of #{country.name}") %>
+        </div>
+        <div class="card-title">
+          <h1><%= country.name %></h1>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
 
 <%= render 'shared/back_button' %>

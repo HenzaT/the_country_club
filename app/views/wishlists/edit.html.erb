@@ -1,0 +1,10 @@
+<h1>Edit wishlist</h1>
+
+<div class="form">
+  <%= simple_form_for [@country, @wishlist] do |f| %>
+    <%= f.input :desire_rating %>
+    <%= f.input :note %>
+    <%= f.input :future_visit_date %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
