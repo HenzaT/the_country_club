@@ -17,5 +17,8 @@ class CountriesController < ApplicationController
     @user_wishlists = @country.wishlists.where(user_id: current_user)
     @wishlist_already_created = Wishlist.exists?(user_id: current_user, country_id: @country)
     @wishlist = Wishlist.where(user_id: current_user, country_id: @country)
+    @user_favourites = @country.favourites.where(user_id: current_user)
+    @favourite_already_created = Favourite.exists?(user_id: current_user, country_id: @country)
+    @favourite = Favourite.where(user_id: current_user, country_id: @country)
   end
 end
