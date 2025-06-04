@@ -22,7 +22,7 @@ class FavouritesController < ApplicationController
   end
 
   def update
-    @favourite = Wishlist.find_by country_id: @country
+    @favourite = Favourite.find_by country_id: @country
     @favourite.user = current_user
     if @favourite.update(favourite_params)
       redirect_to country_path(@country)

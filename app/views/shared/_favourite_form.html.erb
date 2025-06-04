@@ -1,0 +1,9 @@
+<div class="form">
+  <%= simple_form_for [country, favourite] do |f| %>
+    <%= f.input :rating %>
+    <%= f.input :note %>
+    <%= f.input :visit_date %>
+    <%= f.input :times_visited %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
