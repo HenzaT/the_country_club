@@ -13,30 +13,24 @@
     </div>
   </div>
 
-  <div class="wishlist">
-    <% if @wishlist_already_created || @favourite_already_created %>
-      <h2>Wishlist</h2>
-      <%= link_to 'Edit wishlist', edit_country_wishlist_path(@country) %>
-      <% @user_wishlists.each do |wishlist| %>
-        <ul>
-          <li>How much you want to visit: <%= wishlist.desire_rating %></li>
-          <li>Notes: <%= wishlist.note %></li>
-          <li>Future Visit Date: <%= wishlist.future_visit_date %></li>
-        </ul>
-      <% end %>
-      <h2>Favourite</h2>
-      <%= link_to 'Edit favourite', edit_country_favourite_path(@country) %>
-      <% @user_favourites.each do |favourite| %>
-        <ul>
-          <li>Your rating: <%= favourite.rating %></li>
-          <li>Notes: <%= favourite.note %></li>
-          <li>Visit Date: <%= favourite.visit_date %></li>
-          <li>Times visited: <%= favourite.times_visited %></li>
-        </ul>
-      <% end %>
+  <div class="wishlist-favourite">
+    <% case %>
+    <% when @wishlist_already_created && @favourite_already_created %>
+      <%= render "shared/edit_wishlist_link", country: @country, wishlists: @user_wishlists %>
+      <%= render "shared/edit_favourite_link", country: @country, favourites: @user_favourites %>
+    <% when @wishlist_already_created %>
+      <%= render "shared/edit_wishlist_link", country: @country, wishlists: @user_wishlists %>
+      <div class="favourite">
+        <%= link_to 'Add to Favourite', new_country_favourite_path(@country) %>
+      </div>
+    <% when @favourite_already_created %>
+      <div class="wishlist">
+        <%= link_to 'Add to Wishlist', new_country_wishlist_path(@country) %>
+      </div>
+      <%= render "shared/edit_favourite_link", country: @country, favourites: @user_favourites %>
     <% else %>
       <div>
-        <%= link_to 'Add to wishlist', new_country_wishlist_path(@country) %>
+        <%= link_to 'Add to Wishlist', new_country_wishlist_path(@country) %>
         <%= link_to 'Add to Favourite', new_country_favourite_path(@country) %>
       </div>
     <% end %>
