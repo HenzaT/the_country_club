@@ -1,0 +1,12 @@
+<div class="favourite">
+  <h2>Favourite</h2>
+  <%= link_to 'Edit favourite', edit_country_favourite_path(country) %>
+  <% favourites.each do |favourite| %>
+    <ul>
+      <li>Your rating: <%= favourite.rating %></li>
+      <li>Notes: <%= favourite.note %></li>
+      <li>Visit Date: <%= favourite.visit_date %></li>
+      <li>Times visited: <%= favourite.times_visited %></li>
+    </ul>
+  <% end %>
+</div>
