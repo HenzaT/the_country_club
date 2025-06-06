@@ -43,7 +43,9 @@ urls.each do |url|
     continent = country['region']
     region = country['subregion'] || 'None'
     flag = country['flags']['png']
+    flag_alt = country['flags']['alt'] || 'None'
     timezone = country['timezones']&.first
+    area = country[area] || 'None'
     population = country['population']
     latitude = country['latlng']&.first
     longitude = country['latlng']&.last
@@ -58,7 +60,9 @@ urls.each do |url|
       continent: continent,
       region: region,
       flag: flag,
+      flag_alt: flag_alt,
       timezone: timezone,
+      area: area,
       population: population,
       latitude: latitude,
       longitude: longitude
