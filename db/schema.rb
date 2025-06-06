@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_05_31_083841) do
+ActiveRecord::Schema[7.1].define(version: 2025_06_06_045233) do
   create_table "countries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "currency"
@@ -27,6 +27,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_05_31_083841) do
     t.integer "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "area"
+    t.text "flag_alt"
   end
 
   create_table "favourites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|

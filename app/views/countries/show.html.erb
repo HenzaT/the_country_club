@@ -5,7 +5,7 @@
       <h1><%= @country.name %></h1>
     </div>
     <div class="card-image">
-      <%= image_tag(@country.flag, alt: "flag of #{@country.name}") %>
+      <%= image_tag(@country.flag, alt: @country.flag_alt) %>
     </div>
     <div class="card-info">
       <h2>Capital: <%= @country.capital %></h2>
@@ -17,21 +17,25 @@
     <% case %>
     <% when @wishlist_already_created && @favourite_already_created %>
       <%= render "shared/edit_wishlist_link", country: @country, wishlists: @user_wishlists %>
-      <%= render "shared/edit_favourite_link", country: @country, favourites: @user_favourites %>
+      <%= render "shared/edit_favourite", country: @country, favourites: @user_favourites %>
     <% when @wishlist_already_created %>
       <%= render "shared/edit_wishlist_link", country: @country, wishlists: @user_wishlists %>
       <div class="favourite">
-        <%= link_to 'Add to Favourite', new_country_favourite_path(@country) %>
+        <%= link_to new_country_favourite_path(@country) do %>
+          <i class="fa-regular fa-heart"></i>
+        <% end %>
       </div>
     <% when @favourite_already_created %>
       <div class="wishlist">
         <%= link_to 'Add to Wishlist', new_country_wishlist_path(@country) %>
       </div>
-      <%= render "shared/edit_favourite_link", country: @country, favourites: @user_favourites %>
+      <%= render "shared/edit_favourite", country: @country, favourites: @user_favourites %>
     <% else %>
       <div>
         <%= link_to 'Add to Wishlist', new_country_wishlist_path(@country) %>
-        <%= link_to 'Add to Favourite', new_country_favourite_path(@country) %>
+        <%= link_to new_country_favourite_path(@country) do %>
+          <i class="fa-regular fa-heart"></i>
+        <% end %>
       </div>
     <% end %>
   </div>
