@@ -14,3 +14,8 @@
  *= require_self
  */
 
+@import 'variables';
+
+body {
+  background-color: $light;
+}
