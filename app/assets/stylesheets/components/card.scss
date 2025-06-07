@@ -6,3 +6,9 @@
   border: 1px solid black;
   width: 30vw;
 }
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}

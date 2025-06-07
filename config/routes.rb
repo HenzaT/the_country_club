@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :wishlists, only: %i[new create edit update destroy]
     resources :favourites, only: %i[new create edit update destroy]
   end
+  get '/dashboard', to: 'countries#dashboard'
   resources :continents, only: [:show]
   resources :regions, only: [:show]
 
