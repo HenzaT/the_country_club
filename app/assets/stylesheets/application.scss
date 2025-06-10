@@ -16,6 +16,13 @@
 
 @import 'variables';
 
-body {
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
   background-color: $light;
+  overflow-y: auto;
 }

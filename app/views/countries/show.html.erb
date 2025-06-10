@@ -1,17 +1,6 @@
 <%# Country show %>
 <div class="country-page container">
-  <div class="country-card-large">
-    <div class="card-title">
-      <h1><%= @country.name %></h1>
-    </div>
-    <div class="card-image">
-      <%= image_tag(@country.flag, alt: @country.flag_alt) %>
-    </div>
-    <div class="card-info">
-      <h2>Capital: <%= @country.capital %></h2>
-      <h2>Language: <%= @country.language_one %></h2>
-    </div>
-  </div>
+  <%= render "shared/country_card_large", country: @country %>
 
   <div class="wishlist-favourite">
     <% case %>
@@ -68,8 +57,4 @@
       </div>
     <% end %>
   </div>
-</div>
-
-<div>
-  <%= render 'shared/back_button' %>
 </div>

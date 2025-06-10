@@ -1,5 +1,6 @@
 class CountriesController < ApplicationController
-  # home, continents, show
+  skip_before_action :authenticate_user!, only: %i[home show]
+
   def home
     @continents = Country.select('continent').group('continent')
   end
