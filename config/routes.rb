@@ -7,8 +7,9 @@ Rails.application.routes.draw do
   get 'up' => 'rails/health#show', as: :rails_health_check
   resources :countries, only: %i[home show] do
     resources :wishlists, only: %i[new create edit update destroy]
-    resources :favourites, only: %i[new create edit update destroy]
+    resources :favourites, only: %i[new create edit update]
   end
+  resources :favourites, only: %i[destroy]
   get '/dashboard', to: 'countries#dashboard'
   resources :continents, only: [:show]
   resources :regions, only: [:show]
