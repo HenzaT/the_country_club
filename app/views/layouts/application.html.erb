@@ -10,6 +10,7 @@
     <%# <%= javascript_importmap_tags %>
     <%= vite_client_tag %>
     <%= vite_javascript_tag 'application' %>
+    <%= vite_typescript_tag 'application' %>
     <!--
       If using a TypeScript entrypoint file:
         vite_typescript_tag 'application'
@@ -22,12 +23,17 @@
 
   </head>
   <body>
-    <div class="nav">
-      <%= render 'shared/navbar' %>
+    <div class="wrapper">
+      <%= render 'shared/sidebar' %>
+
+      <div class="section">
+        <%= render 'shared/top_navbar' %>
+
+        <div class="main-body">
+          <%= yield %>
+        </div>
+      </div>
     </div>
     <%= render 'shared/flashes' %>
-    <div class="main-body">
-      <%= yield %>
-    </div>
   </body>
 </html>

@@ -1,0 +1,37 @@
+<div class="sidebar">
+  <% if user_signed_in? %>
+    <div class="nav-welcome">
+      <i class="fa-solid fa-plane-departure" alt="plane taking off icon" id="nav-user-icon"></i>
+      <h1>Hi, <%= current_user.first_name %>!</h1>
+    </div>
+    <ul class="nav-items">
+      <li class="nav-item">
+        <%= link_to root_path, class: "nav-link active" do %>
+          <i class="fa-solid fa-house-chimney icon"></i>
+          <p>Home</p>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to dashboard_path, class: "nav-link" do %>
+          <i class="fa-solid fa-display icon" alt="desktop screen icon"></i>
+          <p>Member's Area</p>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" do %>
+          <i class="fa-solid fa-arrow-right-from-bracket icon" alt="log out icon"></i>
+          <p>Log out</p>
+        <% end %>
+      </li>
+    </ul>
+  <% else %>
+    <ul class="nav-items">
+      <li class="nav-item active">
+        <%= link_to "Home", root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      </li>
+    </ul>
+  <% end %>
+</div>

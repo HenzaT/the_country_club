@@ -1,14 +1,36 @@
+@import 'variables';
+
 .country-card-large {
-  border: 1px solid black;
+  border-radius: 15px;
+  box-shadow: $card-heavy-shadow;
+  padding: 40px 150px 40px 40px;
 }
 
 .country-card-small {
-  border: 1px solid black;
+  border-radius: 20px;
   width: 30vw;
+  box-shadow: $card-heavy-shadow;
+  padding: 20px 40px 20px 40px;
+}
+
+.card-content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title {
+  text-align: center;
+}
+
+.card-image {
+  border-radius: 20px;
+  box-shadow: $card-light-shadow;
 }
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
