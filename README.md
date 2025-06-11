@@ -6,6 +6,7 @@ This is a solo project. I love travelling and learning geography facts, and so I
 
 ## Tech Stack
 - Ruby on Rails
+- Vite
 - HTML5
 - SCSS
 - JavaScript
