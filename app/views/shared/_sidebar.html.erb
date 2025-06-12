@@ -7,9 +7,38 @@
     <ul class="nav-items">
       <li class="nav-item">
         <%= link_to root_path, class: "nav-link active" do %>
-          <i class="fa-solid fa-house-chimney icon"></i>
+          <i class="fa-solid fa-house-chimney icon" alt="home icon"></i>
           <p>Home</p>
         <% end %>
+      </li>
+      <li class="nav-item">
+        <button class="dropdown-btn nav-link">
+          <i class="fa-solid fa-angle-down icon" alt="arrow pointing down"></i>
+          <p>Continents</p>
+        </button>
+        <div class="dropdown-container">
+          <a href="/continents/africa">
+            <p>Africa</p>
+          </a>
+          <a href="/continents/asia">
+            <p>Asia</p>
+          </a>
+          <a href="/continents/europe">
+            <p>Europe</p>
+          </a>
+          <a href="/continents/oceania">
+            <p>Oceania</p>
+          </a>
+          <a href="/regions/North%20America">
+            <p>North America</p>
+          </a>
+          <a href="/regions/Central%20America">
+            <p>Central America</p>
+          </a>
+          <a href="/regions/South%20America">
+            <p>South America</p>
+          </a>
+        </div>
       </li>
       <li class="nav-item">
         <%= link_to dashboard_path, class: "nav-link" do %>
