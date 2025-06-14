@@ -45,7 +45,7 @@ urls.each do |url|
     flag = country['flags']['png']
     flag_alt = country['flags']['alt'] || 'None'
     timezone = country['timezones']&.first
-    area = country[area] || 'None'
+    area = country['area'] || 'None'
     population = country['population']
     latitude = country['latlng']&.first
     longitude = country['latlng']&.last
@@ -70,11 +70,11 @@ urls.each do |url|
   end
 end
 
-User.create!(email: 'henry@henry.com', password: 'gkjasfnjk')
-User.create!(email: 'james@james.com', password: 'khjabdf')
+User.create!(email: 'tester@testing.com', password: 'password')
+User.create!(email: 'james@james.com', password: 'tester')
 
-Wishlist.create!(desire_rating: 2, country_id: 143, user_id: 1)
-Wishlist.create!(desire_rating: 2, country_id: 143, user_id: 2)
+Wishlist.create!(desire_rating: 2, country_id: 142, user_id: 1)
+Wishlist.create!(desire_rating: 4, country_id: 145, user_id: 2)
 
 Favourite.create!(visit_date: '2025-04-30', rating: 2, times_visited: 4, country_id: 1, user_id: 1)
 Favourite.create!(visit_date: '2025-04-23', rating: 2, times_visited: 4, country_id: 1, user_id: 2)
