@@ -29,10 +29,23 @@ gem "jbuilder"
 
 gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.1"
+
+# simple form
 gem "simple_form"
+
+# SASS/SCSS
 gem "sassc-rails"
+
+# httparty for api calls
+gem 'httparty'
+
+# env secret
 gem "dotenv-rails"
 
+# unsplash API
+gem 'unsplash'
+
+# Devise authnetication
 gem "devise"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"

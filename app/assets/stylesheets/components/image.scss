@@ -1,0 +1,39 @@
+@import 'variables';
+
+.country-banner {
+  position: relative;
+
+  .banner-image {
+    margin: 10px;
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    display: block;
+    background-size: cover;
+    opacity: 0.8;
+    filter: brightness(50%);
+  }
+
+  .banner-image-country-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $light;
+    font-size: 8rem;
+    white-space: nowrap;
+    // border-radius: 20px;
+    // background: rgba($dark, 0.5);
+  }
+
+  .banner-image-attributions {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    color: $light;
+  }
+
+  .photographer-link {
+    color: $light;
+  }
+}

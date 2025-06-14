@@ -1,5 +1,18 @@
 <%# Country show %>
 <div class="country-page container">
+  <div class="country-banner">
+    <%= image_tag(@country_image[:raw_url], alt: "#{@country_image[:alt_description]}", class: "banner-image") %>
+    <div class="banner-image-country-name">
+      <%= @country.name %>
+    </div>
+    <div class="banner-image-attributions">
+      <p>Photo from Unsplash by: <%= @country_image[:photographer_name] %></p>
+      <%= link_to @country_image[:photographer_url], class: "photographer-link" do %>
+        <p>See more</p>
+      <% end %>
+    </div>
+  </div>
+
   <%= render "shared/country_card_large", country: @country %>
 
   <div class="wishlist-favourite">
