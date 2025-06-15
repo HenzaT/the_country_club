@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_06_08_144733) do
+ActiveRecord::Schema[7.1].define(version: 2025_06_15_073537) do
   create_table "countries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "currency"
@@ -23,12 +23,24 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_08_144733) do
     t.string "flag"
     t.string "timezone"
     t.integer "population"
-    t.integer "latitude"
-    t.integer "longitude"
+    t.float "latitude"
+    t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "area"
     t.text "flag_alt"
+  end
+
+  create_table "country_photos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.text "image_url"
+    t.text "image_alt"
+    t.string "photographer_name"
+    t.text "photographer_url"
+    t.text "image_page_url"
+    t.bigint "country_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["country_id"], name: "index_country_photos_on_country_id"
   end
 
   create_table "favourites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -70,6 +82,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_08_144733) do
     t.index ["user_id"], name: "index_wishlists_on_user_id"
   end
 
+  add_foreign_key "country_photos", "countries"
   add_foreign_key "favourites", "countries"
   add_foreign_key "favourites", "users"
   add_foreign_key "wishlists", "countries"

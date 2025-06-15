@@ -9,10 +9,12 @@
 #   end
 require 'json'
 require 'open-uri'
+# require 'httparty'
 
 puts 'cleaning database...'
 Country.destroy_all
 User.destroy_all
+# CountryPhoto.destroy_all
 Wishlist.destroy_all
 Favourite.destroy_all
 
@@ -70,8 +72,28 @@ urls.each do |url|
   end
 end
 
-User.create!(email: 'tester@testing.com', password: 'password')
-User.create!(email: 'james@james.com', password: 'tester')
+# # fetch api key from secret
+# api_key = ENV.fetch("UNSPLASH_ACCESS_KEY")
+# # instantiate new UnsplashApi with key
+# api = UnsplashApi.new(api_key)
+
+# Country.find_each do |country|
+#   puts "fetching Unsplash photo data for #{country.name}"
+
+#   response = api.image_by_country(country.name)
+#   data = response.parse['results'].first
+
+#   @country_image = {
+#     image_url: photo["urls"]["raw"],
+#     image_alt: photo["alt_description"] || "Photo of #{@country.name}",
+#     photographer_name: photo["user"]["name"],
+#     photographer_url: photo["user"]["links"]["html"],
+#     image_page_url: photo["links"]["html"]
+#   }
+# end
+
+User.create!(email: 'tester@testing.com', password: 'password', first_name: 'Tess')
+User.create!(email: 'james@james.com', password: 'tester', first_name: 'Jimmy')
 
 Wishlist.create!(desire_rating: 2, country_id: 142, user_id: 1)
 Wishlist.create!(desire_rating: 4, country_id: 145, user_id: 2)

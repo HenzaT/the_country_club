@@ -1,9 +1,10 @@
 @import 'variables';
 
-.country-card-large {
+.country-card-info {
   border-radius: 15px;
   box-shadow: $card-heavy-shadow;
-  padding: 40px 150px 40px 40px;
+  width: 20vw;
+  padding: 20px 40px 20px 40px;
 }
 
 .country-card-small {
@@ -25,7 +26,7 @@
 }
 
 .card-image {
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: $card-light-shadow;
 }
 

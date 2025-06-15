@@ -5,15 +5,90 @@
     <div class="banner-image-country-name">
       <%= @country.name %>
     </div>
-    <div class="banner-image-attributions">
-      <p>Photo from Unsplash by: <%= @country_image[:photographer_name] %></p>
-      <%= link_to @country_image[:photographer_url], class: "photographer-link" do %>
-        <p>See more</p>
+
+    <div class="image-icons">
+      <% case %>
+      <% when @wishlist_already_created && @favourite_already_created %>
+        <div class="icons">
+          <div class="wishlist">
+            <%= link_to edit_country_wishlist_path(@country) do %>
+              <i class="fa-solid fa-paper-plane icon"></i>
+            <% end %>
+          </div>
+          <div class="favourite">
+            <%= link_to edit_country_favourite_path(@country) do %>
+              <i class="fa-solid fa-heart icon"></i>
+            <% end %>
+          </div>
+        </div>
+
+      <% when @wishlist_already_created %>
+        <div class="icons">
+          <div class="wishlist">
+            <%= link_to edit_country_wishlist_path(@country) do %>
+              <i class="fa-solid fa-paper-plane icon"></i>
+            <% end %>
+          </div>
+          <%= link_to new_country_favourite_path(@country) do %>
+            <i class="fa-regular fa-heart icon"></i>
+          <% end %>
+        </div>
+
+      <% when @favourite_already_created %>
+        <div class="icons">
+          <%= link_to new_country_wishlist_path(@country) do %>
+            <i class="fa-regular fa-paper-plane icon"></i>
+          <% end %>
+          <div class="favourite">
+            <%= link_to edit_country_favourite_path(@country) do %>
+              <i class="fa-solid fa-heart icon"></i>
+            <% end %>
+          </div>
+        </div>
+
+      <% else %>
+        <div class="icons">
+          <%= link_to new_country_wishlist_path(@country) do %>
+            <i class="fa-regular fa-paper-plane icon"></i>
+          <% end %>
+          <%= link_to new_country_favourite_path(@country) do %>
+            <i class="fa-regular fa-heart icon" alt="empty heart icon"></i>
+          <% end %>
+        </div>
       <% end %>
+    </div>
+
+    <div class="banner-image-attributions">
+      <p>
+        Photo by
+        <%= link_to @country_image[:photographer_name], @country_image[:photographer_url], target: '_blank', rel: 'noopener', class: "photographer-link" %>
+        on
+        <%= link_to 'Unsplash', 'https://unsplash.com/', target: '_blank', rel: 'noopener', class: "photographer-link" %>
+      </p>
     </div>
   </div>
 
-  <%= render "shared/country_card_large", country: @country %>
+  <div class="country-info">
+    <h2>Information</h2>
+    <div class="show-country-cards">
+      <div class="country-card-info">
+        <%= image_tag(@country.flag, alt: @country.flag_alt, class: "card-image") %>
+      </div>
+      <div class="country-card-info">
+        <h3>Capital City</h3>
+        <p><%= @country.capital %></p>
+        <p>Part of <%= @country.region %></p>
+      </div>
+      <div class="country-card-info">
+        <h3>Languages Spoken</h3>
+        <p><%= @country.language_one %></p>
+        <% if @country.language_two && @country.language_three %>
+          <p><%= @country.language_two %></p>
+          <p><%= @country.language_three %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
 
   <div class="wishlist-favourite">
     <% case %>
