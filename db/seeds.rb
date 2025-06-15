@@ -9,10 +9,12 @@
 #   end
 require 'json'
 require 'open-uri'
+# require 'httparty'
 
 puts 'cleaning database...'
 Country.destroy_all
 User.destroy_all
+# CountryPhoto.destroy_all
 Wishlist.destroy_all
 Favourite.destroy_all
 
@@ -45,7 +47,7 @@ urls.each do |url|
     flag = country['flags']['png']
     flag_alt = country['flags']['alt'] || 'None'
     timezone = country['timezones']&.first
-    area = country[area] || 'None'
+    area = country['area'] || 'None'
     population = country['population']
     latitude = country['latlng']&.first
     longitude = country['latlng']&.last
@@ -70,11 +72,31 @@ urls.each do |url|
   end
 end
 
-User.create!(email: 'henry@henry.com', password: 'gkjasfnjk')
-User.create!(email: 'james@james.com', password: 'khjabdf')
+# # fetch api key from secret
+# api_key = ENV.fetch("UNSPLASH_ACCESS_KEY")
+# # instantiate new UnsplashApi with key
+# api = UnsplashApi.new(api_key)
 
-Wishlist.create!(desire_rating: 2, country_id: 143, user_id: 1)
-Wishlist.create!(desire_rating: 2, country_id: 143, user_id: 2)
+# Country.find_each do |country|
+#   puts "fetching Unsplash photo data for #{country.name}"
+
+#   response = api.image_by_country(country.name)
+#   data = response.parse['results'].first
+
+#   @country_image = {
+#     image_url: photo["urls"]["raw"],
+#     image_alt: photo["alt_description"] || "Photo of #{@country.name}",
+#     photographer_name: photo["user"]["name"],
+#     photographer_url: photo["user"]["links"]["html"],
+#     image_page_url: photo["links"]["html"]
+#   }
+# end
+
+User.create!(email: 'tester@testing.com', password: 'password', first_name: 'Tess')
+User.create!(email: 'james@james.com', password: 'tester', first_name: 'Jimmy')
+
+Wishlist.create!(desire_rating: 2, country_id: 142, user_id: 1)
+Wishlist.create!(desire_rating: 4, country_id: 145, user_id: 2)
 
 Favourite.create!(visit_date: '2025-04-30', rating: 2, times_visited: 4, country_id: 1, user_id: 1)
 Favourite.create!(visit_date: '2025-04-23', rating: 2, times_visited: 4, country_id: 1, user_id: 2)
