@@ -1,6 +1,7 @@
 require 'httparty'
 
 class Country < ApplicationRecord
+  has_one :country_photo
   has_many :favourites
   has_many :wishlists
   has_many :fans, through: :favourites, source: :user
