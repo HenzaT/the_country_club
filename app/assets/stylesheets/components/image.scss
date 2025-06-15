@@ -26,6 +26,23 @@
     // background: rgba($dark, 0.5);
   }
 
+  .icons {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .icon {
+    color: $light;
+    font-size: 2rem;
+    padding: 20px;
+  }
+
   .banner-image-attributions {
     position: absolute;
     bottom: 20px;
