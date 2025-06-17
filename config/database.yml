@@ -9,13 +9,18 @@
 # And be sure to use new-style password hashing:
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
+# default: &default
+#   adapter: mysql2
+#   encoding: utf8mb4
+#   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#   username: root
+#   password: <%= ENV["DB_PASSWORD"] %>
+#   socket: /tmp/mysql.sock
+
 default: &default
-  adapter: mysql2
-  encoding: utf8mb4
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: <%= ENV["DB_PASSWORD"] %>
-  socket: /tmp/mysql.sock
+adapter: postgresql
+encoding: unicode
+pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
@@ -48,8 +53,12 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+# production:
+#   <<: *default
+#   database: the_country_club_production
+#   username: the_country_club
+#   password: <%= ENV["THE_COUNTRY_CLUB_DATABASE_PASSWORD"] %>
+
 production:
   <<: *default
-  database: the_country_club_production
-  username: the_country_club
-  password: <%= ENV["THE_COUNTRY_CLUB_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
