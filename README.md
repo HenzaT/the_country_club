@@ -5,7 +5,8 @@ This is a self-directed project. I love travelling and learning geography facts,
 
 ## Goals
 For this app, I wanted to:
-- Consolidate my skills using Ruby on Rails, TypeScript and CSS3/SCSS. 
+- Consolidate my skills using Ruby on Rails, TypeScript and CSS3/SCSS.
+- Use third-party APIs
 - Introduce and use more unfamiliar technologies, like MySQL and React.js (which I am currently learning). To facilitate using React and TypeScript in a Rails application, I switched from Webpacker to using Vite.
 - Set up CI/CD
 
@@ -20,12 +21,22 @@ For this app, I wanted to:
 - Git
 - Github
 
+- Unsplash API
+- REST Countries API
+
+
 ## Login
+You can log in using thse details:
+- username: tester@testing.com
+- password: password
+
 
 ## Process
 I started with: 
-- a rough sketch of what I wanted the app to look like. This included pictures and a description of what I wanted the user to receive from the app (a randomly generated song idea).
+- a rough sketch of what I wanted the app to look like.
 - the database schema.
+
+Before beginning this project, I actually started building a separate frontend only country-focused app using JavaScript, TailwindCSS, the REST Countries API and HTML a few months before this. This was a good way for me to practise using the REST Countries API, as well as an opportunity to practise using TailwindCSS. Ultimately, I decided that I'd need to scale this project and would need a backend.  
 
 To keep track of the features, I have been using a Trello board which is kept up to date. 
 
