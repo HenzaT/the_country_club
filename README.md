@@ -18,6 +18,7 @@ For this app, I wanted to:
 - JavaScript
 - TypeScript
 - MySQL
+- PostgreSQL
 - Git
 - Github
 
@@ -39,6 +40,8 @@ I started with:
 Before beginning this project, I actually started building a separate frontend only country-focused app using JavaScript, TailwindCSS, the REST Countries API and HTML a few months before this. This was a good way for me to practise using the REST Countries API, as well as an opportunity to practise using TailwindCSS. Ultimately, I decided that I'd need to scale this project and would need a backend.  
 
 To keep track of the features, I have been using a Trello board which is kept up to date. 
+
+As I deployed my app, I realised that PostgreSQL was better suited for MySQL and switched, as I would have to install third-party solutions to be able to use MySQL in production.
 
 
 ## Reflections
