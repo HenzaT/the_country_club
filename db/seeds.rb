@@ -92,7 +92,7 @@ end
 #   }
 # end
 
-User.create!(email: 'tester@testing.com', password: 'password', first_name: 'Tess')
+User.create!(email: '', password: 'password', first_name: 'Tess')
 User.create!(email: 'james@james.com', password: 'tester', first_name: 'Jimmy')
 
 Wishlist.create!(desire_rating: 2, country_id: 142, user_id: 1)
