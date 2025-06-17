@@ -18,9 +18,12 @@
 #   socket: /tmp/mysql.sock
 
 default: &default
-adapter: postgresql
-encoding: unicode
-pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
+  username: <%= ENV["MY_APP_DATABASE_USERNAME"] %>
+  password: <%= ENV["MY_APP_DATABASE_PASSWORD"] %>
+  host: <%= ENV.fetch("MY_APP_DATABASE_HOST", "localhost") %>
 
 development:
   <<: *default
@@ -60,8 +63,4 @@ test:
 #   password: <%= ENV["THE_COUNTRY_CLUB_DATABASE_PASSWORD"] %>
 
 production:
-  <<: *default
-  database: my_app_production
-  username: my_user
-  password: <%= ENV['MY_APP_DATABASE_PASSWORD'] %>
-  host: localhost
+  url: <%= ENV["DATABASE_URL"] %>
