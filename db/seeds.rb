@@ -95,10 +95,10 @@ end
 User.create!(email: 'tester@testing.com', password: 'password', first_name: 'Tess')
 User.create!(email: 'james@james.com', password: 'tester', first_name: 'Jimmy')
 
-Wishlist.create!(desire_rating: 2, country_id: 142, user_id: 1)
-Wishlist.create!(desire_rating: 4, country_id: 145, user_id: 2)
+# Wishlist.create!(desire_rating: 2, country_id: 142, user_id: 1)
+# Wishlist.create!(desire_rating: 4, country_id: 145, user_id: 2)
 
-Favourite.create!(visit_date: '2025-04-30', rating: 2, times_visited: 4, country_id: 1, user_id: 1)
-Favourite.create!(visit_date: '2025-04-23', rating: 2, times_visited: 4, country_id: 1, user_id: 2)
+# Favourite.create!(visit_date: '2025-04-30', rating: 2, times_visited: 4, country_id: 1, user_id: 1)
+# Favourite.create!(visit_date: '2025-04-23', rating: 2, times_visited: 4, country_id: 1, user_id: 2)
 
-puts "finished! created #{Country.count} countries, #{Wishlist.count} wishlists and #{Favourite.count} favourites!"
+puts "finished! created #{Country.count} countries!"
