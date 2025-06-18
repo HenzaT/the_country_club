@@ -37,17 +37,19 @@ I started with:
 - a rough sketch of what I wanted the app to look like.
 - the database schema.
  
-<img src="https://github.com/user-attachments/assets/8f8a0836-9f61-44f9-8902-d46254374641" width=50% height=50%> <img src="https://github.com/user-attachments/assets/e4a9d07a-a979-4695-b110-bd6d859230c2" width=50% height=50%>
-<img src="https://github.com/user-attachments/assets/dabdead3-e4c8-40de-86ad-e4e61599ddc6" width=35% height=35%>
+<img src="https://github.com/user-attachments/assets/8f8a0836-9f61-44f9-8902-d46254374641" width=50% height=50%><img src="https://github.com/user-attachments/assets/e4a9d07a-a979-4695-b110-bd6d859230c2" width=50% height=50%><img src="https://github.com/user-attachments/assets/dabdead3-e4c8-40de-86ad-e4e61599ddc6" width=35% height=35%>
+
+
 
 Before beginning this project, I actually started building a separate frontend only country-focused app using JavaScript, TailwindCSS, the REST Countries API and HTML a few months before this. This was a good way for me to practise using the REST Countries API, as well as an opportunity to practise using TailwindCSS. Ultimately, I decided that I'd need to scale up this project and would need a backend.  
 
-<img src="https://github.com/user-attachments/assets/1b75e23b-443f-499a-9a07-befa557baa40" width=60% height=60%>
+<img src="https://github.com/user-attachments/assets/1b75e23b-443f-499a-9a07-befa557baa40" width=60% height=60%><img src="https://github.com/user-attachments/assets/04ad539c-c7ce-4d6d-b12f-d46bda6afad9" width=50% height=50%>
 
-<img src="https://github.com/user-attachments/assets/04ad539c-c7ce-4d6d-b12f-d46bda6afad9" width=50% height=50%>
+
 
 
 To keep track of the features, I have been using a Trello board which is kept up to date. 
+
 
 
 ## Reflections
