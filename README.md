@@ -41,7 +41,9 @@ I started with:
 
 
 
-Before beginning this project, I actually started building a separate frontend only country-focused app using JavaScript, TailwindCSS, the REST Countries API and HTML a few months before this. This was a good way for me to practise using the REST Countries API, as well as an opportunity to practise using TailwindCSS. Ultimately, I decided that I'd need to scale up this project and would need a backend.  
+Before beginning this project, I actually started building a separate frontend only country-focused app using JavaScript, TailwindCSS, the REST Countries API and HTML a few months before this. This was a good way for me to practise using the REST Countries API, as well as an opportunity to practise using TailwindCSS. Ultimately, I decided that:
+- I'd need to scale up this project and would need a backend.
+- I would use SCSS instead of TailwindCSS, as I wanted to retain more control over styling and build fluency using CSS.
 
 <img src="https://github.com/user-attachments/assets/1b75e23b-443f-499a-9a07-befa557baa40" width=60% height=60%><img src="https://github.com/user-attachments/assets/04ad539c-c7ce-4d6d-b12f-d46bda6afad9" width=50% height=50%>
 
