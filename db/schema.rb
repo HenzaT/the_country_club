@@ -11,7 +11,10 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2025_06_15_073537) do
-  create_table "countries", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "countries", force: :cascade do |t|
     t.string "name"
     t.string "currency"
     t.string "capital"
@@ -31,7 +34,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_15_073537) do
     t.text "flag_alt"
   end
 
-  create_table "country_photos", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "country_photos", force: :cascade do |t|
     t.text "image_url"
     t.text "image_alt"
     t.string "photographer_name"
@@ -43,7 +46,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_15_073537) do
     t.index ["country_id"], name: "index_country_photos_on_country_id"
   end
 
-  create_table "favourites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "favourites", force: :cascade do |t|
     t.date "visit_date"
     t.text "note"
     t.integer "rating"
@@ -56,7 +59,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_15_073537) do
     t.index ["user_id"], name: "index_favourites_on_user_id"
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -70,7 +73,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_15_073537) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "wishlists", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "wishlists", force: :cascade do |t|
     t.integer "desire_rating"
     t.text "note"
     t.date "future_visit_date"
