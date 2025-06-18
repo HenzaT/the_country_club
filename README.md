@@ -18,7 +18,7 @@ For this app, I wanted to:
 - JavaScript
 - TypeScript
 - MySQL (originally)
-- PostgreSQL (pre-deployment)
+- PostgreSQL (deployment)
 - Git
 - Github
 
@@ -56,6 +56,6 @@ To keep track of the features, I have been using a Trello board which is kept up
 
 ## Reflections
 Before starting, I debated whether to build a project entirely with new technologies, like React.js, or to stick with familiar tools while introducing a few new ones. Drawing from the concept of the Zone of Proximal Development, which suggests people learn best when challenged just beyond their comfort zone, I chose the latter. This approach let me focus on learning technologies like MySQL without being overwhelmed, since the rest of the stack was familiar.
-As I deployed my app, I realised that PostgreSQL was better suited for Heroku than MySQL and switched, as I would have to install third-party solutions to be able to use MySQL in production. 
+I initially used MySQL to explore working with different relational databases. However, when deploying to Heroku, I switched to PostgreSQL as it’s better supported on the platform. This experience helped me understand the importance of deployment considerations when choosing tools.
 
 ## Future Additions
