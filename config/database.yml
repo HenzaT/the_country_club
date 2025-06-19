@@ -63,4 +63,5 @@ test:
 #   password: <%= ENV["THE_COUNTRY_CLUB_DATABASE_PASSWORD"] %>
 
 production:
+  <<: *default
   url: <%= ENV["DATABASE_URL"] %>
