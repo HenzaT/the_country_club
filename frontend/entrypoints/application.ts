@@ -14,3 +14,4 @@ application.register("navbar", NavbarController)
 
 // Example: Import a stylesheet in <sourceCodeDir>/index.css
 // import '~/index.css'
+import '../stylesheets/application.scss'

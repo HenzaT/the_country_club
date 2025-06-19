@@ -1,7 +1,9 @@
 <div class="country-card-small">
   <div class="card-content">
-    <div class="card-title">
-      <%= image_tag(country.flag, alt: country.flag_alt, class: "card-image") %>
+    <div class="card-image-box">
+      <%= image_tag(country.flag, alt: country.flag_alt, class: "flag-image") %>
+    </div>
+    <div class="card-country-name">
       <h1><%= country.name %></h1>
     </div>
     <% case %>
