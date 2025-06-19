@@ -1,4 +1,4 @@
-@import 'variables';
+@use '../variables/variables' as vars;
 
 .country-banner {
   position: relative;
@@ -19,8 +19,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: $light;
-    font-size: 8rem;
+    color: vars.$light;
+    font-size: 2.5rem;
     white-space: nowrap;
     // border-radius: 20px;
     // background: rgba($dark, 0.5);
@@ -38,7 +38,7 @@
   }
 
   .icon {
-    color: $light;
+    color: vars.$light;
     font-size: 2rem;
     padding: 20px;
   }
@@ -47,10 +47,10 @@
     position: absolute;
     bottom: 20px;
     left: 30px;
-    color: $light;
+    color: vars.$light;
   }
 
   .photographer-link {
-    color: $light;
+    color: vars.$light;
   }
 }
