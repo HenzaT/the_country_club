@@ -1,0 +1,10 @@
+@use '../variables/variables' as vars;
+
+.country-info {
+  margin: 30px;
+}
+
+.country-info > h2 {
+  text-align: center;
+  padding-bottom: 30px;
+}

@@ -44,6 +44,18 @@ body.active .wrapper .section {
     border-bottom: 1px solid vars.$dark;
   }
 
+  #down-arrow {
+    margin-left: 0;
+  }
+
+  .dropdown-container {
+    display: none;
+  }
+
+  .open {
+    display: block;
+  }
+
   .nav-link {
     display: flex;
     align-items: center;
