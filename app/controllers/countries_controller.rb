@@ -33,6 +33,6 @@ class CountriesController < ApplicationController
 
   def dashboard
     # left_outer_joins gets all records that have favourite, wishlists (like joins), then specify with where to filter
-    @countries = Country.left_outer_joins(:favourites, :wishlists).where('favourites.user_id = ? OR wishlists.user_id = ?', current_user.id, current_user.id).distinct
+    @added_countries = Country.left_outer_joins(:favourites, :wishlists).where('favourites.user_id = ? OR wishlists.user_id = ?', current_user.id, current_user.id).distinct
   end
 end
