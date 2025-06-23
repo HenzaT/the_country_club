@@ -1,9 +1,7 @@
-<div class="form">
-  <%= simple_form_for [country, favourite] do |f| %>
-    <%= f.input :rating %>
-    <%= f.input :note %>
-    <%= f.input :visit_date %>
-    <%= f.input :times_visited %>
-    <%= f.button :submit %>
-  <% end %>
-</div>
+<%= simple_form_for [country, favourite], class: "form" do |f| %>
+  <%= f.input :rating, class: "rating" %>
+  <%= f.input :note, class: "note" %>
+  <%= f.input :visit_date %>
+  <%= f.input :times_visited, class: "visit-number" %>
+  <%= f.button :submit, class: "submit-button" %>
+<% end %>

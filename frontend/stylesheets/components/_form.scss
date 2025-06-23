@@ -1,4 +1,22 @@
-.form {
+@use '../variables/variables' as vars;
+
+form {
+  margin: 10px;
   display: flex;
-  width: 80vw;
+  flex-direction: column;
+
+  input {
+    font-size: 1rem;
+  }
+
+  .submit-button {
+    background: vars.$dark-orange;
+    color: vars.$dark;
+    font-size: 1rem;
+    border-radius: 20px;
+    border: none;
+    box-shadow: vars.$card-light-shadow;
+    padding: 10px;
+    cursor: pointer;
+  }
 }
