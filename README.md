@@ -2,6 +2,7 @@
 This is a self-directed project. I love travelling and learning geography facts, and so I wanted to create a space where the two come together. This is an ongoing project, and I plan to use it as an opportunity to practise some new technologies:
 - TypeScript (in Rails)
 - MySQL
+- React (possible addition)
 
 ## Goals
 For this app, I wanted to:
