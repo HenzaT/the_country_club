@@ -1,6 +1,36 @@
 <%# regions (N, C, S America) show %>
-<div class="charts" data-controller="chart">
-  <canvas data-chart-target="canvas" width=1000 height=800 id="area"></canvas>
+<header>
+  <div class="country-banner">
+    <%= image_tag(@selected_photo[:raw_url], alt: "#{@selected_photo[:alt_description]}", class: "banner-image") %>
+    <div class="banner-image-country-name">
+      <h1><%= @continent_region %></h1>
+    </div>
+
+    <div class="banner-image-attributions">
+      <p><%= @selected_photo[:description] %></p>
+      <p>
+        Photo by
+        <%= link_to @selected_photo[:photographer_name], @selected_photo[:photographer_url], target: '_blank', rel: 'noopener', class: "photographer-link" %>
+        on
+        <%= link_to 'Unsplash', 'https://unsplash.com/', target: '_blank', rel: 'noopener', class: "photographer-link" %>
+      </p>
+    </div>
+  </div>
+</header>
+
+<div class="charts"
+  data-controller="chart"
+  data-chart-labels-value="<%= @countries.map(&:name).to_json %>"
+  data-chart-populationdataset-value="<%= @countries.map(&:population).to_json %>"
+  data-chart-areadataset-value="<%= @countries.map(&:area).to_json %>"
+>
+  <div class="btn-group">
+    <button class="chart-btn" data-chart-target="polarBtn" data-action="click->chart#showPolarChart">Polar Chart</button>
+    <button class="chart-btn" data-chart-target="barBtn" data-action="click->chart#showBarChart">Bar Chart</button>
+    <button class="chart-btn" data-chart-target="lineBtn" data-action="click->chart#showLineChart">Line Chart</button>
+  </div>
+  <canvas data-chart-target="populationChart" width="200" id="population-chart"></canvas>
+  <%# <canvas data-chart-target="areaChart" width=800 height=600 id="area"></canvas> %>
 </div>
 
 <div class="continent-region container">

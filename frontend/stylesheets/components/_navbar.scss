@@ -61,11 +61,12 @@ body.active .wrapper .section {
     align-items: center;
     text-decoration: none;
     color: vars.$dark;
-    transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
   }
 
   .nav-link.active, .nav-link:hover {
     background: vars.$selected-orange;
+    color: vars.$light;
     border-right: 1px solid vars.$dark;
   }
 

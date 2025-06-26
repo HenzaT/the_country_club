@@ -15,8 +15,14 @@ form {
     font-size: 1rem;
     border-radius: 20px;
     border: none;
-    box-shadow: vars.$card-light-shadow;
+    box-shadow: vars.$card-lightest-shadow;
     padding: 10px;
     cursor: pointer;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+
+  .submit-button:hover {
+    background: vars.$selected-orange;
+    color: vars.$light;
   }
 }
