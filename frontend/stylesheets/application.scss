@@ -16,6 +16,7 @@
 
 @use 'variables/variables' as vars;
 
+@use './components/canvas.scss';
 @use './components/card.scss';
 @use './components/container.scss';
 @use './components/form.scss';
