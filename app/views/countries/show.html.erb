@@ -81,8 +81,11 @@
       </div>
       <div class="country-card-info">
         <h3>Languages Spoken</h3>
-        <p><%= @country.language_one %></p>
-        <% if @country.language_two && @country.language_three %>
+        <p>Main Language: <%= @country.language_one %></p>
+        <p>Other Languages:</p>
+        <% if @country.language_two %>
+          <p><%= @country.language_two %></p>
+        <% elsif @country.language_three %>
           <p><%= @country.language_two %></p>
           <p><%= @country.language_three %></p>
         <% end %>
@@ -116,6 +119,7 @@
     <div class="favourite-card">
       <%= link_to new_country_favourite_path(@country), class: "list-link" do %>
         <i class="fa-regular fa-heart" alt="empty heart icon"></i>
+        <p>Add this country to your favourites if you've been here before.</p>
       <% end %>
     </div>
 
@@ -123,6 +127,7 @@
     <div class="wishlist-card">
       <%= link_to new_country_wishlist_path(@country), class: "list-link" do %>
         <i class="fa-regular fa-paper-plane icon" alt="empty plane icon"></i>
+        <p>Add this country to your wishlist if you'd like to visit here.</p>
       <% end %>
     </div>
     <div class="favourite-card">
