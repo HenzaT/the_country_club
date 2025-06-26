@@ -1,4 +1,4 @@
-module Random_Photo
+module RandomPhoto
   extend ActiveSupport::Concern
 
   included do
