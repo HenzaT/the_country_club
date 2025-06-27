@@ -17,6 +17,8 @@ module RandomPhoto
         # first result
         photo = response['results'].first
         # object of values needed
+        next unless photo
+
         {
           raw_url: photo["urls"]["raw"],
           description: "#{country.name}",
@@ -25,7 +27,7 @@ module RandomPhoto
           photographer_url: photo["user"]["links"]["html"],
           image_page_url: photo["links"]["html"]
         }
-      end
+      end.compact
 
       @selected_photo = all_photos.sample
     end
