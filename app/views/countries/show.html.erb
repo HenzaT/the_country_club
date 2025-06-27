@@ -75,6 +75,16 @@
         <%= image_tag(@country.flag, alt: @country.flag_alt, class: "flag-image") %>
       </div>
       <div class="country-card-info">
+        <div class="clock">
+          <div class="outer-clock-face">
+            <div class="marking marking-one"></div>
+            <div class="marking marking-two"></div>
+            <div class="marking marking-three"></div>
+            <div class="marking marking-four"></div>
+          </div>
+        </div>
+      </div>
+      <div class="country-card-info">
         <h3>Capital City</h3>
         <p><%= @country.capital %></p>
         <p>Part of <%= @country.region %></p>
