@@ -1,6 +1,10 @@
 <%= simple_form_for [country, wishlist], class: "form" do |f| %>
-  <%= f.input :desire_rating, class: "rating" %>
-  <%= f.input :note, class: "note" %>
-  <%= f.input :future_visit_date %>
+  <%= f.input :desire_rating, label: "How much do you want to visit here?", class: "rating" %>
+  <%= f.input :note, label: "Any notes?", class: "note" %>
+  <%= f.input :future_visit_date,
+              label: "I'm visiting on...",
+              placeholder: "Select Date",
+              as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
   <%= f.button :submit, class: "submit-button" %>
 <% end %>
