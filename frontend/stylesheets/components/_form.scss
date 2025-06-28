@@ -9,6 +9,17 @@ form {
     font-size: 1rem;
   }
 
+  .wishlist_desire_rating,
+  .wishlist_note,
+  .wishlist_future_visit_date,
+  .favourite_rating,
+  .favourite_note,
+  .favourite_visit_date,
+  .favourite_times_visited {
+    display: flex;
+    flex-direction: column;
+  }
+
   .submit-button {
     background: vars.$dark-orange;
     color: vars.$dark;
@@ -17,6 +28,9 @@ form {
     border: none;
     box-shadow: vars.$card-lightest-shadow;
     padding: 10px;
+    margin: auto;
+    margin-top: 30px;
+    width: 30%;
     cursor: pointer;
     transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
   }
@@ -25,4 +39,13 @@ form {
     background: vars.$selected-orange;
     color: vars.$light;
   }
+}
+
+.add-wishlist, .add-favourite > h1 {
+  text-align: center;
+}
+
+.new_wishlist, .new_favourite {
+  width: 50%;
+  margin: auto;
 }
