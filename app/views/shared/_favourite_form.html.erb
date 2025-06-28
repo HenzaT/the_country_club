@@ -1,7 +1,11 @@
 <%= simple_form_for [country, favourite], class: "form" do |f| %>
-  <%= f.input :rating, class: "rating" %>
-  <%= f.input :note, class: "note" %>
-  <%= f.input :visit_date %>
-  <%= f.input :times_visited, class: "visit-number" %>
+  <%= f.input :rating, label: "How much did you like this country?", class: "rating" %>
+  <%= f.input :note, label: "Any notes?", class: "note" %>
+  <%= f.input :visit_date,
+              label: "I last visited on...",
+              placeholder: "Select Date",
+              as: :string,
+              input_html: { data: { controller: "datepicker" } } %>
+  <%= f.input :times_visited, label: "How many times have you visited this country?", class: "visit-number" %>
   <%= f.button :submit, class: "submit-button" %>
 <% end %>
