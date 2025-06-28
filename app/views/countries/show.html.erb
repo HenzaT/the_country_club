@@ -1,14 +1,15 @@
 <%# Country show %>
 <div class="country-page container">
-  <div class="country-banner">
-    <%= image_tag(@country_image[:raw_url], alt: "#{@country_image[:alt_description]}", class: "banner-image") %>
-    <div class="banner-image-country-name">
-      <h1><%= @country.name %></h1>
-    </div>
+  <% if @country_image %>
+    <div class="country-banner">
+      <%= image_tag(@country_image[:raw_url], alt: "#{@country_image[:alt_description]}", class: "banner-image") %>
+      <div class="banner-image-country-name">
+        <h1><%= @country.name %></h1>
+      </div>
 
-    <div class="image-icons">
-      <% case %>
-      <% when @wishlist_already_created && @favourite_already_created %>
+      <div class="image-icons">
+        <% case %>
+        <% when @wishlist_already_created && @favourite_already_created %>
         <div class="icons">
           <div class="wishlist">
             <%= link_to edit_country_wishlist_path(@country) do %>
@@ -22,7 +23,7 @@
           </div>
         </div>
 
-      <% when @wishlist_already_created %>
+        <% when @wishlist_already_created %>
         <div class="icons">
           <div class="wishlist">
             <%= link_to edit_country_wishlist_path(@country) do %>
@@ -34,7 +35,7 @@
           <% end %>
         </div>
 
-      <% when @favourite_already_created %>
+        <% when @favourite_already_created %>
         <div class="icons">
           <%= link_to new_country_wishlist_path(@country) do %>
             <i class="fa-regular fa-paper-plane icon" alt="empty plane icon"></i>
@@ -46,7 +47,7 @@
           </div>
         </div>
 
-      <% else %>
+        <% else %>
         <div class="icons">
           <%= link_to new_country_wishlist_path(@country) do %>
             <i class="fa-regular fa-paper-plane icon" alt="empty plane icon"></i>
@@ -55,18 +56,19 @@
             <i class="fa-regular fa-heart icon" alt="empty heart icon"></i>
           <% end %>
         </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
 
-    <div class="banner-image-attributions">
-      <p>
-        Photo by
-        <%= link_to @country_image[:photographer_name], @country_image[:photographer_url], target: '_blank', rel: 'noopener', class: "photographer-link" %>
-        on
-        <%= link_to 'Unsplash', 'https://unsplash.com/', target: '_blank', rel: 'noopener', class: "photographer-link" %>
-      </p>
+      <div class="banner-image-attributions">
+        <p>
+          Photo by
+          <%= link_to @country_image[:photographer_name], @country_image[:photographer_url], target: '_blank', rel: 'noopener', class: "photographer-link" %>
+          on
+          <%= link_to 'Unsplash', 'https://unsplash.com/', target: '_blank', rel: 'noopener', class: "photographer-link" %>
+        </p>
+      </div>
     </div>
-  </div>
+  <% end %>
 
   <div class="country-info">
     <h2>Information</h2>
@@ -75,13 +77,21 @@
         <%= image_tag(@country.flag, alt: @country.flag_alt, class: "flag-image") %>
       </div>
       <div class="country-card-info">
-        <div class="clock">
+        <div class="clock" data-controller="clock">
           <div class="outer-clock-face">
             <div class="marking marking-one"></div>
             <div class="marking marking-two"></div>
             <div class="marking marking-three"></div>
             <div class="marking marking-four"></div>
           </div>
+          <div class="inner-clock-face">
+            <div class="hand hour-hand" data-clock-target="hourHand"></div>
+            <div class="hand min-hand" data-clock-target="minsHand"></div>
+            <div class="hand second-hand" data-clock-target="secondHand"></div>
+          </div>
+        </div>
+        <div class="current-time">
+          <%= Time.zone.now.strftime('%B %e, %Y - %I:%M%P') %>
         </div>
       </div>
       <div class="country-card-info">
@@ -93,12 +103,15 @@
         <h3>Languages Spoken</h3>
         <p>Main Language: <%= @country.language_one %></p>
         <p>Other Languages:</p>
-        <% if @country.language_two %>
+        <% if @country.language_two && @country.language_three == "None" %>
           <p><%= @country.language_two %></p>
         <% elsif @country.language_three %>
           <p><%= @country.language_two %></p>
           <p><%= @country.language_three %></p>
         <% end %>
+      </div>
+      <div class="country-card-info">
+        <p>Population: <%= @country.population %></p>
       </div>
     </div>
   </div>
