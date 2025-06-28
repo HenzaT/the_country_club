@@ -38,7 +38,11 @@ urls.each do |url|
     country_name = country['name']['common']
     currency_hash = country['currencies'].values[0] || 'None'
     currency = currency_hash.values[1] || 'None'
+    currency_symbol = currency_hash.values[0] || 'None'
     capital = country['capital']&.first || 'None'
+    capital_coordinates = country["capitalInfo"].values[0] || 'None'
+    capital_latitude = capital_coordinates[0] || 'None'
+    capital_longitude = capital_coordinates[1] || 'None'
     language_one = country['languages'].values[0]
     language_two = country['languages'].values[1] || 'None'
     language_three = country['languages'].values[2] || 'None'
@@ -55,7 +59,10 @@ urls.each do |url|
     Country.create!(
       name: country_name,
       currency: currency,
+      currency_symbol: currency_symbol,
       capital: capital,
+      capital_latitude: capital_latitude,
+      capital_longitude: capital_longitude,
       language_one: language_one,
       language_two: language_two,
       language_three: language_three,
