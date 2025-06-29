@@ -2,7 +2,8 @@ require 'httparty'
 
 class Country < ApplicationRecord
   geocoded_by :address
-  after_validation :geocode
+  geocoded_by :capital_address
+  after_validation :geocode, if: ->(obj) { obj.address.present? && obj.capital_address.present? }
   has_one :country_photo
   has_many :favourites
   has_many :wishlists
@@ -16,7 +17,7 @@ class Country < ApplicationRecord
   end
 
   def capital_address
-
+    [capital_latitude, capital_longitude].compact.join(', ')
   end
 end
 

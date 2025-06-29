@@ -1,7 +1,11 @@
 <%# Continent show %>
-<header>
-  <%= render "shared/random_photo_banner", photo: @selected_photo, continent_or_region: @continent %>
-</header>
+<%= render "shared/random_photo_banner", photo: @selected_photo, continent_or_region: @continent %>
+
+<div class="mapbox" style="width: 60%; height: 400px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_TOKEN_KEY'] %>">
+</div>
 
 <div class="charts"
   data-controller="chart"
