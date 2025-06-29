@@ -140,6 +140,9 @@ GEM
     ffi (1.17.2-x86_64-linux-musl)
     font-awesome-sass (6.7.2)
       sassc (~> 2.0)
+    geocoder (1.8.5)
+      base64 (>= 0.1.0)
+      csv (>= 3.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     hashie (5.0.0)
@@ -169,6 +172,8 @@ GEM
       net-imap
       net-pop
       net-smtp
+    mapbox-gl-rails (3.7.0)
+      railties (>= 3.2)
     marcel (1.0.4)
     matrix (0.4.2)
     mini_mime (1.1.5)
@@ -367,8 +372,10 @@ DEPENDENCIES
   devise
   dotenv-rails
   font-awesome-sass (~> 6.1)
+  geocoder
   httparty
   jbuilder
+  mapbox-gl-rails
   pg
   puma (>= 5.0)
   rails (~> 7.1.5, >= 7.1.5.1)

@@ -1,6 +1,8 @@
 require 'httparty'
 
 class Country < ApplicationRecord
+  geocoded_by :address
+  after_validation :geocode
   has_one :country_photo
   has_many :favourites
   has_many :wishlists
@@ -8,6 +10,14 @@ class Country < ApplicationRecord
   has_many :desirees, through: :wishlists, source: :user
   validates :name, :language_one, :continent, :flag_alt, :area, presence: true
   validates :flag, :timezone, :population, :latitude, :longitude, presence: true
+
+  def address
+    [latitude, longitude].compact.join(', ')
+  end
+
+  def capital_address
+
+  end
 end
 
 # create this class so that I don't instantiate new Country instances every time
