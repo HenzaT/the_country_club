@@ -16,12 +16,15 @@
 
 @use 'variables/variables' as vars;
 
+@use 'mapbox-gl';
+
 @use './components/canvas.scss';
 @use './components/card.scss';
 @use './components/clock.scss';
 @use './components/container.scss';
 @use './components/form.scss';
 @use './components/image.scss';
+@use './components/map.scss';
 @use './components/navbar.scss';
 
 @use './pages/home.scss';

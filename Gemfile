@@ -46,6 +46,11 @@ gem "dotenv-rails"
 # unsplash API
 gem 'unsplash'
 
+# mapbox
+gem 'mapbox-gl-rails'
+
+gem "geocoder"
+
 # Devise authnetication
 gem "devise"
 # Use Redis adapter to run Action Cable in production
