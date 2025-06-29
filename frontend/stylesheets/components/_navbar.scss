@@ -42,6 +42,7 @@ body.active .wrapper .section {
     width: 100%;
     cursor: pointer;
     border-bottom: 1px solid vars.$dark;
+
   }
 
   #down-arrow {
@@ -79,6 +80,9 @@ body.active .wrapper .section {
 
 .topnav {
   background: vars.$orange;
+  position: sticky;
+  top: 0;
+  z-index: 3000;
   height: 50px;
   display: flex;
   align-items: center;
@@ -106,4 +110,8 @@ body.active .wrapper .section {
 }
 .wrapper .section .topnav .hamburger a:hover {
 	color: #a2ecff;
+}
+
+.nav-item {
+  list-style-type: none;
 }

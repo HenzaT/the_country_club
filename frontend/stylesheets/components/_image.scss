@@ -2,16 +2,25 @@
 
 .country-banner {
   position: relative;
+  overflow: hidden;
+  width: 98%;
+  margin: auto;
+  margin-top: 4px;
 
   .banner-image {
     margin: 10px;
-    width: 98%;
+    width: 100%;
     height: 600px;
     object-fit: cover;
     display: block;
     background-size: cover;
     opacity: 0.8;
+    transition: transform 1s;
     filter: brightness(50%);
+
+  }
+  .banner-image:hover {
+    transform: scale(1.1);
   }
 
   .banner-image-country-name {
