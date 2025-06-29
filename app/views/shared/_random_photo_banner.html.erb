@@ -1,0 +1,18 @@
+<% if photo %>
+  <div class="country-banner">
+    <%= image_tag(photo[:raw_url], alt: "#{photo[:alt_description]}", class: "banner-image") %>
+    <div class="banner-image-country-name">
+      <h1><%= continent_or_region %></h1>
+    </div>
+
+    <div class="banner-image-attributions">
+      <p><%= photo[:description] %></p>
+      <p>
+        Photo by
+        <%= link_to photo[:photographer_name], photo[:photographer_url], target: '_blank', rel: 'noopener', class: "photographer-link" %>
+        on
+        <%= link_to 'Unsplash', 'https://unsplash.com/', target: '_blank', rel: 'noopener', class: "photographer-link" %>
+      </p>
+    </div>
+  </div>
+<% end %>

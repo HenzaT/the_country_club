@@ -1,0 +1,23 @@
+@use '../variables/variables' as vars;
+
+.mapbox {
+  border-radius: 20px;
+  box-shadow: vars.$card-lightest-shadow;
+  margin: 15px auto;
+  object-fit: cover;
+}
+
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  background: vars.$orange;
+
+  a {
+    color: vars.$dark;
+    text-decoration: none;
+  }
+}

@@ -1,23 +1,6 @@
 <%# Continent show %>
 <header>
-  <% if @selected_photo %>
-    <div class="country-banner">
-      <%= image_tag(@selected_photo[:raw_url], alt: "#{@selected_photo[:alt_description]}", class: "banner-image") %>
-      <div class="banner-image-country-name">
-        <h1><%= @continent %></h1>
-      </div>
-
-      <div class="banner-image-attributions">
-        <p><%= @selected_photo[:description] %></p>
-        <p>
-          Photo by
-          <%= link_to @selected_photo[:photographer_name], @selected_photo[:photographer_url], target: '_blank', rel: 'noopener', class: "photographer-link" %>
-          on
-          <%= link_to 'Unsplash', 'https://unsplash.com/', target: '_blank', rel: 'noopener', class: "photographer-link" %>
-        </p>
-      </div>
-    </div>
-  <% end %>
+  <%= render "shared/random_photo_banner", photo: @selected_photo, continent_or_region: @continent %>
 </header>
 
 <div class="charts"
