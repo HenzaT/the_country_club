@@ -23,8 +23,9 @@ For this app, I wanted to:
 - Git
 - Github
 
-- Unsplash API
 - REST Countries API
+- Unsplash API
+- Mapbox API
 
 
 ## Login
@@ -50,8 +51,17 @@ Before beginning this project, I actually started building a separate frontend-o
 <img src="https://github.com/user-attachments/assets/1b75e23b-443f-499a-9a07-befa557baa40" width=60% height=60%><img src="https://github.com/user-attachments/assets/04ad539c-c7ce-4d6d-b12f-d46bda6afad9" width=50% height=50%>
 
 
+The first thing I implemented was the Country model. Having the schema helped with this, as it minimised later additions and migrations (although I still added columns as I scaled the project). Thinking of the schema first also made me think about each data type; I learnt the importance of doing this step early in a previous project, when I went straight into making a model and got the data types wrong for certain columns. I tried to fix this through some messy migrations, and ultimately had to start the project from scratch. 
+
+I then created a seed file to populate my database. The countries would be saved into the database, with no option for a user to add or delete a country. I sat down with the REST countries API and studied the format it was presented in. I could see that it was an array, with multiple nested hashes (objects) and arrays. Most of the columns were easy to access using standard Ruby syntax, although some of the nested values were harder to access initially. I also realised that some of the countries in the API did not have certain values that I needed. To account for this, I allowed for a possible 'None' value if the value needed was missing. 
+
+Something I really wanted to use in this project was the Unsplash API. I wanted an easy way to show a high quality image for each individual country, that was also free to use. After registering my project with Unsplash, I utilised Postman to access and test the output of my requests (which was the top photo of specific country). The Unsplash API is very easy to use and the documentation is very clear. After ensuring I had attributed the photos correctly when displayed, I used the photos from Unsplash as my page banners for the region, continent and country pages. 
+ 
 ## Reflections
 Before starting, I debated whether to build a project entirely with new technologies, like React.js, or to stick with familiar tools while introducing a few new ones. Drawing from the concept of the Zone of Proximal Development, which suggests people learn best when challenged just beyond their comfort zone, I chose the latter. This approach let me focus on learning technologies like MySQL without being overwhelmed, since the rest of the stack was familiar.
 I initially used MySQL to explore working with different relational databases. However, when deploying to Heroku, I switched to PostgreSQL as it’s better supported on the platform. This experience helped me understand the importance of deployment considerations when choosing tools.
 
 ## Future Additions
+There are some things I still need to do to improve performance with the Unsplash API:
+- I've applied for production, which will increase my limit. At the moment, I am unable to display the images for certain continents as it exceeds my current limit
+- As the photos are not going to change (for example, the photo that is displayed for Japan will always be that specific photo), it makes sense to save the photos into the database so that the API is not being called repeatedly. Another option is to ensure the images are being cached. 
