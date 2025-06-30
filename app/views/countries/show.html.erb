@@ -62,9 +62,16 @@
       <div class="banner-image-attributions">
         <p>
           Photo by
-          <%= link_to @country_image[:photographer_name], @country_image[:photographer_url], target: '_blank', rel: 'noopener', class: "photographer-link" %>
+          <%= link_to @country_image[:photographer_name],
+              "#{@country_image[:photographer_url]}?utm_source=the_country_club&utm_medium=referral",
+              target: '_blank', rel: 'noopener',
+              class: "photographer-link" %>
           on
-          <%= link_to 'Unsplash', 'https://unsplash.com/', target: '_blank', rel: 'noopener', class: "photographer-link" %>
+          <%= link_to 'Unsplash',
+              'https://unsplash.com/?utm_source=the_country_club&utm_medium=referral',
+              target: '_blank',
+              rel: 'noopener',
+              class: "photographer-link" %>
         </p>
       </div>
     </div>
