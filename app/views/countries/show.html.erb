@@ -1,8 +1,8 @@
 <%# Country show %>
 <div class="country-page container">
-  <% if @country_image %>
+  <% if @country_photo %>
     <div class="country-banner">
-      <%= image_tag(@country_image[:raw_url], alt: "#{@country_image[:alt_description]}", class: "banner-image") %>
+      <%= image_tag(@country_photo.image_url, alt: "#{@country_photo.image_alt}", class: "banner-image") %>
       <div class="banner-image-country-name">
         <h1><%= @country.name %></h1>
       </div>
@@ -62,8 +62,8 @@
       <div class="banner-image-attributions">
         <p>
           Photo by
-          <%= link_to @country_image[:photographer_name],
-              "#{@country_image[:photographer_url]}?utm_source=the_country_club&utm_medium=referral",
+          <%= link_to @country_photo.photographer_name,
+              "#{@country_photo.photographer_name}?utm_source=the_country_club&utm_medium=referral",
               target: '_blank', rel: 'noopener',
               class: "photographer-link" %>
           on
