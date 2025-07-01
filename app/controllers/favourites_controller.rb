@@ -1,5 +1,5 @@
 class FavouritesController < ApplicationController
-  before_action :set_country, only: %i[new create edit update destroy]
+  before_action :set_country, only: %i[new create edit update]
 
   def new
     @favourite = Favourite.new
@@ -32,7 +32,8 @@ class FavouritesController < ApplicationController
   end
 
   def destroy
-    @favourite = Favourite.find_by country_id: @country
+    @favourite = Favourite.find(params[:id])
+    @country = @favourite.country
     @favourite.destroy
     redirect_to country_path(@country), status: :see_other
   end

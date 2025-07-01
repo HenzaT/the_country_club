@@ -6,6 +6,8 @@ import NavbarController from "../controllers/navbar_controller"
 import MapController from "../controllers/map_controller"
 import { Chart, registerables } from 'chart.js';
 
+import "@hotwired/turbo-rails"
+
 Chart.register(...registerables);
 
 const application = Application.start()
