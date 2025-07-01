@@ -1,5 +1,5 @@
 class WishlistsController < ApplicationController
-  before_action :set_country, only: %i[new create edit update destroy]
+  before_action :set_country, only: %i[new create edit update]
 
   def new
     @wishlist = Wishlist.new
@@ -32,7 +32,8 @@ class WishlistsController < ApplicationController
   end
 
   def destroy
-    @wishlist = Wishlist.find_by country_id: @country
+    @wishlist = Wishlist.find(params[:id])
+    @country = @wishlist.country
     @wishlist.destroy
     redirect_to country_path(@country), status: :see_other
   end

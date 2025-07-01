@@ -1,0 +1,7 @@
+<% country.favourites.each do |favourite| %>
+  <%= button_to "Delete",
+      favourite_path(favourite),
+      method: :delete,
+      data: { turbo_confirm: "Are you sure?" }
+    %>
+<% end %>

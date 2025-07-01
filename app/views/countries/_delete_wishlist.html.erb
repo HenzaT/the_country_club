@@ -1,0 +1,7 @@
+<% country.wishlists.each do |wishlist| %>
+  <%= button_to "Delete",
+      wishlist_path(wishlist),
+      method: :delete,
+      data: { turbo_confirm: "Are you sure?" }
+    %>
+<% end %>
