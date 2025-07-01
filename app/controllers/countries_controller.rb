@@ -14,7 +14,7 @@ class CountriesController < ApplicationController
     @user_favourites = @country.favourites.where(user_id: current_user)
     @wishlist_already_created = Wishlist.exists?(user_id: current_user, country_id: @country)
     @favourite_already_created = Favourite.exists?(user_id: current_user, country_id: @country)
-    unsplash_photo
+    @country_photo = CountryPhoto.find_by(country_id: @country)
     capital_address_marker
   end
 
@@ -24,24 +24,6 @@ class CountriesController < ApplicationController
   end
 
   private
-
-  def unsplash_photo
-    api_key = ENV.fetch("UNSPLASH_ACCESS_KEY")
-    # instantiate new UnsplashApi with key
-    api = UnsplashApi.new(api_key)
-    # response (set to individual country)
-    response = api.image_by_country(@country.name)
-    # first result
-    photo = response['results'].first
-    # object of values needed
-    @country_image = {
-      raw_url: photo["urls"]["raw"],
-      alt_description: photo["alt_description"] || "Photo of #{@country.name}",
-      photographer_name: photo["user"]["name"],
-      photographer_url: photo["user"]["links"]["html"],
-      image_page_url: photo["links"]["html"]
-    }
-  end
 
   def capital_address_marker
     @capital_markers = [{
