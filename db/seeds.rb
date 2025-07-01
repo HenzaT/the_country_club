@@ -9,6 +9,7 @@
 #   end
 require 'json'
 require 'open-uri'
+require 'httparty'
 # require 'httparty'
 
 puts 'cleaning database...'
@@ -79,33 +80,34 @@ urls.each do |url|
   end
 end
 
-# # fetch api key from secret
-# api_key = ENV.fetch("UNSPLASH_ACCESS_KEY")
-# # instantiate new UnsplashApi with key
-# api = UnsplashApi.new(api_key)
+# fetch api key from secret
+api_key = ENV.fetch("UNSPLASH_ACCESS_KEY")
+# instantiate new UnsplashApi with key
+api = UnsplashApi.new(api_key)
 
-# Country.find_each do |country|
-#   puts "fetching Unsplash photo data for #{country.name}"
+countries = Country.all
 
-#   response = api.image_by_country(country.name)
-#   data = response.parse['results'].first
+countries.each do |country|
+  puts "fetching Unsplash photo data for #{country.name}"
 
-#   @country_image = {
-#     image_url: photo["urls"]["raw"],
-#     image_alt: photo["alt_description"] || "Photo of #{@country.name}",
-#     photographer_name: photo["user"]["name"],
-#     photographer_url: photo["user"]["links"]["html"],
-#     image_page_url: photo["links"]["html"]
-#   }
-# end
+  response = api.image_by_country(country.name)
+  photo = response['results'].first
+
+  CountryPhoto.create!(
+    image_url: photo["urls"]["raw"],
+    image_alt: photo["alt_description"] || "Photo of #{country.name}",
+    photographer_name: photo["user"]["name"],
+    photographer_url: photo["user"]["links"]["html"],
+    image_page_url: photo["links"]["html"],
+    country_id: country.id
+  )
+end
+
+puts "created a photo for each country!"
 
 User.create!(email: 'tester@testing.com', password: 'password', first_name: 'Tess')
 User.create!(email: 'james@james.com', password: 'tester', first_name: 'Jimmy')
 
-# Wishlist.create!(desire_rating: 2, country_id: 142, user_id: 1)
-# Wishlist.create!(desire_rating: 4, country_id: 145, user_id: 2)
-
-# Favourite.create!(visit_date: '2025-04-30', rating: 2, times_visited: 4, country_id: 1, user_id: 1)
-# Favourite.create!(visit_date: '2025-04-23', rating: 2, times_visited: 4, country_id: 1, user_id: 2)
+puts "created two users!"
 
 puts "finished! created #{Country.count} countries!"
