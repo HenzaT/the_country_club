@@ -6,30 +6,13 @@ module RandomPhoto
 
     private
 
-    def get_random_unsplash_photo
-      # fetch api key from secret
-      api_key = ENV.fetch("UNSPLASH_ACCESS_KEY")
-      # instantiate new UnsplashApi with key
-      api = UnsplashApi.new(api_key)
-      all_photos = @countries.map do |country|
-        # response (set to individual country)
-        response = api.image_by_country(country.name)
-        # first result
-        photo = response['results'].first
-        # object of values needed
-        next unless photo
+    def random_unsplash_photo
+      random_photos = []
 
-        {
-          raw_url: photo["urls"]["raw"],
-          description: "#{country.name}",
-          alt_description: photo["alt_description"] || "Photo of #{country.name}",
-          photographer_name: photo["user"]["name"],
-          photographer_url: photo["user"]["links"]["html"],
-          image_page_url: photo["links"]["html"]
-        }
-      end.compact
-
-      @selected_photo = all_photos.sample
+      @countries.each do |country|
+        random_photos << CountryPhoto.where(country_id: country.id)
+      end
+      @random_photo = random_photos.sample.first
     end
   end
 end
