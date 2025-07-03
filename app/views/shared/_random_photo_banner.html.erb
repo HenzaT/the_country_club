@@ -1,16 +1,16 @@
 <% if photo %>
   <div class="country-banner">
-    <%= image_tag(photo[:raw_url], alt: "#{photo[:alt_description]}", class: "banner-image") %>
+    <%= image_tag(photo.image_url, alt: "#{photo.image_alt}", class: "banner-image") %>
     <div class="banner-image-country-name">
       <h1><%= continent_or_region %></h1>
     </div>
 
     <div class="banner-image-attributions">
-      <p><%= photo[:description] %></p>
+      <p><%= photo.country.name %></p>
       <p>
         Photo by
-        <%= link_to photo[:photographer_name],
-            "#{photo[:photographer_url]}?utm_source=the_country_club&utm_medium=referral",
+        <%= link_to photo.photographer_name,
+            "#{photo.photographer_url}?utm_source=the_country_club&utm_medium=referral",
             target: '_blank',
             rel: 'noopener',
             class: "photographer-link" %>
