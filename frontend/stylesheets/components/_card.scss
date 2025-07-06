@@ -1,5 +1,14 @@
 @use '../variables/variables' as vars;
 
+.cards {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 60px;
+}
+
+
+
 .country-link-card {
   text-decoration: none;
   color: vars.$dark;
@@ -92,10 +101,4 @@
 
 .individual-flag-image {
   width: 80%;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 60px;
 }
