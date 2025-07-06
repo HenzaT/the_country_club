@@ -4,6 +4,7 @@ import ClockController from "../controllers/clock_controller"
 import DatepickerController from "../controllers/datepicker_controller"
 import NavbarController from "../controllers/navbar_controller"
 import MapController from "../controllers/map_controller"
+import SorterController from "../controllers/sorter_controller"
 import { Chart, registerables } from 'chart.js';
 
 import "@hotwired/turbo-rails"
@@ -16,6 +17,7 @@ application.register("clock", ClockController)
 application.register("datepicker", DatepickerController)
 application.register("navbar", NavbarController)
 application.register("map", MapController)
+application.register("sorter", SorterController)
 
 import '../stylesheets/application.scss'
 

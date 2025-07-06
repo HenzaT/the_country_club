@@ -22,8 +22,12 @@
   <%# <canvas data-chart-target="areaChart" width=800 height=600 id="area"></canvas> %>
 </div>
 
-<div class="continent-region container">
-  <div class="cards">
+
+<div class="continent-region container" data-controller="sorter">
+  <div class="sorting-buttons">
+    <button data-sorter-target="alphabeticalButton" data-action="click->sorter#sortAlphabetically">Sort Alphabetically</button>
+  </div>
+  <div class="cards" data-sorter-target="areaSpecificCards">
     <%= render "shared/continent_region_page", countries: @countries %>
   </div>
 </div>

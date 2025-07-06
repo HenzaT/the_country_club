@@ -1,4 +1,5 @@
 <%= link_to country_path(country) do %>
   <h2><%= country.name %></h2>
   <p>Capital: <%= country.capital %></p>
+  <%= link_to "find out more", "https://www.countryreports.org/country/#{country.name.downcase}.htm", target: "_blank" %>
 <% end %>
