@@ -1,26 +1,14 @@
 module CountriesHelper
   def population_people(country)
-    case
-    when country.population <= 100
-      '100'
-    when country.population <= 500
-      '500'
-    when country.population <= 1000
-      '1000'
-    when country.population <= 5000
-      '5000'
-    when country.population <= 10000
-      '10000'
-    when country.population <= 100000
-      '100000'
-    when country.population <= 1000000
-      '1000000'
-    when country.population <= 10000000
-      '10000000'
-    when country.population <= 100000000
-      '100000000'
+    # for every 100000 people, add a person icon
+    result = ''
+    person_icon_html = content_tag(:i, '', class: 'fa-solid fa-person')
+    if country.population < 1_000_000
+      person_icon_html.html_safe
     else
-      "that's more"
+      n_millions = country.population / 1_000_000
+      n_millions.times { result += person_icon_html }
+      result.html_safe
     end
   end
 end

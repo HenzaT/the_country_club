@@ -39,13 +39,13 @@
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to new_user_session_path, class: "nav-link" do %>
-          <i class="fa-solid fa-user icon" alt="user person icon"></i>
-          <p>Log out</p>
-        <% end %>
+        <%= render "shared/continent_links" %>
       </li>
       <li class="nav-item">
-        <%= render "shared/continent_links" %>
+        <%= link_to new_user_session_path, class: "nav-link" do %>
+          <i class="fa-solid fa-user icon" alt="user person icon"></i>
+          <p>Log in</p>
+        <% end %>
       </li>
     </ul>
   <% end %>

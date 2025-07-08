@@ -138,10 +138,12 @@
         <div class="show-card-title">
           <i class="fa-solid fa-person icon" alt="person icon"></i>
           <h3>Population</h3>
-          <i class="fa-solid fa-person-dress icon" alt="person wearing dress icon"></i>
+          <i class="fa-solid fa-person icon" alt="person icon"></i>
         </div>
         <p><%= @country.population %></p>
-        <%= population_people(@country) %>
+        <div class="people-icons">
+          <%= population_people(@country) %>
+        </div>
       </div>
 
       <div class="country-card-info">
