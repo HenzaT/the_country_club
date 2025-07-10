@@ -12,8 +12,5 @@ module CountriesHelper
     end
   end
 
-  def currency_convert_from_usd(country)
-    currency = country.currency
-    ENV['OPEN_EXCHANGE_APP_ID']
-  end
+  private
 end
