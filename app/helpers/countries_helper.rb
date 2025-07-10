@@ -11,6 +11,4 @@ module CountriesHelper
       result.html_safe
     end
   end
-
-  private
 end
