@@ -154,6 +154,7 @@
         </div>
         <p><%= @country.currency %></p>
         <p>(<%= @country.currency_symbol %>)</p>
+        <%= currency_convert_from_usd(@country) %>
       </div>
 
     </div>

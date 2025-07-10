@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_06_28_183231) do
+ActiveRecord::Schema[7.1].define(version: 2025_07_10_174055) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_06_28_183231) do
     t.string "currency_symbol"
     t.float "capital_latitude"
     t.float "capital_longitude"
+    t.string "currency_code"
   end
 
   create_table "country_photos", force: :cascade do |t|
