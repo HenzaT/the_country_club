@@ -3,6 +3,7 @@ This is a self-directed project. NOTE: this is not yet responsive and it is buil
 I love travelling and learning geography facts, and so I wanted to create a space where the two come together. This is an ongoing project, and I plan to use it as an opportunity to practise some new technologies:
 - TypeScript (in Rails)
 - MySQL
+- Integrating third-party APIs
 - React (possible addition)
 
 ## Goals
@@ -27,6 +28,7 @@ For this app, I wanted to:
 - REST Countries API
 - Unsplash API
 - Mapbox API
+- Open Exchange API (free tier)
 
 
 ## Login
@@ -56,13 +58,13 @@ The first thing I implemented was the Country model. Having the schema helped wi
 
 I then created a seed file to populate my database. The countries would be saved into the database, with no option for a user to add or delete a country. I sat down with the REST countries API and studied the format it was presented in. I could see that it was an array, with multiple nested hashes (objects) and arrays. Most of the columns were easy to access using standard Ruby syntax, although some of the nested values were harder to access initially. I also realised that some of the countries in the API did not have certain values that I needed. To account for this, I allowed for a possible 'None' value if the value needed was missing. 
 
-Something I really wanted to use in this project was the Unsplash API. I wanted an easy way to show a high quality image for each individual country, that was also free to use. After registering my project with Unsplash, I utilised Postman to access and test the output of my requests (which was the top photo of specific country). The Unsplash API is very easy to use and the documentation is very clear. After ensuring I had attributed the photos correctly when displayed, I used the photos from Unsplash as my page banners for the region, continent and country pages. 
+Something I really wanted to use in this project was the Unsplash API. I wanted an easy way to show a high quality image for each individual country, that was also free to use. After registering my project with Unsplash, I utilised Postman to access and test the output of my requests (which was the top photo of specific country). The Unsplash API is very easy to use and the documentation is very clear. After ensuring I had attributed the photos correctly when displayed, I used the photos from Unsplash as my page banners for the region, continent and country pages. To improve performance with the API, I created a new CountryPhoto model and saved each photo into the database. I did this as the photos used for each country are not going to change (for example, the photo that is displayed for Japan will always be that specific photo). This saved me from having to make countless calls to the API. 
+
+I also used the Open Exchange API to allow users to compare currency rates. As I'm using the free tier, the base currency is set to USD. 
  
 ## Reflections
 Before starting, I debated whether to build a project entirely with new technologies, like React.js, or to stick with familiar tools while introducing a few new ones. Drawing from the concept of the Zone of Proximal Development, which suggests people learn best when challenged just beyond their comfort zone, I chose the latter. This approach let me focus on learning technologies like MySQL without being overwhelmed, since the rest of the stack was familiar.
 I initially used MySQL to explore working with different relational databases. However, when deploying to Heroku, I switched to PostgreSQL as it’s better supported on the platform. This experience helped me understand the importance of deployment considerations when choosing tools.
 
 ## Future Additions
-There are some things I still need to do to improve performance with the Unsplash API:
-- I've applied for production, which will increase my limit. At the moment, I am unable to display the images for certain continents as it exceeds my current limit
-- As the photos are not going to change (for example, the photo that is displayed for Japan will always be that specific photo), it makes sense to save the photos into the database so that the API is not being called repeatedly. Another option is to ensure the images are being cached. 
+
