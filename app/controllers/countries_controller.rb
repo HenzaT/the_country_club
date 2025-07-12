@@ -1,4 +1,6 @@
 require 'date'
+require 'json'
+require 'open-uri'
 
 class CountriesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home show]
@@ -16,6 +18,7 @@ class CountriesController < ApplicationController
     @favourite_already_created = Favourite.exists?(user_id: current_user, country_id: @country)
     @country_photo = CountryPhoto.find_by(country_id: @country)
     capital_address_marker
+    currency_exchange_usd(@country)
   end
 
   def dashboard
@@ -31,5 +34,14 @@ class CountriesController < ApplicationController
         lng: @country.capital_longitude,
         info_window_html: render_to_string(partial: 'shared/info_window_mapbox', locals: { country: @country })
       }]
+  end
+
+  def currency_exchange_usd(country)
+    currency_code = country.currency_code
+    url = "https://openexchangerates.org/api/latest.json?app_id=#{ENV.fetch('OPEN_EXCHANGE_APP_ID')}"
+    currency_json = URI.parse(url).read
+    currencies = JSON.parse(currency_json)
+    @base_currency_usd = currencies['base']
+    @country_rate = currencies['rates']["#{currency_code}"] || 'Not Found'
   end
 end

@@ -144,17 +144,22 @@
         <div class="people-icons">
           <%= population_people(@country) %>
         </div>
+        <p>
+          <i class="fa-solid fa-person" alt="person icon"></i> = 1 million (or less)
+        </p>
       </div>
 
-      <div class="country-card-info">
+      <div class="country-card-info" data-controller="currency">
         <div class="show-card-title">
           <i class="fa-solid fa-coins icon" alt="coins icon"></i>
           <h3>Currency</h3>
           <i class="fa-solid fa-wallet icon" alt="wallet icon"></i>
         </div>
-        <p><%= @country.currency %></p>
-        <p>(<%= @country.currency_symbol %>)</p>
-        <%= currency_convert_from_usd(@country) %>
+        <p><%= "#{@country.currency} (#{@country.currency_code} / #{@country.currency_symbol})" %></p>
+        <p>1 <%= "#{@base_currency_usd} = #{@country_rate} #{@country.currency_code}" %></p>
+        <input type="text">
+        <input type="submit">
+        <p>Rates are updated hourly</p>
       </div>
 
     </div>
