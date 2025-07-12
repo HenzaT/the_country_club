@@ -1,6 +1,7 @@
 require 'httparty'
 
 class Country < ApplicationRecord
+  has_many :country_photos, dependent: :destroy
   geocoded_by :address
   geocoded_by :capital_address
   after_validation :geocode, if: ->(obj) { obj.address.present? && obj.capital_address.present? }

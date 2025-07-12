@@ -13,6 +13,7 @@ require 'httparty'
 # require 'httparty'
 
 puts 'cleaning database...'
+CountryPhoto.destroy_all
 Country.destroy_all
 User.destroy_all
 # CountryPhoto.destroy_all
