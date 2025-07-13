@@ -1,18 +1,22 @@
 <div class="home container">
+  <div class="world-map"></div>
   <section class="banner" id="seven-continents">
     <h1 class="page-header">Welcome to The Country Club</h1>
     <h1 class="choose-header">Choose a continent or region</h1>
     <div class="button-group">
-      <%= render "button_to_continent", area: "Africa" %>
-      <%= render "button_to_continent", area: "Asia" %>
-      <%= render "button_to_continent", area: "Europe" %>
-      <%= render "button_to_continent", area: "Oceania" %>
-      <%= render "button_to_region", area: "North America" %>
-      <%= render "button_to_region", area: "Central America" %>
-      <%= render "button_to_region", area: "South America" %>
-      <%= render "button_to_region", area: "Caribbean" %>
+      <div class="button-group-top">
+        <%= render "button_to_continent", area: "Africa" %>
+        <%= render "button_to_continent", area: "Asia" %>
+        <%= render "button_to_continent", area: "Europe" %>
+        <%= render "button_to_continent", area: "Oceania" %>
+      </div>
+      <div class="button-group-bottom">
+        <%= render "button_to_region", area: "North America" %>
+        <%= render "button_to_region", area: "Central America" %>
+        <%= render "button_to_region", area: "South America" %>
+        <%= render "button_to_region", area: "Caribbean" %>
+      </div>
     </div>
-    <div class="world-map"></div>
   </section>
 
   <section class="explanation">

@@ -1,10 +1,24 @@
 @use '../variables/variables' as vars;
 
-.mapbox {
+.mapbox-continent-region, .mapbox-country {
   border-radius: 20px;
   box-shadow: vars.$card-lightest-shadow;
-  margin: 15px auto;
+  margin: 15px;
   object-fit: cover;
+}
+
+.mapbox-continent-region {
+  width: 60%;
+  height: 400px;
+}
+
+.mapbox-country {
+  width: 100%;
+  height: 300px;
+}
+
+.minimize {
+  transform: scale(0.7);
 }
 
 .mapboxgl-popup {

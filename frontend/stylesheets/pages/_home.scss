@@ -1,26 +1,37 @@
 @use '../variables/variables' as vars;
 
 .home {
-  margin: 20px;
+  height: 100%;
+
+  .world-map {
+    // height: 100vh;
+    background-image: url('/images/World-Map.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 
   .button-group {
+    margin: 20px 0px
+  }
+
+  .button-group-top, .button-group-bottom {
     display: flex;
     justify-content: space-around;
     align-items: center;
   }
 
-  .continent-button {
-    padding: 10px;
-    width: 100%;
-    border-radius: 10px;
+  .button-group-top {
+    margin-bottom: 20px;
   }
 
-  .world-map {
-    background-image: url('/images/World-Map.jpg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 1000px;
-    height: 400px;
+  .continent-button {
+    cursor: pointer;
+    padding: 10px;
+    width: 200px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: vars.$card-lightest-shadow;
   }
 }
 

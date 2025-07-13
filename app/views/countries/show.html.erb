@@ -111,7 +111,7 @@
           <i class="fa-solid fa-building icon" alt="building icon"></i>
         </div>
         <p><%= @country.capital %></p>
-        <div class="mapbox" style="width: 100%; height: 300px;"
+        <div class="mapbox-country"
           data-controller="map"
           data-map-markers-value="<%= @capital_markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_TOKEN_KEY'] %>">

@@ -1,7 +1,7 @@
 <%# regions (N, C, S America) show %>
 <%= render "shared/random_photo_banner", photo: @random_photo, continent_or_region: @continent_region %>
 
-<div class="mapbox" style="width: 60%; height: 400px;"
+<div class="mapbox-continent-region"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_TOKEN_KEY'] %>">

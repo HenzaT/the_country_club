@@ -1,9 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets: string[] = [ "alphabeticalButton", "areaSpecificCards" ]
+  static targets: string[] = [ "alphabeticalButton", "areaSpecificCards", "countryName" ]
 
   sortAlphabetically(): void {
-    console.log(this.areaSpecificCardsTarget)
+    const sorted = this.countryNameTargets.sort()
+    console.log(sorted)
   }
 }
