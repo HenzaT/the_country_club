@@ -1,4 +1,7 @@
-<div class="sidebar">
+<div class="sidebar" data-navbar-target="sidebar">
+  <div class="close-button">
+    <i class="fa-solid fa-xmark fa-2x" data-navbar-target="closeButton"></i>
+  </div>
   <% if user_signed_in? %>
     <div class="nav-welcome">
       <i class="fa-solid fa-plane-departure" alt="plane taking off icon" id="nav-user-icon"></i>

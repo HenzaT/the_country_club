@@ -1,9 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets: string[] = [ 'hamburger', 'body', 'downArrow', 'dropdownMenu' ]
+  static targets: string[] = [ 'sidebar', 'hamburger', 'body', 'downArrow', 'dropdownMenu', 'closeButton' ]
 
-  toggleBody(): void {
+  toggleSidebar(): void {
     (this.targets.find('body') as HTMLElement)?.classList.toggle('active');
   }
 

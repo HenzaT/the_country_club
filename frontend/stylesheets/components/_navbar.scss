@@ -1,15 +1,16 @@
 @use '../variables/variables' as vars;
 
 .wrapper .section {
-	width: calc(100% - 225px);
-	margin-left: 225px;
+	width: 100%;
+	margin-left: 0;
 	transition: all 0.5s ease;
-  min-height: 100vh; /* ensures it expands with content */
+  min-height: 100vh;
   box-sizing: border-box;
+  position: relative;
 }
 
 body.active .wrapper .sidebar {
-	left: -225px;
+	transform: translateX(0);
 }
 body.active .wrapper .section {
 	margin-left: 0;
@@ -22,9 +23,12 @@ body.active .wrapper .section {
   top: 0;
   left: 0;
   width: 225px;
+  z-index: 4000;
   box-sizing: border-box;
   height: 100%;
   padding: 20px 0;
+  transform: translateX(-100%); // hide off screen
+  transition: transform 0.3s ease; // animate
 
   ul li a, .dropdown-btn {
     display: block;
