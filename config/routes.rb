@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :favourites, only: %i[destroy]
   resources :wishlists, only: %i[destroy]
   get '/dashboard', to: 'countries#dashboard'
+  post 'countries/:id/suggest_claude', to: 'countries#suggest_claude', as: :suggest_claude_country
   resources :continents, only: [:show]
   resources :regions, only: [:show]
 

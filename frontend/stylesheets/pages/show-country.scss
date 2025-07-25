@@ -17,3 +17,14 @@
 .country-page {
   margin-bottom: 20px;
 }
+
+.ai-suggestion {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ai-text {
+  width: 60%;
+}
