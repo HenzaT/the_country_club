@@ -57,7 +57,10 @@ class CountriesController < ApplicationController
 
   def claude_suggestions(country)
     claude = AiAgent.new.claude
-    message = "Give me suggestions for things to do and see in #{country}. Don't ask any questions."
+    message =
+      "Write a paragraph describing #{country} as a travel destination.
+      Then, return a valid JSON object with a key attractions containing 5 popular tourist attractions.
+      Do not wrap the JSON in markdown. Don't ask any questions"
     response = claude.messages(
       claude.user_message(message),
       { model: Claude::Model::CLAUDE_FASTEST }

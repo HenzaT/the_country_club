@@ -82,6 +82,7 @@
     data-controller="claude"
     data-claude-url-value="<%= suggest_claude_country_path(@country) %>">
     <h2>What can I see and do in <%= @country.name %>?</h2>
+    <h3>Ask Claude below!</h3>
     <button id="show-ai-button" data-action="click->claude#showAi">Click Here</button>
     <div class="ai-text" data-claude-target="aiText"></div>
   </div>
