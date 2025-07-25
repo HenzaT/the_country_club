@@ -11,7 +11,6 @@ For this app, I wanted to:
 - Consolidate my skills using Ruby on Rails, TypeScript and CSS3/SCSS.
 - Use third-party APIs
 - Introduce and use more unfamiliar technologies, like MySQL and React.js (which I am currently learning). To facilitate using React and TypeScript in a Rails application, I switched from Webpacker to using Vite.
-- Set up CI/CD
 
 ## Tech Stack
 - Ruby on Rails
@@ -25,10 +24,12 @@ For this app, I wanted to:
 - Git
 - Github
 
+### APIs used 
 - REST Countries API
 - Unsplash API
 - Mapbox API
 - Open Exchange API (free tier)
+- Anthropic Claude API 
 
 
 ## Login
