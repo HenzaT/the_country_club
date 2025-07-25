@@ -17,18 +17,42 @@ body.active .wrapper .section {
 	width: 100%;
 }
 
-.sidebar {
-  background: vars.$dark-orange;
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.darken {
+  filter: brightness(30%);
+}
+
+.sidebar {
+  background: vars.$orange;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: scroll;
   width: 225px;
   z-index: 4000;
   box-sizing: border-box;
   height: 100%;
-  padding: 20px 0;
+  padding: 10px 0 20px 0;
   transform: translateX(-100%); // hide off screen
   transition: transform 0.3s ease; // animate
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+  .sidebar::-webkit-scrollbar {
+    display: none;
+  }
 
   ul li a, .dropdown-btn {
     display: block;
@@ -70,7 +94,7 @@ body.active .wrapper .section {
   }
 
   .nav-link.active, .nav-link:hover {
-    background: vars.$selected-orange;
+    background: vars.$dark-orange;
     color: vars.$light;
     border-right: 1px solid vars.$dark;
   }
@@ -83,7 +107,7 @@ body.active .wrapper .section {
 }
 
 .topnav {
-  background: vars.$orange;
+  background: vars.$dark-orange;
   position: sticky;
   top: 0;
   z-index: 3000;
@@ -118,4 +142,14 @@ body.active .wrapper .section {
 
 .nav-item {
   list-style-type: none;
+}
+
+.fa-bars {
+  color: vars.$light;
+}
+
+.fa-xmark {
+  color: vars.$dark;
+  margin: 0 0 0px 20px;
+  cursor: pointer;
 }

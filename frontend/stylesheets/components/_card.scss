@@ -24,6 +24,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+  justify-items: center;
 
   .country-card-info {
     display: flex;

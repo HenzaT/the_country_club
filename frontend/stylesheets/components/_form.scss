@@ -24,26 +24,6 @@ form {
     display: flex;
     flex-direction: column;
   }
-
-  .submit-button {
-    background: vars.$dark-orange;
-    color: vars.$dark;
-    font-size: 1rem;
-    border-radius: 20px;
-    border: none;
-    box-shadow: vars.$card-lightest-shadow;
-    padding: 10px;
-    margin: auto;
-    margin-top: 30px;
-    width: 30%;
-    cursor: pointer;
-    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
-  }
-
-  .submit-button:hover {
-    background: vars.$selected-orange;
-    color: vars.$light;
-  }
 }
 
 .add-wishlist, .add-favourite > h1, .form-header {

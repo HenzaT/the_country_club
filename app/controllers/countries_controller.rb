@@ -26,6 +26,16 @@ class CountriesController < ApplicationController
     @added_countries = Country.left_outer_joins(:favourites, :wishlists).where('favourites.user_id = ? OR wishlists.user_id = ?', current_user.id, current_user.id).distinct
   end
 
+  def suggest_claude
+    country = Country.find(params[:id])
+    result = claude_suggestions(country.name)
+    if result
+      render json: { response: result }
+    else
+      return 'Claude is currently overloaded'
+    end
+  end
+
   private
 
   def capital_address_marker
@@ -43,5 +53,15 @@ class CountriesController < ApplicationController
     currencies = JSON.parse(currency_json)
     @base_currency_usd = currencies['base']
     @country_rate = currencies['rates']["#{currency_code}"] || 'Not Found'
+  end
+
+  def claude_suggestions(country)
+    claude = AiAgent.new.claude
+    message = "Give me suggestions for things to do and see in #{country}. Don't ask any questions."
+    response = claude.messages(
+      claude.user_message(message),
+      { model: Claude::Model::CLAUDE_FASTEST }
+    )
+    AiAgent.new.format_claude_response(response)
   end
 end

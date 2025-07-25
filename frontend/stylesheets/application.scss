@@ -18,6 +18,7 @@
 
 @use 'mapbox-gl';
 
+@use './components/button.scss';
 @use './components/canvas.scss';
 @use './components/card.scss';
 @use './components/clock.scss';
@@ -64,7 +65,7 @@ h3 {
   font-style: normal;
 }
 
-p, li {
+p, li, button, .ai-text {
   font-family: "Lexend", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;

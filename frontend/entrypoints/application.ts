@@ -1,5 +1,6 @@
 import { Application } from "@hotwired/stimulus"
 import ChartController from "../controllers/chart_controller"
+import ClaudeController from "../controllers/claude_controller"
 import ClockController from "../controllers/clock_controller"
 import CurrencyController from "../controllers/currency_controller"
 import DatepickerController from "../controllers/datepicker_controller"
@@ -14,6 +15,7 @@ Chart.register(...registerables);
 
 const application = Application.start()
 application.register("chart", ChartController)
+application.register("claude", ClaudeController)
 application.register("clock", ClockController)
 application.register("currency", CurrencyController)
 application.register("datepicker", DatepickerController)

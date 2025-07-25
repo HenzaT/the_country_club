@@ -5,7 +5,7 @@ export default class extends Controller {
 
   sortAlphabetically(): void {
     const nameArray: string[] = []
-    this.countryNameTargets.forEach(name => {
+    (this.targets.find('countryName') as HTMLElement)?.forEach(name => {
       nameArray.push(name.innerText)
     });
     nameArray.sort()

@@ -51,7 +51,9 @@ gem 'mapbox-gl-rails'
 
 gem "geocoder"
 
-# Devise authnetication
+gem 'claude-ruby'
+
+# Devise authentication
 gem "devise"
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
