@@ -9,12 +9,43 @@
   box-shadow: vars.$card-lightest-shadow;
   padding: 10px;
   margin: auto;
-  margin: 20px 0px;
-  width: 15%;
+  margin-top: 10px;
+  width: 30%;
   cursor: pointer;
   transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.submit-button:hover, #show-ai-button:hover {
+#show-ai-button {
+  width: 15%;
+  margin: 20px 0;
+}
+
+.submit-button:hover, #show-ai-button:hover, .continent-button:hover {
   background: vars.$selected-orange;
+}
+
+.button-group {
+  margin: 20px 0px
+}
+
+.button-group-top, .button-group-bottom {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.button-group-top {
+  margin-bottom: 20px;
+}
+
+.continent-button {
+  cursor: pointer;
+  background: vars.$orange;
+  color: vars.$light;
+  padding: 10px;
+  width: 200px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: vars.$card-lightest-shadow;
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
