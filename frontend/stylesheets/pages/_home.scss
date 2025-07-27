@@ -2,41 +2,40 @@
 
 .home {
   height: 100%;
+  background-image:
+    linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)),
+    url('/images/World-Map-mod.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  padding-top: 30px;
 
-  .world-map {
-    width: 100%;
-    height: 400px;
-    background-image: url('/images/World-Map.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: block;
-  }
+  // h1, h3, ol, li, p {
+  //   color: vars.$light;
+  // }
 
-  .button-group {
-    margin: 20px 0px
-  }
+}
 
-  .button-group-top, .button-group-bottom {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
+section.banner, section.explanation {
+  color: vars.$light;
+  border: 0.3px solid vars.$light;
+  border-radius: 20px;
+  background-color: rgba(123, 54, 8, 0.726);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  margin: 0 30px 30px 30px;
+}
 
-  .button-group-top {
-    margin-bottom: 20px;
-  }
-
-  .continent-button {
-    cursor: pointer;
-    padding: 10px;
-    width: 200px;
-    border-radius: 20px;
-    border: none;
-    box-shadow: vars.$card-lightest-shadow;
-  }
+section.explanation {
+  padding-left: 40px;
 }
 
 .choose-header {
+  text-align: center;
+}
+
+footer {
+  color: vars.$light;
   text-align: center;
 }
