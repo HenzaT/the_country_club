@@ -20,11 +20,27 @@
 
 .ai-suggestion {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
+
+  .suggest-claude, .suggest-season {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+  }
 }
 
 .ai-text {
-  width: 60%;
+  width: 80%;
+}
+
+@media (max-width: 600px) {
+  .ai-suggestion {
+    flex-direction: column;
+    margin: 10px;
+  }
+
+  .ai-h2 {text-align: center;}
+
+  .suggest-season {margin-top: 20px;}
 }

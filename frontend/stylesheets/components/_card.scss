@@ -23,17 +23,18 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   justify-items: center;
+  margin: 0 auto;
+}
 
-  .country-card-info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border-radius: 15px;
-    box-shadow: vars.$card-heavy-shadow;
-    width: 20vw;
-    padding: 20px 40px 20px 40px;
-  }
+.country-card-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+  box-shadow: vars.$card-heavy-shadow;
+  width: 20vw;
+  padding: 20px 40px 20px 40px;
 }
 
 .show-card-title {
@@ -100,4 +101,19 @@
 
 .individual-flag-image {
   width: 80%;
+}
+
+@media (max-width: 600px) {
+  .country-link-card {width: 270px;}
+  .country-card-small {width: 270px;}
+
+  .country-info {
+    text-align: center;
+  }
+
+  .show-country-cards {
+    grid-template-columns: repeat(1, 1fr);
+    width: 90vw;
+  }
+  .country-card-info {width: 60vw;}
 }

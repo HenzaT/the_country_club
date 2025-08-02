@@ -1,6 +1,7 @@
 require 'claude/client'
 
 class AiAgent
+
   def anthropic_api_key
     @anthropic_api_key ||= ENV['CLAUDE_API_KEY']
   end

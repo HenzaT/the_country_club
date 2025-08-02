@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :wishlists, only: %i[destroy]
   get '/dashboard', to: 'countries#dashboard'
   post 'countries/:id/suggest_claude', to: 'countries#suggest_claude', as: :suggest_claude_country
+  post 'countries/:id/suggest_season', to: 'countries#suggest_season', as: :suggest_season_country
   resources :continents, only: [:show]
   resources :regions, only: [:show]
 

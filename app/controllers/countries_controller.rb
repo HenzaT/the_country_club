@@ -36,6 +36,16 @@ class CountriesController < ApplicationController
     end
   end
 
+  def suggest_season
+    country = Country.find(params[:id])
+    result = seasonal_suggestions(country.name)
+    if result
+      render json: { response: result }
+    else
+      return 'Claude is currently overloaded'
+    end
+  end
+
   private
 
   def capital_address_marker
@@ -50,17 +60,34 @@ class CountriesController < ApplicationController
     currency_code = country.currency_code
     url = "https://openexchangerates.org/api/latest.json?app_id=#{ENV.fetch('OPEN_EXCHANGE_APP_ID')}"
     currency_json = URI.parse(url).read
-    currencies = JSON.parse(currency_json)
-    @base_currency_usd = currencies['base']
-    @country_rate = currencies['rates']["#{currency_code}"] || 'Not Found'
+    all_currencies = JSON.parse(currency_json)
+    base_country_rate = all_currencies['rates']["#{currency_code}"] || 'Not Found'
+    uk_rate = all_currencies['rates']['GBP']
+    country_rate = base_country_rate / uk_rate
+    @country_rate = country_rate.round(3)
   end
 
   def claude_suggestions(country)
     claude = AiAgent.new.claude
     message =
-      "Write a paragraph describing #{country} as a travel destination.
-      Then, return a valid JSON object with a key attractions containing 5 popular tourist attractions.
-      Do not wrap the JSON in markdown. Don't ask any questions"
+      "Write 1 or 2 opening sentences about #{country} as a travel destination.
+      Then, return a list of key attractions containing 5 popular tourist attractions as <ol> elements.
+      Describe each attraction with 1 or 2 sentences. Don't ask any questions.
+      Leave a <br> between the opening paragraph and the list."
+    response = claude.messages(
+      claude.user_message(message),
+      { model: Claude::Model::CLAUDE_FASTEST }
+    )
+    AiAgent.new.format_claude_response(response)
+  end
+
+  def seasonal_suggestions(country)
+    claude = AiAgent.new.claude
+    message =
+      "Write 1 or 2 opening sentences about the best time of year to visit #{country} as a travel destination.
+      Then, return a list of other alternative times of year as <ol> elements.
+      If a particular time of year is cheaper, mention it.
+      Leave a <br> between the opening paragraph and the list."
     response = claude.messages(
       claude.user_message(message),
       { model: Claude::Model::CLAUDE_FASTEST }

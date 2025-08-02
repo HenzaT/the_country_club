@@ -80,11 +80,31 @@
   <div
     class="ai-suggestion"
     data-controller="claude"
-    data-claude-url-value="<%= suggest_claude_country_path(@country) %>">
-    <h2>What can I see and do in <%= @country.name %>?</h2>
-    <h3>Ask Claude below!</h3>
-    <button id="show-ai-button" data-action="click->claude#showAi">Click Here</button>
-    <div class="ai-text" data-claude-target="aiText"></div>
+    data-claude-suggest-claude-url-value="<%= suggest_claude_country_path(@country) %>"
+    data-claude-suggest-season-url-value="<%= suggest_season_country_path(@country) %>"
+  >
+    <div class="suggest-claude">
+      <h2 class="ai-h2">What can I see and do in <%= @country.name %>?</h2>
+      <button
+        type="button"
+        id="show-ai-button"
+        data-claude-target="askClaudeButton"
+        data-action="click->claude#showAi">
+        Ask Claude
+      </button>
+      <div class="ai-text" data-claude-target="aiText"></div>
+    </div>
+    <div class="suggest-season">
+      <h2 class="ai-h2">What is the best time of year to go?</h2>
+      <button
+        type="button"
+        id="show-season-button"
+        data-claude-target="seasonalButton"
+        data-action="click->claude#seasonalSuggestion">
+        Ask Claude
+      </button>
+      <div class="ai-text" data-claude-target="seasonalText"></div>
+    </div>
   </div>
 
   <div class="country-info">
@@ -95,7 +115,7 @@
         <%= image_tag(@country.flag, alt: @country.flag_alt, class: "individual-flag-image") %>
       </div>
 
-      <div class="country-card-info">
+      <%# <div class="country-card-info">
         <div class="clock" data-controller="clock">
           <div class="outer-clock-face">
             <div class="marking marking-one"></div>
@@ -111,8 +131,8 @@
         </div>
         <div class="current-time">
           <%= Time.now.strftime('%B %e, %Y - %I:%M%P') %>
-        </div>
-      </div>
+        <%# </div>
+      </div> %>
 
       <div class="country-card-info">
         <div class="show-card-title">
@@ -166,9 +186,11 @@
           <i class="fa-solid fa-wallet icon" alt="wallet icon"></i>
         </div>
         <p><%= "#{@country.currency} (#{@country.currency_code} / #{@country.currency_symbol})" %></p>
-        <p>1 <%= "#{@base_currency_usd} = #{@country_rate} #{@country.currency_code}" %></p>
-        <input type="text">
-        <input type="submit">
+        <p>1 GBP = <%= "#{@country_rate} #{@country.currency_code}" %></p>
+        <form>
+          <input type="text">
+          <input type="submit">
+        </form>
         <p>Rates are updated hourly</p>
       </div>
 

@@ -2,27 +2,27 @@
 
 .home {
   height: 100%;
-  background-image:
-    linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)),
-    url('/images/World-Map-mod.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
+  // background-image:
+  //   linear-gradient(rgba(18, 0, 0, 0.2), rgba(227, 9, 9, 0.049)),
+  //   url('/images/World-Map-mod.jpg');
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // height: 100vh;
   padding-top: 30px;
 
   // h1, h3, ol, li, p {
   //   color: vars.$light;
   // }
-
 }
 
 section.banner, section.explanation {
   color: vars.$light;
   border: 0.3px solid vars.$light;
   border-radius: 20px;
-  background-color: rgba(123, 54, 8, 0.726);
+  background-color: rgba(80, 38, 10, 0.726);
   backdrop-filter: blur(5px);
+  box-shadow: vars.$card-heavy-shadow;
   padding: 20px;
   margin: 0 30px 30px 30px;
 }

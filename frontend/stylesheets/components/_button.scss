@@ -1,6 +1,6 @@
 @use '../variables/variables' as vars;
 
-.submit-button, #show-ai-button {
+.submit-button, #show-ai-button, #show-season-button {
   background: vars.$orange;
   color: vars.$light;
   font-size: 1rem;
@@ -15,13 +15,23 @@
   transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-#show-ai-button {
-  width: 15%;
+#show-ai-button, #show-season-button {
   margin: 20px 0;
+}
+
+#show-ai-button:disabled, #show-season-button:disabled {
+  cursor: not-allowed;
+  background-color: vars.$light;
+  color: vars.$dark;
 }
 
 .submit-button:hover, #show-ai-button:hover, .continent-button:hover {
   background: vars.$selected-orange;
+}
+
+#show-ai-button:disabled:hover, .continent-button:disabled:hover {
+  background-color: vars.$light;
+  color: vars.$dark;
 }
 
 .button-group {
@@ -48,4 +58,15 @@
   border: none;
   box-shadow: vars.$card-lightest-shadow;
   transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+@media (max-width: 600px ) {
+  .button-group-top, .button-group-bottom {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .continent-button {
+    width: 130px;
+  }
 }
