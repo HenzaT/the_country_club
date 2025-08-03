@@ -34,9 +34,14 @@ For this app, I wanted to:
 
 ## Login
 You can log in using thse details:
-- username: tester@testing.com
-- password: password
-
+username: 
+```
+tester@testing.com
+```
+password:
+```
+password
+```
 
 ## Process
 I started with: 
