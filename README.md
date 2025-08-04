@@ -1,5 +1,5 @@
 ## (In Progress) The Country Club - facts about countries and travel tracker
-This is a self-directed project. NOTE: this is not yet responsive and it is built for a desktop screen. Once I have built out the features more, I will be implementing responsive CSS styling.
+This is a self-directed project.
 I love travelling and learning geography facts, and so I wanted to create a space where the two come together. This is an ongoing project, and I plan to use it as an opportunity to practise some new technologies:
 - TypeScript (in Rails)
 - MySQL
@@ -23,6 +23,7 @@ For this app, I wanted to:
 - PostgreSQL (deployment)
 - Git
 - Github
+- Postman (for API endpoint testing)
 
 ### APIs used 
 - REST Countries API
