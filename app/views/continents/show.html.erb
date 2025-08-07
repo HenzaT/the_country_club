@@ -7,20 +7,19 @@
   data-map-api-key-value="<%= ENV['MAPBOX_TOKEN_KEY'] %>">
 </div>
 
-<div class="charts"
+<%# <div class="charts"
   data-controller="chart"
-  data-chart-labels-value="<%= @countries.map(&:name).to_json %>"
-  data-chart-populationdataset-value="<%= @countries.map(&:population).to_json %>"
-  data-chart-areadataset-value="<%= @countries.map(&:area).to_json %>"
->
-  <div class="btn-group">
+  data-chart-labels-value="<%= @countries.map(&:name).to_json %>
+  <%# data-chart-populationdataset-value="<%= @countries.map(&:population).to_json %>
+  <%# data-chart-areadataset-value="<%= @countries.map(&:area).to_json %>
+  <%# <div class="btn-group">
     <button class="chart-btn" data-chart-target="polarBtn" data-action="click->chart#showPolarChart">Polar Chart</button>
     <button class="chart-btn" data-chart-target="barBtn" data-action="click->chart#showBarChart">Bar Chart</button>
     <button class="chart-btn" data-chart-target="lineBtn" data-action="click->chart#showLineChart">Line Chart</button>
-  </div>
-  <canvas data-chart-target="populationChart" width="200" id="population-chart"></canvas>
+  </div> %>
+  <%# <canvas data-chart-target="populationChart" width="200" id="population-chart"></canvas>
   <%# <canvas data-chart-target="areaChart" width=800 height=600 id="area"></canvas> %>
-</div>
+<%# </div> %>
 
 <div class="continent-region container">
   <div class="cards">

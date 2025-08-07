@@ -7,6 +7,8 @@ class CountriesController < ApplicationController
 
   def home
     @continents = Country.select('continent').group('continent')
+    all_photos = CountryPhoto.all
+    @photo = all_photos.sample
   end
 
   # show individual country

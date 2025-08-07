@@ -1,7 +1,28 @@
 <div class="topnav">
-  <div class="burger-menu" data-navbar-target="hamburger">
-    <a href="#">
-      <i class="fas fa-bars" data-action="click->navbar#openSidebar"></i>
-    </a>
-  </div>
+  <% if user_signed_in? %>
+    <div class="nav-welcome">
+      <%= link_to root_path, class: "nav-link active" do %>
+        <i class="fa-regular fa-map" alt="map icon" id="nav-user-icon"></i>
+      <% end %>
+    </div>
+    <%= render "shared/continent_links" %>
+    <%= link_to dashboard_path, class: "nav-link" do %>
+      <p>Member's Area</p>
+    <% end %>
+    <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" do %>
+      <p>Logout</p>
+    <% end %>
+  <% else %>
+    <div class="nav-welcome">
+      <%= link_to root_path, class: "nav-link active" do %>
+        <i class="fa-regular fa-map" alt="map icon" id="nav-user-icon"></i>
+      <% end %>
+    </div>
+    <%= render "shared/continent_links" %>
+    <div class="nav-right">
+      <%= link_to new_user_session_path, class: "nav-link" do %>
+        <p>Login</p>
+      <% end %>
+    </div>
+  <% end %>
 </div>

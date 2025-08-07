@@ -1,7 +1,7 @@
 <div class="add-favourite container">
-  <h1>Add to favourite</h1>
+  <h2>Add to favourite</h2>
   <% if @favourite_already_created %>
-    <h2>You have already added this country to your favourites!</h2>
+    <h3>You have already added this country to your favourites.</h3>
     <h3>Update your favourites instead?</h3>
   <% else %>
     <%= render "shared/favourite_form", country: @country, favourite: @favourite %>

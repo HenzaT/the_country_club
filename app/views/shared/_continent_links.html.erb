@@ -1,38 +1,26 @@
-<button class="dropdown-btn nav-link" data-navbar-target="downArrow" data-action="click->navbar#toggleDropdownMenu">
-  <i class="fa-solid fa-angle-down icon" alt="arrow pointing down" id="down-arrow"></i>
-  <p>Continents</p>
-</button>
-<div class="dropdown-container" data-navbar-target="dropdownMenu">
+<div class="continent-links">
   <%= link_to continent_path("Africa"), class: "nav-link" do %>
-    <i class="fa-solid fa-earth-africa icon" alt="Africa on globe"></i>
     <p>Africa</p>
   <% end %>
   <%= link_to continent_path("Asia"), class: "nav-link" do %>
-    <i class="fa-solid fa-earth-asia icon" alt="Asia on globe"></i>
     <p>Asia</p>
   <% end %>
   <%= link_to continent_path("Europe"), class: "nav-link" do %>
-    <i class="fa-solid fa-earth-europe icon" alt="Europe on globe"></i>
     <p>Europe</p>
   <% end %>
   <%= link_to continent_path("Oceania"), class: "nav-link" do %>
-    <i class="fa-solid fa-earth-oceania icon" alt="Oceania on globe"></i>
     <p>Oceania</p>
   <% end %>
   <%= link_to region_path("North America"), class: "nav-link" do %>
-    <i class="fa-solid fa-earth-americas icon" alt="Americas on globe"></i>
     <p>North America</p>
   <% end %>
   <%= link_to region_path("Central America"), class: "nav-link" do %>
-    <i class="fa-solid fa-earth-americas icon" alt="Americas on globe"></i>
     <p>Central America</p>
   <% end %>
   <%= link_to region_path("South America"), class: "nav-link" do %>
-    <i class="fa-solid fa-earth-americas icon" alt="Americas on globe"></i>
     <p>South America</p>
   <% end %>
   <%= link_to region_path("Caribbean"), class: "nav-link" do %>
-    <i class="fa-solid fa-earth-americas icon" alt="Americas on globe"></i>
     <p>Caribbean</p>
   <% end %>
 </div>

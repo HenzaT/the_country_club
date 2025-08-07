@@ -40,40 +40,40 @@
 
 html, body {
   height: 100%;
-  background-color: vars.$light;
+  background-color: vars.$dark;
+  color: vars.$light;
   overflow-y: auto;
 }
 
 h1 {
-  font-family: "Lexend", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-}
-
-h2 {
-  font-family: "Lexend", sans-serif;
+  font-family: "Playfair Display", serif;
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
 }
 
-h3 {
-  font-family: "Lexend", sans-serif;
+h2 {
+  font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
+  font-style: normal;
+}
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
   font-style: normal;
 }
 
 p, li, button, .ai-text, form {
-  font-family: "Lexend", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 300;
   font-style: normal;
 }
 
-.page-header {
-  font-size: 4rem;
-  margin-bottom: 30px;
-  text-align: center;
+a {
+  text-decoration: none;
+  color: white;
 }

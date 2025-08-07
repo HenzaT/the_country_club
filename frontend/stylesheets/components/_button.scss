@@ -1,18 +1,23 @@
 @use '../variables/variables' as vars;
 
 .submit-button, #show-ai-button, #show-season-button {
-  background: vars.$orange;
+  background: transparent;
   color: vars.$light;
   font-size: 1rem;
   border-radius: 20px;
-  border: none;
+  border: 0.5px solid vars.$orange;
   box-shadow: vars.$card-lightest-shadow;
   padding: 10px;
   margin: auto;
   margin-top: 10px;
   width: 30%;
   cursor: pointer;
-  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+
+  &:hover {
+    color: vars.$orange;
+    transform: translateY(-3px);
+  }
 }
 
 #show-ai-button, #show-season-button {
@@ -23,10 +28,6 @@
   cursor: not-allowed;
   background-color: vars.$light;
   color: vars.$dark;
-}
-
-.submit-button:hover, #show-ai-button:hover, .continent-button:hover {
-  background: vars.$selected-orange;
 }
 
 #show-ai-button:disabled:hover, .continent-button:disabled:hover {

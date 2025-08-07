@@ -1,24 +1,31 @@
 <div class="home container">
   <section class="banner" id="seven-continents">
-    <h1 class="page-header">Welcome to The Country Club</h1>
-    <h1 class="choose-header">Choose a continent or region</h1>
-    <div class="button-group">
-      <div class="button-group-top">
-        <%= render "button_to_continent", area: "Africa" %>
-        <%= render "button_to_continent", area: "Asia" %>
-        <%= render "button_to_continent", area: "Europe" %>
-        <%= render "button_to_continent", area: "Oceania" %>
+    <% if @photo %>
+      <div class="country-banner">
+        <%= image_tag(@photo.image_url, alt: "#{@photo.image_alt}", class: "banner-image") %>
+        <h1 class="page-header">The Country Club.</h1>
+        <div class="banner-image-attributions">
+          <p><%= @photo.country.name %></p>
+          <p>
+            Photo by
+            <%= link_to @photo.photographer_name,
+                "#{@photo.photographer_url}?utm_source=the_country_club&utm_medium=referral",
+                target: '_blank',
+                rel: 'noopener',
+                class: "photographer-link" %>
+            on
+            <%= link_to 'Unsplash',
+                'https://unsplash.com/?utm_source=the_country_club&utm_medium=referral',
+                target: '_blank',
+                rel: 'noopener',
+                class: "photographer-link" %>
+          </p>
+        </div>
       </div>
-      <div class="button-group-bottom">
-        <%= render "button_to_region", area: "North America" %>
-        <%= render "button_to_region", area: "Central America" %>
-        <%= render "button_to_region", area: "South America" %>
-        <%= render "button_to_region", area: "Caribbean" %>
-      </div>
-    </div>
+    <% end %>
   </section>
 
-  <section class="explanation">
+  <%# <section class="explanation">
     <h1 class="section-title">Country Club Rules</h1>
     <h3>Here are some tips to help you navigate</h3>
     <div class="explanation-list">
@@ -29,7 +36,7 @@
         <li>Head to the Member's Area to see your wishlists and favourites.</li>
       </ol>
     </div>
-  </section>
+  </section> %>
 
   <footer>
     <p>

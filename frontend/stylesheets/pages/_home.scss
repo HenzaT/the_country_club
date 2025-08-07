@@ -9,22 +9,21 @@
   // background-repeat: no-repeat;
   // background-size: cover;
   // height: 100vh;
-  padding-top: 30px;
+}
 
-  // h1, h3, ol, li, p {
-  //   color: vars.$light;
-  // }
+.page-header {
+  font-size: 8rem;
+  white-space: nowrap;
+  margin-bottom: 30px;
+  text-align: center;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 section.banner, section.explanation {
   color: vars.$light;
-  border: 0.3px solid vars.$light;
-  border-radius: 20px;
-  background-color: rgba(80, 38, 10, 0.726);
-  backdrop-filter: blur(5px);
-  box-shadow: vars.$card-heavy-shadow;
-  padding: 20px;
-  margin: 0 30px 30px 30px;
 }
 
 section.explanation {
