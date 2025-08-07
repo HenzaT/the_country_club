@@ -1,5 +1,5 @@
 ## (In Progress) The Country Club - facts about countries and travel tracker
-This is a self-directed project. NOTE: this is not yet responsive and it is built for a desktop screen. Once I have built out the features more, I will be implementing responsive CSS styling.
+This is a self-directed project.
 I love travelling and learning geography facts, and so I wanted to create a space where the two come together. This is an ongoing project, and I plan to use it as an opportunity to practise some new technologies:
 - TypeScript (in Rails)
 - MySQL
@@ -23,6 +23,7 @@ For this app, I wanted to:
 - PostgreSQL (deployment)
 - Git
 - Github
+- Postman (for API endpoint testing)
 
 ### APIs used 
 - REST Countries API
@@ -34,9 +35,14 @@ For this app, I wanted to:
 
 ## Login
 You can log in using thse details:
-- username: tester@testing.com
-- password: password
-
+username: 
+```
+tester@testing.com
+```
+password:
+```
+password
+```
 
 ## Process
 I started with: 
@@ -61,9 +67,21 @@ I then created a seed file to populate my database. The countries would be saved
 
 Something I really wanted to use in this project was the Unsplash API. I wanted an easy way to show a high quality image for each individual country, that was also free to use. After registering my project with Unsplash, I utilised Postman to access and test the output of my requests (which was the top photo of specific country). The Unsplash API is very easy to use and the documentation is very clear. After ensuring I had attributed the photos correctly when displayed, I used the photos from Unsplash as my page banners for the region, continent and country pages. To improve performance with the API, I created a new CountryPhoto model and saved each photo into the database. I did this as the photos used for each country are not going to change (for example, the photo that is displayed for Japan will always be that specific photo). This saved me from having to make countless calls to the API. 
 
-I also used the Open Exchange API to allow users to compare currency rates. As I'm using the free tier, the base currency is set to USD. 
+I also used the Open Exchange API to allow users to compare currency rates. As I'm using the free tier, the base currency is set to USD. Using my countries controller however, I did some maths to convert the base currency from USD to GBP. 
+```
+def currency_exchange_usd(country)
+    currency_code = country.currency_code
+    url = "https://openexchangerates.org/api/latest.json?app_id=#{ENV.fetch('OPEN_EXCHANGE_APP_ID')}"
+    currency_json = URI.parse(url).read
+    all_currencies = JSON.parse(currency_json)
+    base_country_rate = all_currencies['rates']["#{currency_code}"] || 'Not Found'
+    uk_rate = all_currencies['rates']['GBP']
+    country_rate = base_country_rate / uk_rate
+    @country_rate = country_rate.round(3)
+  end
+```
 
-Another API I implemented was the Claude AI API from Anthropic. I'd come across this API during a Scrimba React course, and really enjoyed the way it was implemented and the ease of setting it up. I've also had experience with the OpenAI API in a previous project, but utlimately decided to go with Anthropic. I used the Claude Ruby gem, and then followed the documentation by setting up an AiAgent class, which allowed new instances of the Claude API to be created.
+Another API I used was the Claude AI API from Anthropic. I'd come across this API during a Scrimba React course, and really enjoyed the way it was implemented and the ease of setting it up. I've also had experience with the OpenAI API in a previous project, but utlimately decided to go with Anthropic. I used the Claude Ruby gem, and then followed the documentation by setting up an AiAgent class, which allowed new instances of the Claude API to be created.
  
 ## Reflections
 Before starting, I debated whether to build a project entirely with new technologies, like React.js, or to stick with familiar tools while introducing a few new ones. Drawing from the concept of the Zone of Proximal Development, which suggests people learn best when challenged just beyond their comfort zone, I chose the latter. This approach let me focus on learning technologies like MySQL without being overwhelmed, since the rest of the stack was familiar.
