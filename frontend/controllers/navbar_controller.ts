@@ -1,25 +1,17 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets: string[] = [ 'sidebar', 'hamburger', 'body', 'downArrow', 'dropdownMenu', 'closeButton', 'section' ]
+  static targets: string[] = [ 'burger', 'lineOne', 'lineTwo', 'lineThree', 'body', 'menu' ]
   declare readonly sectionTarget: HTMLElement
 
-  openSidebar(event: Event): void {
-    event.preventDefault();
-    document.body.classList.add('active');
-    // document.body.style.overflow = 'hidden';
-    this.sectionTarget.classList.add('overlay');
-    this.sectionTarget.classList.add('darken');
-  }
-
-  closeSidebar(): void {
-    document.body.classList.remove('active');
-    // document.body.style.overflow = 'visible';
-    this.sectionTarget.classList.remove('overlay');
-    this.sectionTarget.classList.remove('darken');
-  }
-
-  toggleDropdownMenu(): void {
-    (this.targets.find('dropdownMenu') as HTMLElement)?.classList.toggle('open');
+  toggleNav(): void {
+    const menu = (this.targets.find('menu') as HTMLElement)
+    const lineOne = (this.targets.find('lineOne') as HTMLElement)
+    const lineTwo = (this.targets.find('lineTwo') as HTMLElement)
+    const lineThree = (this.targets.find('lineThree') as HTMLElement)
+    lineOne?.classList.add('clicked');
+    lineTwo?.classList.add('clicked');
+    lineThree?.classList.add('clicked');
+    menu?.classList.add('fade-into');
   }
 }
