@@ -6,7 +6,7 @@ class RegionsController < ApplicationController
   def show
     @continent_region = params[:id]
     @countries = Country.where(region: @continent_region)
-    random_unsplash_photo
+    random_unsplash_photo(@countries)
     mapbox_markers
   end
 end

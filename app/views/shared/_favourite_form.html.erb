@@ -1,5 +1,5 @@
 <%= simple_form_for [country, favourite], class: "form" do |f| %>
-  <%= f.input :rating, label: "How much did you like this country?", class: "rating" %>
+  <%= f.input :rating, collection: 0..5, label: "How much did you like this country?", class: "rating" %>
   <%= f.input :note, label: "Any notes?", class: "note" %>
   <%= f.input :visit_date,
               label: "I last visited on...",

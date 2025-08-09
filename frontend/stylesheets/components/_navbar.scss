@@ -101,6 +101,15 @@
   #nav-user-icon {
     font-size: 2rem;
   }
+
+  .dividing-line {
+    display: block;
+    background-color: vars.$light;
+    height: 2px;
+    width: 15%;
+    margin-bottom: 30px;
+    border-radius: 5px;
+  }
 }
 
 .topnav {
@@ -111,7 +120,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 30px;
+  padding: 0 0 0 30px;
 
   .nav-welcome {
     text-align: center;
@@ -129,17 +138,83 @@
   .continent-links {
     width: 80%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+  }
+
+  li {
+    list-style: none;
   }
 
   .nav-right {
     display: flex;
+    padding-right: 30px;
   }
 
   .nav-link {
     transition: color 0.2s ease-in-out;
   }
+
+  .down-menu {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    transform: rotate(90deg);
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .down-menu.close {
+    transform: rotate(270deg);
+  }
+
+  .left-line, .right-line {
+    display: block;
+    background-color: vars.$light;
+    height: 4px;
+    width: 100%;
+    border-radius: 5px;
+  }
+
+  .left-line {
+    width: 60%;
+    margin-bottom: 10px;
+    transform: rotate(45deg);
+  }
+
+  .right-line {
+    width: 60%;
+    transform: rotate(-45deg)
+  }
+
+  .options-overlay {
+    display: flex;
+    justify-content: space-evenly;
+    width: 20%;
+    // visibility: hidden;
+    // opacity: 0;
+    // position: fixed;
+    // padding-right: 20px;
+    // top: 60px;
+    // right: 0;
+    // width: 15vw;
+    // height: 40vh;
+    // border-radius: 0 0 0 10px;
+    // background-color: vars.$dark;
+    // z-index: 1000;
+    // transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  // .options-overlay.fade-into {
+  //   visibility: visible;
+  //   opacity: 1;
+  //   pointer-events: auto;
+  // }
 }
+
 
 .nav-link:hover {
   color: vars.$orange;
@@ -181,7 +256,7 @@
   .navbar-mobile {
     display: none;
   }
-  
+
   .topnav {
     display: flex;
   }

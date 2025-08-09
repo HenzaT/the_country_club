@@ -1,9 +1,8 @@
 <% if photo %>
   <div class="country-banner">
     <%= image_tag(photo.image_url, alt: "#{photo.image_alt}", class: "banner-image") %>
-    <div class="banner-image-country-name">
-      <h1><%= continent_or_region %></h1>
-    </div>
+    <h1 class="page-header"><%= continent_or_region %></h1>
+
 
     <div class="banner-image-attributions">
       <p><%= photo.country.name %></p>

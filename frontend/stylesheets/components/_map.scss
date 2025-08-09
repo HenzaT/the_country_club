@@ -10,6 +10,7 @@
 .mapbox-continent-region {
   width: 60%;
   height: 400px;
+  margin: 60px auto;
 }
 
 .mapbox-country {
@@ -28,10 +29,10 @@
 .mapboxgl-popup-content {
   text-align: center;
   font-family: "Open Sans", sans-serif;
-  background: vars.$orange;
+  background: white;
 
   a {
-    color: vars.$light;
+    color: vars.$dark;
     text-decoration: none;
   }
 }

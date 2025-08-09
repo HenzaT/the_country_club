@@ -6,10 +6,10 @@ module RandomPhoto
 
     private
 
-    def random_unsplash_photo
+    def random_unsplash_photo(countries)
       random_photos = []
 
-      @countries.each do |country|
+      countries.each do |country|
         random_photos << CountryPhoto.where(country_id: country.id)
       end
       @random_photo = random_photos.sample.first

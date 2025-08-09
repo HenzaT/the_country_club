@@ -5,9 +5,9 @@ form {
   display: flex;
   flex-direction: column;
 
-  input {
+  input, textarea, select {
     font-size: 1rem;
-    margin: 10px;
+    margin: 10px 10px 30px 10px;
     padding: 8px;
   }
 
@@ -26,7 +26,8 @@ form {
   }
 }
 
-.add-wishlist, .add-favourite > h1, .form-header {
+.add-wishlist, .add-favourite, .form-header {
+  margin-top: 30px;
   text-align: center;
 }
 

@@ -48,6 +48,11 @@
     color: vars.$light;
     font-size: 2rem;
     padding: 20px;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: translateY(-3px);
+    }
   }
 
   .banner-image-attributions {
@@ -62,9 +67,9 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1700px) {
   .banner-image-country-name > h1 {
-    font-size: 4rem;
+    font-size: 5.5rem;
     text-align: center;
     text-wrap: balance;
   }

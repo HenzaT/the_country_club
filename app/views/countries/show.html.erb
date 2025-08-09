@@ -136,9 +136,7 @@
 
       <div class="country-card-info">
         <div class="show-card-title">
-          <i class="fa-solid fa-location-dot icon" alt="locator icon"></i>
           <h3>Capital City</h3>
-          <i class="fa-solid fa-building icon" alt="building icon"></i>
         </div>
         <p><%= @country.capital %></p>
         <div class="mapbox-country"
@@ -150,9 +148,7 @@
 
       <div class="country-card-info">
         <div class="show-card-title">
-          <i class="fa-solid fa-language icon" alt="language icon"></i>
           <h3>Languages</h3>
-          <i class="fa-solid fa-comment icon" alt="speech bubble icon"></i>
         </div>
         <p>Main Language: <%= @country.language_one %></p>
         <p>Other Languages:</p>
@@ -166,14 +162,9 @@
 
       <div class="country-card-info">
         <div class="show-card-title">
-          <i class="fa-solid fa-person icon" alt="person icon"></i>
           <h3>Population</h3>
-          <i class="fa-solid fa-person icon" alt="person icon"></i>
         </div>
-        <p><%= @country.population %></p>
-        <%# <div class="people-icons">
-          <%= population_people(@country) %>
-        <%# </div> %>
+        <p><%= number_with_delimiter(@country.population, :delimiter => ',') %></p>
         <%# <p>
           <i class="fa-solid fa-person" alt="person icon"></i> = 1 million (or less)
         </p> %>
@@ -181,9 +172,7 @@
 
       <div class="country-card-info" data-controller="currency">
         <div class="show-card-title">
-          <i class="fa-solid fa-coins icon" alt="coins icon"></i>
           <h3>Currency</h3>
-          <i class="fa-solid fa-wallet icon" alt="wallet icon"></i>
         </div>
         <p><%= "#{@country.currency} (#{@country.currency_code} / #{@country.currency_symbol})" %></p>
         <p>1 GBP = <%= "#{@country_rate} #{@country.currency_code}" %></p>
@@ -209,7 +198,7 @@
     </div>
     <div class="favourite-card">
       <%= link_to edit_country_favourite_path(@country), class: "list-link" do %>
-        <i class="fa-solid fa-heart" alt="solid heart icon"></i>
+        <i class="fa-solid fa-heart icon" alt="solid heart icon"></i>
       <% end %>
       <%= render "delete_favourite", country: @country %>
       <%= render "shared/favourite_info", country: @country, favourites: @user_favourites %>
@@ -225,7 +214,7 @@
     </div>
     <div class="favourite-card">
       <%= link_to new_country_favourite_path(@country), class: "list-link" do %>
-        <i class="fa-regular fa-heart" alt="empty heart icon"></i>
+        <i class="fa-regular fa-heart icon" alt="empty heart icon"></i>
         <p>Add this country to your favourites if you've been here before.</p>
       <% end %>
     </div>
@@ -254,7 +243,7 @@
     </div>
     <div class="favourite-card">
       <%= link_to new_country_favourite_path(@country), class: "list-link" do %>
-        <i class="fa-regular fa-heart" alt="empty heart icon"></i>
+        <i class="fa-regular fa-heart icon" alt="empty heart icon"></i>
         <p>Add this country to your favourites if you've been here before.</p>
       <% end %>
     </div>

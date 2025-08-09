@@ -6,12 +6,18 @@
       <% end %>
     </div>
     <%= render "shared/continent_links" %>
-    <%= link_to dashboard_path, class: "nav-link" do %>
-      <p>Member's Area</p>
-    <% end %>
-    <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" do %>
-      <p>Logout</p>
-    <% end %>
+    <%# <div class="down-menu" data-navbar-target="downMenu" data-action="click->navbar#toggleOptionsOverlay">
+      <span class="left-line"></span>
+      <span class="right-line"></span>
+    </div> %>
+    <div class="options-overlay" data-navbar-target="optionsOverlay">
+      <%= link_to dashboard_path, class: "nav-link" do %>
+        <p>Member's Area</p>
+      <% end %>
+      <%= link_to destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" do %>
+        <p>Logout</p>
+      <% end %>
+    </div>
   <% else %>
     <div class="nav-welcome">
       <%= link_to root_path, class: "nav-link active" do %>

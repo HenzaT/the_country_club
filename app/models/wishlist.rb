@@ -1,5 +1,5 @@
 class Wishlist < ApplicationRecord
-  belongs_to :country, dependent: :destroy
+  belongs_to :country
   belongs_to :user, dependent: :destroy
   validates :user_id, uniqueness: { scope: :country_id }
   validates :desire_rating, presence: true

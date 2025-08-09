@@ -1,26 +1,10 @@
 <div class="continent-links">
-  <%= link_to continent_path("Africa"), class: "nav-link" do %>
-    <p>Africa</p>
-  <% end %>
-  <%= link_to continent_path("Asia"), class: "nav-link" do %>
-    <p>Asia</p>
-  <% end %>
-  <%= link_to continent_path("Europe"), class: "nav-link" do %>
-    <p>Europe</p>
-  <% end %>
-  <%= link_to continent_path("Oceania"), class: "nav-link" do %>
-    <p>Oceania</p>
-  <% end %>
-  <%= link_to region_path("North America"), class: "nav-link" do %>
-    <p>North America</p>
-  <% end %>
-  <%= link_to region_path("Central America"), class: "nav-link" do %>
-    <p>Central America</p>
-  <% end %>
-  <%= link_to region_path("South America"), class: "nav-link" do %>
-    <p>South America</p>
-  <% end %>
-  <%= link_to region_path("Caribbean"), class: "nav-link" do %>
-    <p>Caribbean</p>
-  <% end %>
+  <li><%= link_to "Africa", continent_path("Africa"), class: "nav-link" %></li>
+  <li><%= link_to "Asia", continent_path("Asia"), class: "nav-link" %></li>
+  <li><%= link_to "Europe", continent_path("Europe"), class: "nav-link" %></li>
+  <li><%= link_to "Oceania", continent_path("Oceania"), class: "nav-link" %></li>
+  <li><%= link_to "N. America", region_path("North America"), class: "nav-link" %></li>
+  <li><%= link_to "C. America", region_path("Central America"), class: "nav-link" %></li>
+  <li><%= link_to "S. America", region_path("South America"), class: "nav-link" %></li>
+  <li><%= link_to "Caribbean", region_path("Caribbean"), class: "nav-link" %></li>
 </div>
