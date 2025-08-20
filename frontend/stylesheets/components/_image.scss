@@ -9,7 +9,7 @@
   .banner-image {
     width: 100%;
     max-width: 100%;
-    height: 100vh;
+    height: 90vh;
     object-fit: cover;
     display: block;
     background-size: cover;
@@ -65,6 +65,15 @@
   .photographer-link {
     color: vars.$light;
   }
+}
+
+.down-arrow {
+  font-size: 3rem;
+  position: absolute;
+  top: 92%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
 }
 
 @media (max-width: 1700px) {

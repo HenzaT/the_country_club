@@ -150,7 +150,7 @@
         <div class="show-card-title">
           <h3>Languages</h3>
         </div>
-        <p>Main Language: <%= @country.language_one %></p>
+        <p><%= @country.language_one %></p>
         <p>Other Languages:</p>
         <% if @country.language_two && @country.language_three == "None" %>
           <p><%= @country.language_two %></p>
@@ -176,10 +176,9 @@
         </div>
         <p><%= "#{@country.currency} (#{@country.currency_code} / #{@country.currency_symbol})" %></p>
         <p>1 GBP = <%= "#{@country_rate} #{@country.currency_code}" %></p>
-        <form>
-          <input type="text">
-          <input type="submit">
-        </form>
+        <div class="user-input">
+          <input type="text"> GBP = 
+        </div>
         <p>Rates are updated hourly</p>
       </div>
 

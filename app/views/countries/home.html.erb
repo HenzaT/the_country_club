@@ -1,4 +1,4 @@
-<div class="home container">
+<div class="home container" data-controller="scroll">
   <section class="banner" id="seven-continents">
     <% if @photo %>
       <div class="country-banner">
@@ -21,8 +21,69 @@
                 class: "photographer-link" %>
           </p>
         </div>
+        <i
+          class="fa-solid fa-chevron-down down-arrow fa-bounce"
+          style="--fa-bounce-start-scale-x: 1;
+                --fa-bounce-height: 10px;
+                --fa-bounce-start-scale-y: 1;
+                --fa-bounce-jump-scale-x: 1;
+                --fa-bounce-jump-scale-y: 1;
+                --fa-bounce-land-scale-x: 1;
+                --fa-bounce-land-scale-y: 1;
+                --fa-bounce-rebound: 0;
+                --fa-animation-duration: 2s;"
+          data-action="click->scroll#scrollToFirstSection">
+        </i>
       </div>
     <% end %>
+  </section>
+
+  <section class="home-info">
+    <div class="top-info-box" data-scroll-target="firstSection">
+      <h2 id="home-info-header">A travel tracker. <br> For the curious traveller.</h2>
+      <p class="home-info-text">
+        As someone who loves travelling and going down geography rabbit holes on Wikipedia, I built this app to
+        merge these two interests together. <br>
+        Have your favourite countries and countries you want to visit all in one place. <br>
+        Be inspired by beautiful photos,
+        courtesy of <a href="https://unsplash.com/?utm_source=the_country_club&utm_medium=referral" target="_blank">Unsplash</a>,
+        and learn more about each country. <br>
+        Get suggestions from <a href="https://www.anthropic.com/claude">Claude</a> for activities and recommendations
+        for the best time to visit. <br>
+        <% if !user_signed_in? %>
+          <%= button_to "Join the Club", new_user_registration_path, :method => "get", class: "join-button" %>
+        <% end %>
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>Where Next?</h3>
+      <div class="info-box-text">
+        <p>Discover your next holiday destination. Choose a country and add it to your wishlist.</p>
+      </div>
+    </div>
+    <div class="info-box">
+      <h3>Relive It.</h3>
+      <div class="info-box-text">
+        <p>Revisit your favourite countries by adding a country to your favourites.</p>
+        <p>You can even upload any photos from your trip.</p>
+        <%= link_to %>
+      </div>
+    </div>
+    <div class="info-box">
+      <h3>Be Curious.</h3>
+      <div class="info-box-text">
+        <p>Learn more about a particular country, as each country page has useful facts and figures.</p>
+      </div>
+    </div>
+    <div class="info-box">
+      <div class="info-box-inner">
+        <h3>Be Prepared.</h3>
+        <p class="info-box-text">Use my other app to get the weather and some activity suggestions for a city you're visiting.</p>
+        <%= image_tag("/images/react-weather.gif", alt: "React Weather app gif", class: "home-page-gif") %>
+        <%= link_to "Visit React Weather", "https://react-weather-claude-app-af1fc23c96a1.herokuapp.com/", target: "_blank" %>
+      </div>
+    </div>
   </section>
 
   <%# <section class="explanation">

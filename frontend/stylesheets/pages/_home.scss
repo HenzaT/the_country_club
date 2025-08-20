@@ -27,6 +27,67 @@ section.explanation {
   text-align: center;
 }
 
+.home-info {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .top-info-box {
+    border-top: 1px solid vars.$light;
+    border-bottom: 1px solid vars.$light;
+    padding-top: 30px;
+  }
+
+  #home-info-header {
+    margin: auto;
+    width: 85vw;
+    // text-align: center;
+  }
+
+  .home-info-text {
+    width: 85vw;
+    margin: 30px auto;
+    line-height: 2;
+  }
+
+  .home-info-text > a {
+    color: vars.$light;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .home-info-text > a:hover {
+    color: vars.$orange;
+  }
+
+  .info-box {
+    color: vars.$light;
+    width: 85vw;
+    height: 50vh;
+    margin: auto;
+    border-radius: 30px;
+    box-shadow: vars.$card-lightest-shadow;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .info-box-inner {
+    padding: 0 30px;
+  }
+
+  .join-button {
+    margin: 0 auto 30px auto;
+    width: 250px;
+  }
+
+  .home-page-gif {
+    width: 95%;
+    height: 50%;
+    margin: auto;
+  }
+}
+
 footer {
   color: vars.$light;
   text-align: center;
