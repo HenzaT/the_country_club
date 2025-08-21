@@ -50,19 +50,22 @@ section.explanation {
     line-height: 2;
   }
 
-  .home-info-text > a {
-    color: vars.$light;
-    transition: color 0.2s ease-in-out;
+  .home-info-text > a,
+  .info-box-inner > a {
+    color: vars.$orange;
+    text-decoration: underline 0.10em rgba(235, 177, 142, 0);
+    transition: text-decoration-color 0.2s ease-in-out;
   }
 
-  .home-info-text > a:hover {
-    color: vars.$orange;
+  .home-info-text > a:hover,
+  .info-box-inner > a:hover {
+    text-decoration-color: rgba(235, 177, 142, 1);
   }
 
   .info-box {
     color: vars.$light;
-    width: 85vw;
-    height: 50vh;
+    width: 85%;
+    height: 100%;
     margin: auto;
     border-radius: 30px;
     box-shadow: vars.$card-lightest-shadow;
@@ -73,7 +76,12 @@ section.explanation {
   }
 
   .info-box-inner {
-    padding: 0 30px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
   }
 
   .join-button {
@@ -83,14 +91,21 @@ section.explanation {
 
   .home-page-gif {
     width: 95%;
-    height: 50%;
+    height: 70%;
     margin: auto;
   }
+}
+
+.all-info-box-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 30px;
 }
 
 footer {
   color: vars.$light;
   text-align: center;
+  margin: 30px;
 }
 
 // tablet +
@@ -98,6 +113,12 @@ footer {
   .page-header {
     font-size: 8rem;
     white-space: auto;
+  }
+
+  .all-info-box-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 30px;
   }
 }
 
