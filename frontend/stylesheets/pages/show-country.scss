@@ -21,6 +21,7 @@
 .ai-suggestion {
   display: flex;
   justify-content: space-around;
+  margin: 30px 5px 0 5px;
 
   .suggest-claude, .suggest-season {
     display: flex;
@@ -31,16 +32,24 @@
 }
 
 .ai-text {
-  width: 80%;
+  width: 85%;
+  line-height: 1.5;
+
+
+  li {
+    margin: 15px 0;
+  }
+}
+
+.ai-h2 {
+  margin: 0 15px;
+  text-align: center;
 }
 
 @media (max-width: 600px) {
   .ai-suggestion {
     flex-direction: column;
-    margin: 10px;
   }
-
-  .ai-h2 {text-align: center;}
 
   .suggest-season {margin-top: 20px;}
 }

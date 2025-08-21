@@ -4,8 +4,8 @@ require 'open-uri'
 
 class CountriesController < ApplicationController
   include ActionView::Helpers::NumberHelper
-  
-  skip_before_action :authenticate_user!, only: %i[home show]
+
+  skip_before_action :authenticate_user!, only: %i[home show suggest_claude suggest_season]
 
   def home
     @continents = Country.select('continent').group('continent')

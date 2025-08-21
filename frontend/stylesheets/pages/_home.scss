@@ -55,11 +55,10 @@ section.explanation {
     color: vars.$orange;
     text-decoration: underline 0.10em rgba(235, 177, 142, 0);
     transition: text-decoration-color 0.2s ease-in-out;
-  }
 
-  .home-info-text > a:hover,
-  .info-box-inner > a:hover {
-    text-decoration-color: rgba(235, 177, 142, 1);
+    &:hover {
+      text-decoration-color: rgba(235, 177, 142, 1);
+    }
   }
 
   .info-box {
@@ -90,8 +89,9 @@ section.explanation {
   }
 
   .home-page-gif {
-    width: 95%;
+    width: 100%;
     height: 70%;
+    border-radius: 20px;
     margin: auto;
   }
 }

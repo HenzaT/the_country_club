@@ -57,8 +57,8 @@
 
   .banner-image-attributions {
     position: absolute;
-    bottom: 80px;
-    left: 30px;
+    top: 15px;
+    left: 15px;
     color: vars.$light;
   }
 
@@ -70,7 +70,7 @@
 .down-arrow {
   font-size: 3rem;
   position: absolute;
-  top: 92%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
