@@ -21,9 +21,15 @@
   <%# <canvas data-chart-target="areaChart" width=800 height=600 id="area"></canvas> %>
 <%# </div> %>
 
+<div class="continent-region container" data-controller="search">
+  <%= form_with url: region_path(@continent_region), method: :get, local: false, class: "search-form", data: { search_target: :form, turbo: true, remote: false } do |form| %>
+    <%= form.label :query, "Search Countries" %>
+    <%= form.text_field :query, placeholder: "#{@random_country}...", data: { action: "input->search#instantSearch" } %>
+  <% end %>
 
-<div class="continent-region container" data-controller="sorter">
-  <div class="cards" data-sorter-target="areaSpecificCards">
-    <%= render "shared/continent_region_page", countries: @countries %>
-  </div>
+  <%= turbo_frame_tag "countries_results" do %>
+    <div class="cards">
+      <%= render "shared/continent_region_page", countries: @countries %>
+    </div>
+  <% end %>
 </div>
