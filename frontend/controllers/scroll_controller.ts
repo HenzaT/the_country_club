@@ -6,7 +6,7 @@ export default class extends Controller {
   declare readonly firstSectionTarget: HTMLElement
 
   scrollToFirstSection(): void {
-    setTimeout(() => {
+    setTimeout(() => {  
       this.firstSectionTarget.scrollIntoView({ behavior: "smooth" })
     }, 100);
   }

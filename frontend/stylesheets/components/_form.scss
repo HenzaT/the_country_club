@@ -11,19 +11,20 @@ form {
     padding: 8px;
   }
 
-  .wishlist_desire_rating,
-  .wishlist_note,
-  .wishlist_future_visit_date,
-  .favourite_rating,
-  .favourite_note,
-  .favourite_visit_date,
-  .favourite_times_visited,
+  .input,
   .email,
   .password,
   .remember-me {
     display: flex;
     flex-direction: column;
   }
+}
+
+.search-form {
+  width: 60%;
+  margin: auto;
+
+  
 }
 
 .add-wishlist, .add-favourite, .form-header {

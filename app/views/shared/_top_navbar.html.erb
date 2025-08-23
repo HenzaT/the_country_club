@@ -2,7 +2,7 @@
   <% if user_signed_in? %>
     <div class="nav-welcome">
       <%= link_to root_path, class: "nav-link active" do %>
-        <i class="fa-regular fa-map" alt="map icon" id="nav-user-icon"></i>
+        <i class="fa-regular fa-map" alt="map icon" id="nav-map-icon"></i>
       <% end %>
     </div>
     <%= render "shared/continent_links" %>
@@ -21,7 +21,7 @@
   <% else %>
     <div class="nav-welcome">
       <%= link_to root_path, class: "nav-link active" do %>
-        <i class="fa-regular fa-map" alt="map icon" id="nav-user-icon"></i>
+        <i class="fa-regular fa-map" alt="map icon" id="nav-map-icon"></i>
       <% end %>
     </div>
     <%= render "shared/continent_links" %>

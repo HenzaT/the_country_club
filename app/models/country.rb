@@ -1,6 +1,9 @@
 require 'httparty'
 
 class Country < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_by_name, against: [:name, :capital]
+
   has_many :country_photos, dependent: :destroy
   geocoded_by :address
   geocoded_by :capital_address

@@ -53,6 +53,8 @@ gem "geocoder"
 
 gem 'claude-ruby'
 
+gem 'pg_search'
+
 # Devise authentication
 gem "devise"
 # Use Redis adapter to run Action Cable in production

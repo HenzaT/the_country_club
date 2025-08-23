@@ -7,6 +7,7 @@ import DatepickerController from "../controllers/datepicker_controller"
 import NavbarController from "../controllers/navbar_controller"
 import MapController from "../controllers/map_controller"
 import ScrollController from "../controllers/scroll_controller"
+import SearchController from "../controllers/search_controller"
 import SorterController from "../controllers/sorter_controller"
 import { Chart, registerables } from 'chart.js';
 
@@ -23,6 +24,7 @@ application.register("datepicker", DatepickerController)
 application.register("navbar", NavbarController)
 application.register("map", MapController)
 application.register("scroll", ScrollController)
+application.register("search", SearchController)
 application.register("sorter", SorterController)
 
 import '../stylesheets/application.scss'

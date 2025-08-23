@@ -96,12 +96,16 @@
             </p>
             <%= link_to "Visit a random country", country_path(@random_country), class: "web-link" %>
           </div>
-          <%= image_tag("/images/be-curious.gif", alt: "gif showing website navigation of country page", loading: "lazy", class: "home-page-gif right-image") %>
+          <div class="info-box-container right-image">
+            <%= image_tag("/images/be-curious.gif", alt: "gif showing website navigation of country page", class: "home-page-gif") %>
+          </div>
         </div>
       </div>
       <div class="info-box">
         <div class="info-box-inner">
-          <%= image_tag("/images/react-weather.gif", alt: "React Weather app gif", loading: "lazy", class: "home-page-gif left-image") %>
+          <div class="info-box-container left-image">
+            <%= image_tag("/images/react-weather.gif", alt: "React Weather app gif", class: "home-page-gif") %>
+          </div>
           <div class="info-box-text">
             <h2>Be Prepared.</h2>
             <p>
