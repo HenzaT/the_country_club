@@ -9,6 +9,12 @@ class CountriesController < ApplicationController
 
   def home
     @continents = Country.select('continent').group('continent')
+    countries = Country.all
+    ids = []
+    countries.each do |country|
+      ids.push(country.id)
+    end
+    @random_country = ids.sample
     all_photos = CountryPhoto.all
     @photo = all_photos.sample
   end

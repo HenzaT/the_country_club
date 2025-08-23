@@ -51,7 +51,7 @@ section.explanation {
   }
 
   .home-info-text > a,
-  .info-box-inner > a {
+  .info-box-text > a {
     color: vars.$orange;
     text-decoration: underline 0.10em rgba(235, 177, 142, 0);
     transition: text-decoration-color 0.2s ease-in-out;
@@ -63,7 +63,7 @@ section.explanation {
 
   .info-box {
     color: vars.$light;
-    width: 85%;
+    width: 100%;
     height: 100%;
     margin: auto;
     border-radius: 30px;
@@ -83,16 +83,25 @@ section.explanation {
     gap: 15px;
   }
 
+  .info-box-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+
   .join-button {
     margin: 0 auto 30px auto;
     width: 250px;
   }
 
   .home-page-gif {
-    width: 100%;
+    width: 85%;
     height: 70%;
     border-radius: 20px;
     margin: auto;
+    order: 3
   }
 }
 
@@ -100,6 +109,7 @@ section.explanation {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 30px;
+  margin: 0 30px;
 }
 
 footer {
@@ -114,18 +124,36 @@ footer {
     font-size: 8rem;
     white-space: auto;
   }
-
-  .all-info-box-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    margin-bottom: 30px;
-  }
 }
 
 // desktop +
-@media (min-width: 1024px) {
+@media (min-width: 1230px) {
   .page-header {
     font-size: 8rem;
     text-wrap: nowrap;
+  }
+
+  .home-info .info-box {
+    box-shadow: none;
+  }
+
+  .home-info .info-box-inner {
+    flex-direction: row;
+  }
+
+  .home-info .home-page-gif {
+    transform-style: preserve-3d;
+    box-shadow: vars.$card-lightest-shadow;
+  }
+
+  .home-info .left-image {
+    order: 0;
+    margin-left: 30px;
+    transform: perspective(800px) rotateY(8deg);
+  }
+
+  .home-info .right-image {
+    margin-right: 30px;
+    transform: perspective(800px) rotateY(-8deg);
   }
 }

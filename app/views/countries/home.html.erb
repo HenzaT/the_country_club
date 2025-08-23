@@ -59,36 +59,58 @@
     <div class="all-info-box-grid">
       <div class="info-box">
         <div class="info-box-inner">
-          <h3>Where Next?</h3>
           <div class="info-box-text">
-            <p>Discover your next holiday destination. Choose a country and add it to your wishlist.</p>
+          <h2>Where Next?</h2>
+            <p>
+              Discover your next holiday destination. <br>
+              Use AI to get activity suggestions and to find out when the best time to go is. <br>
+              Choose a country and add it to your wishlist. <br>
+              Rank how much you want to visit there. <br>
+            </p>
           </div>
         </div>
       </div>
       <div class="info-box">
         <div class="info-box-inner">
-          <h3>Relive It.</h3>
           <div class="info-box-text">
-            <p>Revisit your favourite countries by adding a country to your favourites.</p>
-            <p>You can even upload any photos from your trip.</p>
+          <h2>Relive It.</h2>
+            <p>
+              Revisit your favourite countries by adding a country to your favourites. <br>
+              Keep track of how many times you've visited, and when. <br>
+              Add any notes about the country. <br>
+              You can even upload any photos from your trip (in development).
+            </p>
             <%# link %>
           </div>
         </div>
       </div>
       <div class="info-box">
         <div class="info-box-inner">
-          <h3>Be Curious.</h3>
           <div class="info-box-text">
-            <p>Learn more about a particular country, as each country page has useful facts and figures.</p>
+            <h2>Be Curious.</h2>
+            <p>
+              Learn more about a particular country, as each country page has useful facts and figures. <br>
+              Find out its capital and where its located. <br>
+              Discover how small or large a country is, in terms of population. <br>
+              Get your travel money organised by using the currency exchange tool (in development).
+            </p>
+            <%= link_to "Visit a random country", country_path(@random_country), class: "web-link" %>
           </div>
+          <%= image_tag("/images/be-curious.gif", alt: "gif showing website navigation of country page", loading: "lazy", class: "home-page-gif right-image") %>
         </div>
       </div>
       <div class="info-box">
         <div class="info-box-inner">
-          <h3>Be Prepared.</h3>
-          <p class="info-box-text">Use my other app to get the weather and some activity suggestions for a city you're visiting.</p>
-          <%= image_tag("/images/react-weather.gif", alt: "React Weather app gif", class: "home-page-gif") %>
-          <%= link_to "Visit React Weather", "https://react-weather-claude-app-af1fc23c96a1.herokuapp.com/", target: "_blank" %>
+          <%= image_tag("/images/react-weather.gif", alt: "React Weather app gif", loading: "lazy", class: "home-page-gif left-image") %>
+          <div class="info-box-text">
+            <h2>Be Prepared.</h2>
+            <p>
+              Use my other app to get the weather and some activity suggestions for a city you're visiting. <br>
+              Search for a city (or even an area of a particular city) so that you're prepared for the day, whatever the weather may be. <br>
+              If you're stuck for ideas, use AI to get some activity suggestions that are weather-appropriate.
+            </p>
+            <%= link_to "Visit React Weather", "https://react-weather-claude-app-af1fc23c96a1.herokuapp.com/", target: "_blank", class: "web-link" %>
+          </div>
         </div>
       </div>
     </div>
