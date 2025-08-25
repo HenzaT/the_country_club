@@ -1,3 +1,16 @@
 .continent-region {
   margin: 30px;
 }
+
+.map-and-cards {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+// tablet +
+@media (min-width: 1000px) {
+  .map-and-cards {
+    flex-direction: row;
+  }
+}

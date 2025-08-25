@@ -8,6 +8,10 @@ class ContinentsController < ApplicationController
     @continent = params[:id]
     continent_countries = Country.where(continent: @continent)
     @countries = search_for_country(continent_countries)
+    respond_to do |format|
+      format.html
+      format.turbo_stream { render partial: "continent_region_page", locals: { countries: @countries } }
+    end
     names = []
     continent_countries.each do |country|
       names.push(country.name)

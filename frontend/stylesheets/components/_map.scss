@@ -3,14 +3,14 @@
 .mapbox-continent-region, .mapbox-country {
   border-radius: 20px;
   box-shadow: vars.$card-lightest-shadow;
-  margin: 15px;
   object-fit: cover;
 }
 
 .mapbox-continent-region {
-  width: 85%;
+  width: 40vw;
   height: 400px;
-  margin: 60px auto;
+  position: sticky;
+  top: 0;
 }
 
 .mapbox-country {
