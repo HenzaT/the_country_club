@@ -4,6 +4,7 @@ import ClaudeController from "../controllers/claude_controller"
 import ClockController from "../controllers/clock_controller"
 import CurrencyController from "../controllers/currency_controller"
 import DatepickerController from "../controllers/datepicker_controller"
+import ImageController from "../controllers/image_controller"
 import NavbarController from "../controllers/navbar_controller"
 import MapController from "../controllers/map_controller"
 import ScrollController from "../controllers/scroll_controller"
@@ -21,6 +22,7 @@ application.register("claude", ClaudeController)
 application.register("clock", ClockController)
 application.register("currency", CurrencyController)
 application.register("datepicker", DatepickerController)
+application.register("image", ImageController)
 application.register("navbar", NavbarController)
 application.register("map", MapController)
 application.register("scroll", ScrollController)

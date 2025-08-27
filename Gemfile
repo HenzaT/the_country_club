@@ -40,6 +40,8 @@ gem "sassc-rails"
 # httparty for api calls
 gem 'httparty'
 
+gem "cloudinary"
+
 # env secret
 gem "dotenv-rails"
 

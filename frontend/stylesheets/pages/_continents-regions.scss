@@ -3,9 +3,14 @@
 }
 
 .map-and-cards {
-  margin: 30px;
   display: flex;
   flex-direction: column;
+  margin: 30px auto;
+}
+
+.info-explanation {
+  width: 100%;
+  text-align: center;
 }
 
 // tablet +

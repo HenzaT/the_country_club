@@ -9,6 +9,7 @@ class Country < ApplicationRecord
   geocoded_by :capital_address
   after_validation :geocode, if: ->(obj) { obj.address.present? && obj.capital_address.present? }
   has_one :country_photo
+  has_many_attached :photos
   has_many :favourites
   has_many :wishlists
   has_many :fans, through: :favourites, source: :user

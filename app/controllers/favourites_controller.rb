@@ -42,8 +42,8 @@ end
 private
 
 def favourite_params
-  params.require(:favourite).permit(:visit_date, :note, :rating, :times_visited)
-end
+  params.require(:favourite).permit(:visit_date, :note, :rating, :times_visited, photos: [])
+end     
 
 def set_country
   @country = Country.find(params[:country_id])

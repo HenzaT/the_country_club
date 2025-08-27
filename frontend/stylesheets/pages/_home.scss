@@ -115,7 +115,7 @@ section.explanation {
 .all-info-box-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: 60px;
+  gap: 30px;
   margin: 0 30px;
 }
 
@@ -175,10 +175,20 @@ footer {
     order: 0;
     margin-left: 30px;
     transform: perspective(800px) rotateY(8deg);
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .home-info .left-image:hover {
+    transform: perspective(800px) rotateY(12deg);
   }
 
   .home-info .right-image {
     margin-right: 30px;
     transform: perspective(800px) rotateY(-8deg);
+    transition: transform 0.4s ease-in-out;
+  }
+
+  .home-info .right-image:hover {
+    transform: perspective(800px) rotateY(-12deg);
   }
 }
