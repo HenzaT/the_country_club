@@ -2,9 +2,11 @@
 
 .cards {
   display: grid;
+  justify-content: center;
   align-items: center;
   grid-template-columns: repeat(1, 1fr);
   gap: 30px;
+  margin: 30px auto;
 }
 
 .country-link-card {
@@ -74,7 +76,7 @@
 }
 
 .wishlist-card, .favourite-card {
-  width: 25%;
+  width: 60vw;
   text-align: center;
 }
 
@@ -98,7 +100,7 @@
 
 .wishlist-favourite-cards {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
 }
 
 .large-icon {
@@ -136,5 +138,9 @@
 @media (min-width: 1230px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wishlist-favourite-cards {
+    flex-direction: row;
   }
 }

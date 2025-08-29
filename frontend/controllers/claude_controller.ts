@@ -1,6 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
+  static targets: string[] = [ ('aiText' as const), ('seasonalText' as const), 'askClaudeButton', 'seasonalButton' ]
   static values = {
     suggestClaudeUrl: String,
     suggestSeasonUrl: String

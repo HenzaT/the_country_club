@@ -7,5 +7,6 @@
               as: :string,
               input_html: { data: { controller: "datepicker" } } %>
   <%= f.input :times_visited, label: "How many times have you visited this country?", class: "visit-number" %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.button :submit, class: "submit-button" %>
 <% end %>

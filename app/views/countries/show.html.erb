@@ -185,6 +185,17 @@
     </div>
   </div>
 
+  <div class="favourite-photos">
+  <% if user_signed_in? && @favourite_already_created %>
+    <h2>Here are your photos from your trip</h2>
+    <% @favourite.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+    <% end %>
+  <% else %>
+    <h2>Add a country to your favourites to add any photos from your trip</h2>
+  <% end %>
+  </div>
+
   <div class="wishlist-favourite-cards">
     <% case %>
     <% when @wishlist_already_created && @favourite_already_created %>
@@ -229,8 +240,8 @@
       <%= link_to edit_country_favourite_path(@country), class: "list-link" do %>
         <i class="fa-solid fa-heart icon" alt="solid heart icon"></i>
       <% end %>
-      <%= render "delete_favourite", country: @country %>
       <%= render "shared/favourite_info", country: @country, favourites: @user_favourites %>
+      <%= render "delete_favourite", country: @country %>
     </div>
 
     <% else %>
