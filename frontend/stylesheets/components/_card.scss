@@ -78,6 +78,8 @@
 .wishlist-card, .favourite-card {
   width: 60vw;
   text-align: center;
+  margin: auto;
+  padding: 20px 40px 20px 40px;
 }
 
 .card-country-name {
@@ -101,6 +103,7 @@
 .wishlist-favourite-cards {
   display: flex;
   flex-direction: column;
+  gap: 30px;
 }
 
 .large-icon {

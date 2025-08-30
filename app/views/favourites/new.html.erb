@@ -3,6 +3,7 @@
   <% if @favourite_already_created %>
     <h3>You have already added this country to your favourites.</h3>
     <h3>Update your favourites instead?</h3>
+    <%= render "shared/favourite_form", country: @country, favourite: @favourite %>
   <% else %>
     <%= render "shared/favourite_form", country: @country, favourite: @favourite %>
   <% end %>
