@@ -165,9 +165,7 @@
           <h3>Population</h3>
         </div>
         <p><%= number_with_delimiter(@country.population, :delimiter => ',') %></p>
-        <%# <p>
-          <i class="fa-solid fa-person" alt="person icon"></i> = 1 million (or less)
-        </p> %>
+        <p><%= population_index(@country) %></p>
       </div>
 
       <div class="country-card-info" data-controller="currency">
@@ -175,11 +173,19 @@
           <h3>Currency</h3>
         </div>
         <p><%= "#{@country.currency} (#{@country.currency_code} / #{@country.currency_symbol})" %></p>
-        <p>1 GBP = <%= "#{@country_rate} #{@country.currency_code}" %></p>
         <div class="user-input">
-          <input type="text"> GBP =
+          <input type="text" placeholder="1" id="currency-input"> GBP = <%= "#{@country_rate} #{@country.currency_code}" %>
         </div>
+        <p>(1 GBP = <%= "#{@country_rate} #{@country.currency_code}" %>)</p>
         <p>Rates are updated hourly</p>
+      </div>
+
+      <div class="country-card-info">
+        <div class="show-card-title">
+          <h3>Area</h3>
+        </div>
+        <p><%= number_with_delimiter(@country.area, :delimiter => ',') %> km²</p>
+        <p><%= area_index(@country) %></p>
       </div>
 
     </div>

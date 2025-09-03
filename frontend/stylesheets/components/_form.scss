@@ -24,6 +24,19 @@ form {
   }
 }
 
+.user-input {
+  margin: auto;
+  display: inline-block;
+}
+
+#currency-input {
+  width: 20%;
+  font-size: 1.1rem;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+}
+
 .search-form {
   width: 60%;
   margin: auto;
