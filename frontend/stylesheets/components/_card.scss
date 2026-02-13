@@ -4,7 +4,6 @@
   display: grid;
   justify-content: center;
   align-items: center;
-  grid-template-columns: repeat(1, 1fr);
   gap: 30px;
   margin: 30px auto;
 }
@@ -73,10 +72,10 @@
   border-radius: 30px;
   box-shadow: vars.$card-lightest-shadow;
   padding: 20px;
+  @include vars.flex-row;
 }
 
 .wishlist-card, .favourite-card {
-  width: 60vw;
   text-align: center;
   margin: auto;
   padding: 20px 40px 20px 40px;
@@ -104,6 +103,8 @@
   display: flex;
   flex-direction: column;
   gap: 30px;
+  width: 60vw;
+  margin: 2rem auto;
 }
 
 .large-icon {
@@ -125,7 +126,6 @@
 
 @media (max-width: 600px) {
   .country-link-card {width: 270px;}
-  .country-card-small {width: 270px;}
 
   .country-info {
     text-align: center;
@@ -138,9 +138,13 @@
 }
 
 // tablet +
-@media (min-width: 1230px) {
+@media (min-width: 744px) {
   .cards {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .show-country-cards {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .wishlist-favourite-cards {

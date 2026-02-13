@@ -2,14 +2,16 @@
 
 form {
   margin: 15px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
+  @include vars.flex-col;
+  gap: 0.5rem;
 
   input, textarea, select {
     font-size: 1rem;
-    margin: 10px 0 15px 0;
     padding: 8px;
+  }
+
+  label {
+    text-align: center;
   }
 
   .input,
@@ -38,7 +40,6 @@ form {
 }
 
 .search-form {
-  width: 60%;
   margin: auto;
 }
 
@@ -54,9 +55,7 @@ form {
 }
 
 .login-link {
-  display: flex;
-  flex-direction: column;
+  @include vars.flex-col;
   justify-content: center;
-  align-items: center;
   gap: 15px;
 }

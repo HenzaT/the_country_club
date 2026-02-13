@@ -24,6 +24,11 @@ class Country < ApplicationRecord
   def capital_address
     [capital_latitude, capital_longitude].compact.join(', ')
   end
+
+  def languages
+    languages = []
+    languages.push(language_one, language_two, language_three)
+  end
 end
 
 # create this class so that I don't instantiate new Country instances every time

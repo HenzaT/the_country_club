@@ -1,31 +1,29 @@
 <div class="country-card-small" data-sorter-target="countryCard">
-  <div class="card-content">
-    <div class="card-title">
-      <div class="card-image-box">
-        <%= image_tag(country.flag, alt: country.flag_alt, class: "flag-image") %>
-      </div>
-      <div class="card-country-name">
-        <h2 data-sorter-target="countryName"><%= country.name %></h2>
-      </div>
+  <div class="card-title">
+    <div class="card-image-box">
+      <%= image_tag(country.flag, alt: country.flag_alt, class: "flag-image") %>
     </div>
-    <div class="wishlist-favourite">
-      <% case %>
-      <% when wishlist && favourite %>
-      <i class="fa-solid fa-paper-plane large-icon" alt="solid plane icon"></i>
-      <i class="fa-solid fa-heart large-icon" alt="solid heart icon"></i>
-
-      <% when wishlist %>
-      <i class="fa-solid fa-paper-plane large-icon" alt="solid plane icon"></i>
-      <i class="fa-regular fa-heart large-icon" alt="empty heart icon"></i>
-
-      <% when favourite %>
-      <i class="fa-regular fa-paper-plane large-icon" alt="empty plane icon"></i>
-      <i class="fa-solid fa-heart large-icon" alt="solid heart icon"></i>
-
-      <% else %>
-      <i class="fa-regular fa-paper-plane large-icon" alt="empty plane icon"></i>
-      <i class="fa-regular fa-heart large-icon" alt="empty heart icon"></i>
-      <% end %>
+    <div class="card-country-name">
+      <h2 data-sorter-target="countryName"><%= country.name %></h2>
     </div>
+  </div>
+  <div class="wishlist-favourite">
+    <% case %>
+    <% when wishlist && favourite %>
+    <i class="fa-solid fa-paper-plane large-icon" alt="solid plane icon"></i>
+    <i class="fa-solid fa-heart large-icon" alt="solid heart icon"></i>
+
+    <% when wishlist %>
+    <i class="fa-solid fa-paper-plane large-icon" alt="solid plane icon"></i>
+    <i class="fa-regular fa-heart large-icon" alt="empty heart icon"></i>
+
+    <% when favourite %>
+    <i class="fa-regular fa-paper-plane large-icon" alt="empty plane icon"></i>
+    <i class="fa-solid fa-heart large-icon" alt="solid heart icon"></i>
+
+    <% else %>
+    <i class="fa-regular fa-paper-plane large-icon" alt="empty plane icon"></i>
+    <i class="fa-regular fa-heart large-icon" alt="empty heart icon"></i>
+    <% end %>
   </div>
 </div>

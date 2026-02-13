@@ -135,9 +135,7 @@
       </div> %>
 
       <div class="country-card-info">
-        <div class="show-card-title">
-          <h3>Capital City</h3>
-        </div>
+        <h3>Capital City</h3>
         <p><%= @country.capital %></p>
         <div class="mapbox-country"
           data-controller="map"
@@ -147,31 +145,20 @@
       </div>
 
       <div class="country-card-info">
-        <div class="show-card-title">
-          <h3>Languages</h3>
-        </div>
-        <p><%= @country.language_one %></p>
-        <p>Other Languages:</p>
-        <% if @country.language_two && @country.language_three == "None" %>
-          <p><%= @country.language_two %></p>
-        <% elsif @country.language_three %>
-          <p><%= @country.language_two %></p>
-          <p><%= @country.language_three %></p>
+        <h3 class="show-card-title">Languages</h3>
+        <% @country.languages.each do |language| %>
+          <p><%= language unless language == "None" %></p>
         <% end %>
       </div>
 
       <div class="country-card-info">
-        <div class="show-card-title">
-          <h3>Population</h3>
-        </div>
+        <h3>Population</h3>
         <p><%= number_with_delimiter(@country.population, :delimiter => ',') %></p>
         <p><%= population_index(@country) %></p>
       </div>
 
       <div class="country-card-info" data-controller="currency">
-        <div class="show-card-title">
-          <h3>Currency</h3>
-        </div>
+        <h3>Currency</h3>
         <p><%= "#{@country.currency} (#{@country.currency_code} / #{@country.currency_symbol})" %></p>
         <div class="user-input">
           <input type="text" placeholder="1" id="currency-input"> GBP = <%= "#{@country_rate} #{@country.currency_code}" %>
@@ -181,13 +168,10 @@
       </div>
 
       <div class="country-card-info">
-        <div class="show-card-title">
-          <h3>Area</h3>
-        </div>
+        <h3>Area</h3>
         <p><%= number_with_delimiter(@country.area, :delimiter => ',') %> km²</p>
         <p><%= area_index(@country) %></p>
       </div>
-
     </div>
   </div>
 

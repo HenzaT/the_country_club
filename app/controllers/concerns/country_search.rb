@@ -8,7 +8,7 @@ module CountrySearch
 
     def search_for_country(countries)
       if params[:query].present?
-        countries.where("name ILIKE ?", "%#{params[:query]}%")
+        countries.where('name ILIKE ?', "%#{params[:query]}%")
       else
         countries
       end

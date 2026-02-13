@@ -22,16 +22,7 @@
           </p>
         </div>
         <i
-          class="fa-solid fa-chevron-down down-arrow fa-bounce"
-          style="--fa-bounce-start-scale-x: 1;
-                --fa-bounce-height: 10px;
-                --fa-bounce-start-scale-y: 1;
-                --fa-bounce-jump-scale-x: 1;
-                --fa-bounce-jump-scale-y: 1;
-                --fa-bounce-land-scale-x: 1;
-                --fa-bounce-land-scale-y: 1;
-                --fa-bounce-rebound: 0;
-                --fa-animation-duration: 2s;"
+          class="fa-solid fa-chevron-down down-arrow"
           data-action="click->scroll#scrollToFirstSection">
         </i>
       </div>
@@ -61,39 +52,41 @@
         <div class="info-box-inner">
           <div class="info-box-text">
           <h2>Where Next?</h2>
-            <p>
-              Discover your next holiday destination. <br>
-              Use AI to get activity suggestions and to find out when the best time to go is. <br>
-              Choose a country and add it to your wishlist. <br>
-              Rank how much you want to visit there. <br>
-            </p>
+          <ul>
+            <li>Discover your next holiday destination</li>
+            <li>Use AI to get activity suggestions and to find out when the best time to go is</li>
+            <li>Choose a country and add it to your wishlist</li>
+            <li>Rank how much you want to visit there</li>
+          </ul>
           </div>
         </div>
       </div>
+
       <div class="info-box">
         <div class="info-box-inner">
           <div class="info-box-text">
           <h2>Relive It.</h2>
-            <p>
-              Revisit your favourite countries by adding a country to your favourites. <br>
-              Keep track of how many times you've visited, and when. <br>
-              Add any notes about the country. <br>
-              You can even upload any photos from your trip (in development).
-            </p>
-            <%# link %>
+          <ul>
+            <li>Revisit your favourite countries by adding a country to your favourites</li>
+            <li>Keep track of how many times you've visited, and when</li>
+            <li>Add any notes about the country</li>
+            <li>You can even upload any photos from your trip (in development)</li>
+          </ul>
+          <%# link %>
           </div>
         </div>
       </div>
+
       <div class="info-box">
         <div class="info-box-inner">
           <div class="info-box-text">
             <h2>Be Curious.</h2>
-            <p>
-              Learn more about a particular country, as each country page has useful facts and figures. <br>
-              Find out its capital and where its located. <br>
-              Discover how small or large a country is, in terms of population. <br>
-              Get your travel money organised by using the currency exchange tool (in development).
-            </p>
+            <ul>
+              <li>Learn more about a particular country, as each country page has useful facts and figures</li>
+              <li>Find out its capital and where its located</li>
+              <li>Discover how small or large a country is, in terms of population</li>
+              <li>Get your travel money organised by using the currency exchange tool (in development)</li>
+            </ul>
             <%= link_to "Visit a random country", country_path(@random_country), class: "web-link" %>
           </div>
           <div class="info-box-container right-image">
@@ -101,6 +94,7 @@
           </div>
         </div>
       </div>
+
       <div class="info-box">
         <div class="info-box-inner">
           <div class="info-box-container left-image">
@@ -108,11 +102,11 @@
           </div>
           <div class="info-box-text">
             <h2>Be Prepared.</h2>
-            <p>
-              Use my other app to get the weather and some activity suggestions for a city you're visiting. <br>
-              Search for a city (or even an area of a particular city) so that you're prepared for the day, whatever the weather may be. <br>
-              If you're stuck for ideas, use AI to get some activity suggestions that are weather-appropriate.
-            </p>
+            <ul>
+              <li>Use my weather website to get the weather and some activity suggestions for a city you're visiting</li>
+              <li>Search for a city (or even an area of a particular city) so that you're prepared for the day, whatever the weather may be</li>
+              <li>If you're stuck for ideas, use AI to get some activity suggestions that are weather-appropriate</li>
+            </ul>
             <%= link_to "Visit React Weather", "https://react-weather-claude-app-af1fc23c96a1.herokuapp.com/", target: "_blank", class: "web-link" %>
           </div>
         </div>

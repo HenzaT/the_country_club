@@ -1,35 +1,16 @@
-<div class="country-card-small">
-  <div class="card-content">
-    <div class="card-image-box">
-      <%= image_tag(country.flag, alt: country.flag_alt, class: "flag-image") %>
-    </div>
-    <div class="card-country-name">
-      <h1><%= country.name %></h1>
-    </div>
-    <% case %>
-    <% when wishlist && favourite %>
-      <div class="icons">
-        <i class="fa-solid fa-paper-plane"></i>
-        <i class="fa-solid fa-heart"></i>
-      </div>
-
-    <% when wishlist %>
-      <div class="icons">
-        <i class="fa-solid fa-paper-plane"></i>
-        <i class="fa-regular fa-heart"></i>
-      </div>
-
-    <% when favourite %>
-      <div class="icons">
-        <i class="fa-regular fa-paper-plane"></i>
-        <i class="fa-solid fa-heart"></i>
-      </div>
-
-    <% else %>
-      <div class="icons">
-        <i class="fa-regular fa-paper-plane"></i>
-        <i class="fa-regular fa-heart"></i>
-      </div>
-    <% end %>
+<article class="country-card-small">
+  <div class="card-image-box">
+    <%= image_tag(country.flag, alt: country.flag_alt, class: "flag-image") %>
   </div>
-</div>
+  <h2><%= country.name %></h2>
+  <% case %>
+  <% when wishlist && favourite %>
+    <%= render "shared/wishlist_favourite_card", plane_type: "solid", heart_type: "solid" %>
+  <% when wishlist %>
+    <%= render "shared/wishlist_favourite_card", plane_type: "solid", heart_type: "regular" %>
+  <% when favourite %>
+    <%= render "shared/wishlist_favourite_card", plane_type: "regular", heart_type: "solid" %>
+  <% else %>
+    <%= render "shared/wishlist_favourite_card", plane_type: "regular", heart_type: "regular" %>
+  <% end %>
+</article>

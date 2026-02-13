@@ -10,3 +10,15 @@ $selected-orange: #bf3a15;
 $card-heavy-shadow: 0 0 0 0 $light, 0 0 10px 0 $light;
 $card-light-shadow: 0 0 0 0 $light, 0 0 7px 0 $light;
 $card-lightest-shadow: 0 0 0 0 $light, 0 0 2px 0 $light;
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
