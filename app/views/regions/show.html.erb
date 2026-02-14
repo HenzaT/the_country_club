@@ -23,10 +23,6 @@
     <%= form.text_field :query, placeholder: "#{@random_country}...", data: { action: "input->search#instantSearch", search_target: "input" } %>
   <% end %>
 
-  <div class="info-explanation">
-    <p>Search for a country or find it on the map. <br>Click on the country to find out more.</p>
-  </div>
-
   <div class="map-and-cards">
     <%= turbo_frame_tag "countries_results" do %>
       <div class="cards">

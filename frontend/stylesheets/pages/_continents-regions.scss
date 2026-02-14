@@ -1,3 +1,5 @@
+@use '../variables/variables' as vars;
+
 .continent-region {
   margin: 1.2rem;
 }
@@ -5,7 +7,7 @@
 .map-and-cards {
   display: flex;
   flex-direction: column;
-  margin: 30px auto;
+  margin: 0 auto;
 }
 
 .info-explanation {

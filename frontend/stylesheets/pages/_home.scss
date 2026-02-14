@@ -5,6 +5,7 @@
 }
 
 .page-header {
+  width: 100%;
   font-size: 5rem;
   text-wrap: auto;
   margin: 30px 0;
@@ -30,7 +31,7 @@ section.explanation {
 .home-info {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 3rem;
 
   .top-info-box {
     border-top: 1px solid vars.$light;
@@ -52,7 +53,7 @@ section.explanation {
   }
 
   .home-info-text > a,
-  .info-box-text > a {
+  .info-box > a {
     color: vars.$orange;
     text-decoration: underline 0.10em rgba(235, 177, 142, 0);
     transition: text-decoration-color 0.2s ease-in-out;
@@ -62,39 +63,27 @@ section.explanation {
     }
   }
 
+  .all-info-box-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    margin: 0 30px;
+  }
+
   .info-box {
     color: vars.$light;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    padding: 1rem 2rem;
     margin: auto;
     border-radius: 30px;
     box-shadow: vars.$card-lightest-shadow;
-    display: flex;
-    flex-direction: column;
+    @include vars.flex-col;
     justify-content: center;
-    align-items: center;
-  }
+    gap: 0.5rem;
 
-  .info-box-inner {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .info-box-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .info-box-text ul {
-    padding: 0 15px;
-    line-height: 2;
+    ul {
+      line-height: 1.5;
+    }
   }
 
   .join-button {
@@ -118,12 +107,6 @@ section.explanation {
   }
 }
 
-.all-info-box-grid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 30px;
-  margin: 0 30px;
-}
 
 footer {
   color: vars.$light;
@@ -132,10 +115,20 @@ footer {
 }
 
 // tablet +
-@media (min-width: 600px) {
+@media (min-width: 768px) {
   .page-header {
-    font-size: 8rem;
+    font-size: 5rem;
     white-space: auto;
+  }
+
+  .home-info {
+    .all-info-box-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .info-box {
+      box-shadow: none;
+    }
   }
 }
 
@@ -146,7 +139,7 @@ footer {
     text-wrap: nowrap;
   }
 
-  .home-info .info-box {
+  .home-info {
     box-shadow: none;
   }
 

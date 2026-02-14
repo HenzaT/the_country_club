@@ -1,9 +1,8 @@
 module CountriesHelper
   def population_index(country)
-    populations = []
     countries = Country.where(continent: country.continent)
-    countries.each do |c|
-      populations << c.population
+    populations = countries.map do |c|
+      c.population
     end
     sorted = populations.sort.reverse
     index = sorted.find_index(country.population) + 1
@@ -23,10 +22,9 @@ module CountriesHelper
   end
 
   def area_index(country)
-    areas = []
     countries = Country.where(continent: country.continent)
-    countries.each do |c|
-      areas << c.area
+    areas = countries.map do |c|
+      c.area
     end
     sorted = areas.sort.reverse
     index = sorted.find_index(country.area) + 1

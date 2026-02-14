@@ -8,6 +8,12 @@ form {
   input, textarea, select {
     font-size: 1rem;
     padding: 8px;
+    border-radius: 10px;
+    border: 2px solid vars.$dark-orange;
+  }
+
+  input {
+    width: 90%;
   }
 
   label {
@@ -41,6 +47,7 @@ form {
 
 .search-form {
   margin: auto;
+  @include vars.flex-col;
 }
 
 .add-wishlist, .add-favourite, .form-header {
@@ -58,4 +65,11 @@ form {
   @include vars.flex-col;
   justify-content: center;
   gap: 15px;
+}
+
+@media (min-width: 768px) {
+  .search-form {
+    @include vars.flex-row;
+    justify-content: center;
+  }
 }

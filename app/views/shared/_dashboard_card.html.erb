@@ -1,11 +1,9 @@
-<div class="country-card-small" data-sorter-target="countryCard">
+<div class="country-card-small card" data-sorter-target="countryCard">
   <div class="card-title">
     <div class="card-image-box">
       <%= image_tag(country.flag, alt: country.flag_alt, class: "flag-image") %>
     </div>
-    <div class="card-country-name">
-      <h2 data-sorter-target="countryName"><%= country.name %></h2>
-    </div>
+    <h2 data-sorter-target="countryName"><%= country.name %></h2>
   </div>
   <div class="wishlist-favourite">
     <% case %>
