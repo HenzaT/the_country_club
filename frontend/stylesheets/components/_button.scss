@@ -1,6 +1,6 @@
 @use '../variables/variables' as vars;
 
-.submit-button, #show-ai-button, #show-season-button, button {
+.btn, .submit-button, #show-ai-button, #show-season-button, button {
   background: transparent;
   color: vars.$light;
   font-size: 1rem;
@@ -9,7 +9,6 @@
   box-shadow: vars.$card-lightest-shadow;
   padding: 10px 30px;
   margin: auto;
-  margin-top: 10px;
   cursor: pointer;
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 

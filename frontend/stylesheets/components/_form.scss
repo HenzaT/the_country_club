@@ -1,34 +1,35 @@
 @use '../variables/variables' as vars;
 
 form {
-  margin: 15px 0;
   @include vars.flex-col;
-  gap: 0.5rem;
+  align-items: normal;
+  margin: 1rem 0 2rem 0;
+  gap: 1.5rem;
 
   input, textarea, select {
     font-size: 1rem;
     padding: 8px;
     border-radius: 10px;
-    border: 2px solid vars.$dark-orange;
+    border: 2px solid vars.$light;
   }
 
   input {
-    width: 90%;
+    width: 100%;
   }
 
   label {
-    text-align: center;
+    @include vars.flex-row;
+    gap: 0.5rem;
+    align-self: flex-start;
   }
 
-  .input,
-  .email,
-  .password,
-  .remember-me {
-    display: flex;
-    flex-direction: column;
-    width: 40vw;
-    margin: auto;
-    gap: 15px;
+  .input.user_first_name, .input.user_email, .input.password {
+    @include vars.flex-col;
+    gap: 0.2rem;
+  }
+
+  input[type="submit"] {
+    width: auto;
   }
 }
 
@@ -64,10 +65,17 @@ form {
 .login-link {
   @include vars.flex-col;
   justify-content: center;
-  gap: 15px;
+  margin-top: 1rem;
 }
 
 @media (min-width: 768px) {
+  form {
+    .input {
+      margin: auto;
+      width: 50%;
+    }
+  }
+
   .search-form {
     @include vars.flex-row;
     justify-content: center;

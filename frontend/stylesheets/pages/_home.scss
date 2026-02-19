@@ -1,10 +1,10 @@
 @use '../variables/variables' as vars;
 
-.home {
+section.home {
   height: 100%;
 }
 
-.page-header {
+h1.page-header {
   width: 100%;
   font-size: 5rem;
   text-wrap: auto;
@@ -31,65 +31,7 @@ section.explanation {
 .home-info {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-
-  .top-info-box {
-    border-top: 1px solid vars.$light;
-    border-bottom: 1px solid vars.$light;
-    padding-top: 30px;
-  }
-
-  #home-info-header {
-    margin: auto;
-    width: 85vw;
-    // text-align: center;
-  }
-
-  .home-info-text {
-    width: 85vw;
-    margin: 30px auto;
-    line-height: 2;
-    text-align: justify;
-  }
-
-  .home-info-text > a,
-  .info-box > a {
-    color: vars.$orange;
-    text-decoration: underline 0.10em rgba(235, 177, 142, 0);
-    transition: text-decoration-color 0.2s ease-in-out;
-
-    &:hover {
-      text-decoration-color: rgba(235, 177, 142, 1);
-    }
-  }
-
-  .all-info-box-grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 1rem;
-    margin: 0 30px;
-  }
-
-  .info-box {
-    color: vars.$light;
-    width: 80%;
-    padding: 1rem 2rem;
-    margin: auto;
-    border-radius: 30px;
-    box-shadow: vars.$card-lightest-shadow;
-    @include vars.flex-col;
-    justify-content: center;
-    gap: 0.5rem;
-
-    ul {
-      line-height: 1.5;
-    }
-  }
-
-  .join-button {
-    margin: 0 auto 30px auto;
-    width: 250px;
-  }
+  gap: 1.5rem;
 
   .info-box-container {
     width: 85%;
@@ -107,46 +49,97 @@ section.explanation {
   }
 }
 
+section.introduction {
+  @include vars.flex-col;
+  align-items: normal;
+  padding: 1.5rem 1rem;
+  gap: 1rem;
+  border-top: 1px solid vars.$light;
+  border-bottom: 1px solid vars.$light;
+
+  h2#introduction {
+    font-size: 1.4rem;
+    // text-align: center;
+  }
+
+  ul.introduction-text {
+    line-height: 1.5;
+    margin-left: 1rem;
+  }
+}
+
+.introduction-text li a, .info-box > a {
+  color: vars.$orange;
+  text-decoration: underline 0.10em rgba(235, 177, 142, 0);
+  transition: text-decoration-color 0.2s ease-in-out;
+
+  &:hover {
+    text-decoration-color: rgba(235, 177, 142, 1);
+  }
+}
+
+section.info-box.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  align-items: center;
+  gap: 1rem;
+  margin: 0 1rem;
+
+  .info-box {
+    color: vars.$light;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    box-shadow: vars.$card-lightest-shadow;
+    @include vars.flex-col;
+    justify-content: center;
+    gap: 0.5rem;
+
+    h3 { font-size: 1.5rem; }
+    ul { line-height: 1.5; }
+  }
+}
 
 footer {
   color: vars.$light;
   text-align: center;
-  margin: 30px;
+  margin: 1rem;
 }
 
-// tablet +
+// tablet
 @media (min-width: 768px) {
   .page-header {
     font-size: 5rem;
     white-space: auto;
   }
 
-  .home-info {
-    .all-info-box-grid {
-      grid-template-columns: repeat(2, 1fr);
+  section.introduction {
+    h2#introduction { text-align: center; }
+
+    ul.introduction-text {
+      width: 80%;
+      margin: auto;
     }
+  }
+
+
+  section.info-box.grid {
+    grid-template-columns: repeat(2, 1fr);
 
     .info-box {
       box-shadow: none;
+      align-self: flex-start;
+      
     }
   }
 }
+
+
 
 // desktop +
 @media (min-width: 1230px) {
   .page-header {
     font-size: 8rem;
     text-wrap: nowrap;
-  }
-
-  .home-info {
-    box-shadow: none;
-  }
-
-  .home-info .info-box-inner {
-    display: flex;
-    flex-direction: row;
-    align-items: stretch;
   }
 
   .home-info .info-box-text,
@@ -164,30 +157,5 @@ footer {
     display: flex;
     width: 100%;
     margin: 0;
-  }
-
-  .home-info .home-page-gif {
-    border-radius: 20px;
-  }
-
-  .home-info .left-image {
-    order: 0;
-    margin-left: 30px;
-    transform: perspective(800px) rotateY(8deg);
-    transition: transform 0.4s ease-in-out;
-  }
-
-  .home-info .left-image:hover {
-    transform: perspective(800px) rotateY(12deg);
-  }
-
-  .home-info .right-image {
-    margin-right: 30px;
-    transform: perspective(800px) rotateY(-8deg);
-    transition: transform 0.4s ease-in-out;
-  }
-
-  .home-info .right-image:hover {
-    transform: perspective(800px) rotateY(-12deg);
   }
 }

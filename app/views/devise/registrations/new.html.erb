@@ -1,11 +1,15 @@
 <div class="user-forms">
   <h1 class="form-header">Sign up</h1>
 
-  <p>Sign up to start adding countries to your wishlist and favourites</p>
-
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), class: "form") do |f| %>
     <%= f.error_notification %>
 
+    <%= f.input :first_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "first-name" },
+                placeholder: "Type your first name here...",
+                class: "name" %>
     <%= f.input :email,
                 required: true,
                 autofocus: true,
@@ -24,8 +28,11 @@
                 placeholder: "confirm your password",
                 class: "password" %>
 
-    <%= f.button :submit, "Sign up", class: "submit-button" %>
+    <%= f.button :submit, "Sign Up", class: "submit-button btn" %>
   <% end %>
+
+  <span class="dividing-line"></span>
+
   <div class="login-link">
     <%= render "devise/shared/links" %>
   </div>

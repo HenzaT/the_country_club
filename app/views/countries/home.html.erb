@@ -1,5 +1,5 @@
 <div class="home container" data-controller="scroll">
-  <section class="banner" id="seven-continents">
+  <section class="banner">
     <% if @photo %>
       <div class="country-banner">
         <%= image_tag(@photo.image_url, alt: "#{@photo.image_alt}", class: "banner-image") %>
@@ -21,45 +21,52 @@
                 class: "photographer-link" %>
           </p>
         </div>
-        <i
-          class="fa-solid fa-chevron-down down-arrow"
-          data-action="click->scroll#scrollToFirstSection">
-        </i>
+        <i class="fa-solid fa-chevron-down" data-action="click->scroll#scrollToFirstSection"></i>
       </div>
     <% end %>
   </section>
 
   <section class="home-info">
-    <div class="top-info-box" data-scroll-target="firstSection">
-      <h2 id="home-info-header">A travel tracker. <br> For the curious traveller.</h2>
-      <p class="home-info-text">
-        As someone who loves travelling and going down geography rabbit holes on Wikipedia, I built this app to
-        merge these two interests together. <br>
-        Have your favourite countries and countries you want to visit all in one place. <br>
-        Be inspired by beautiful photos,
-        courtesy of <a href="https://unsplash.com/?utm_source=the_country_club&utm_medium=referral" target="_blank">Unsplash</a>,
-        and learn more about each country. <br>
-        Get suggestions from <a href="https://www.anthropic.com/claude">Claude</a> for activities and recommendations
-        for the best time to visit. <br>
-        <% if !user_signed_in? %>
-          <%= button_to "Join the Club", new_user_registration_path, :method => "get", class: "join-button" %>
-        <% end %>
-      </p>
-    </div>
+    <section class="introduction" data-scroll-target="firstSection">
+      <h2 id="introduction">A travel tracker. <br> For the curious traveller.</h2>
+      <ul class="introduction-text">
+        <li>
+          As someone who loves travelling and going down geography rabbit holes on Wikipedia, I built this app to
+          merge these two interests together.
+        </li>
+        <li>
+          Have your favourite countries and countries you want to visit all in one place.
+        </li>
+        <li>
+          Be inspired by beautiful photos,
+          courtesy of <a href="https://unsplash.com/?utm_source=the_country_club&utm_medium=referral" target="_blank">Unsplash</a>,
+          and learn more about each country.
+        </li>
+        <li>
+          Get suggestions from <a href="https://www.anthropic.com/claude">Claude</a> for activities and recommendations
+          for the best time to visit.
+        </li>
+      </ul>
+      <% if !user_signed_in? %>
+        <%= link_to "Join the Club", new_user_registration_path, class: "btn" %>
+      <% elsif %>
+        <%= link_to "Member's Area", dashboard_path, class: "btn" %>
+      <% end %>
+    </section>
 
-    <div class="all-info-box-grid">
-      <div class="info-box">
-        <h2>Where Next?</h2>
+    <section class="info-box grid">
+      <article class="info-box">
+        <h3>Where Next?</h3>
         <ul>
           <li>Discover your next holiday destination</li>
           <li>Use AI to get activity suggestions and to find out when the best time to go is</li>
           <li>Choose a country and add it to your wishlist</li>
           <li>Rank how much you want to visit there</li>
         </ul>
-      </div>
+      </article>
 
-      <div class="info-box">
-        <h2>Relive It.</h2>
+      <article class="info-box">
+        <h3>Relive It.</h3>
         <ul>
           <li>Revisit your favourite countries by adding a country to your favourites</li>
           <li>Keep track of how many times you've visited, and when</li>
@@ -67,10 +74,10 @@
           <li>You can even upload any photos from your trip (in development)</li>
         </ul>
         <%# link %>
-      </div>
+      </article>
 
-      <div class="info-box">
-        <h2>Be Curious.</h2>
+      <article class="info-box">
+        <h3>Be Curious.</h3>
         <ul>
           <li>Learn more about a particular country, as each country page has useful facts and figures</li>
           <li>Find out its capital and where its located</li>
@@ -81,21 +88,21 @@
         <%# <div class="info-box-container right-image"> %>
           <%#= image_tag("/images/be-curious.gif", alt: "gif showing website navigation of country page", class: "home-page-gif") %>
         <%# </div> %>
-      </div>
+      </article>
 
-      <div class="info-box">
+      <article class="info-box">
         <%# <div class="info-box-container left-image"> %>
           <%#= image_tag("/images/react-weather.gif", alt: "React Weather app gif", class: "home-page-gif") %>
         <%# </div> %>
-          <h2>Be Prepared.</h2>
+          <h3>Be Prepared.</h3>
           <ul>
             <li>Use my weather website to get the weather and some activity suggestions for a city you're visiting</li>
             <li>Search for a city (or even an area of a particular city) so that you're prepared for the day, whatever the weather may be</li>
             <li>If you're stuck for ideas, use AI to get some activity suggestions that are weather-appropriate</li>
           </ul>
           <%= link_to "Visit React Weather", "https://react-weather-claude-app-af1fc23c96a1.herokuapp.com/", target: "_blank", class: "web-link" %>
-      </div>
-    </div>
+      </article>
+    </section>
   </section>
 
   <footer>

@@ -1,6 +1,10 @@
 <div class="dashboard container">
   <section>
     <h1 class="dashboard-header">Welcome to the Member's Area</h1>
+    <div class="stats">
+      <p>You have visited <%= @user_wishlists %> / <%= Country.count %> countries</p>
+      <p>You'd like to visit <%= @user_favourites %> / <%= Country.count %> countries</p>
+    </div>
     <div class="cards">
       <%= render "shared/continent_region_page", countries: @added_countries %>
     </div>

@@ -18,16 +18,19 @@
 
 @use 'mapbox-gl';
 
+// components
 @use './components/button.scss';
 @use './components/canvas.scss';
 @use './components/card.scss';
 @use './components/clock.scss';
 @use './components/container.scss';
 @use './components/form.scss';
+@use './components/icon';
 @use './components/image.scss';
 @use './components/map.scss';
 @use './components/navbar.scss';
 
+// pages
 @use './pages/home.scss';
 @use './pages/continents-regions.scss';
 @use './pages/show-country.scss';
@@ -80,4 +83,13 @@ p {
 a {
   text-decoration: none;
   color: white;
+}
+
+span.dividing-line {
+  display: block;
+  margin: auto;
+  background-color: vars.$light;
+  border-radius: 30px;
+  height: 0.1rem;
+  width: 100%;
 }
