@@ -17,7 +17,7 @@
 <div class="continent-region container" data-controller="search">
   <%= form_with url: continent_path(@continent), method: :get, local: false, class: "search-form",
         data: { turbo_frame: "countries_results", search_target: "form", turbo: true, remote: false } do |form| %>
-    <%= form.label :query, "Search Countries" %>
+    <%= form.label :query, "Search Countries", class: "search-label" %>
     <%= form.text_field :query, placeholder: "#{@random_country}...", data: { action: "input->search#instantSearch", search_target: "input" } %>
   <% end %>
 

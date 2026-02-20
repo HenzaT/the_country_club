@@ -13,8 +13,18 @@ form {
     border: 2px solid vars.$light;
   }
 
-  input {
+  input, textarea {
     width: 100%;
+  }
+
+  input.numeric {
+    width: auto;
+  }
+
+  textarea { resize: vertical; }
+
+  input.boolean {
+    width: auto;
   }
 
   label {
@@ -31,6 +41,11 @@ form {
   input[type="submit"] {
     width: auto;
   }
+
+}
+
+.user-forms {
+  span.dividing-line { width: 100%; }
 }
 
 .user-input {
@@ -47,8 +62,14 @@ form {
 }
 
 .search-form {
-  margin: auto;
   @include vars.flex-col;
+  gap: 0.5rem;
+  margin: 1rem 0;
+
+  .search-label {
+    font-size: 1.2rem;
+    align-self: center;
+  }
 }
 
 .add-wishlist, .add-favourite, .form-header {
@@ -60,6 +81,18 @@ form {
   width: 80%;
   margin: auto;
   margin-top: 20px;
+}
+
+.new_favourite, .new_wishlist {
+  .input.favourite_rating {
+    @include vars.flex-row;
+    gap: 0.5rem;
+  }
+
+  .input {
+    @include vars.flex-col;
+    gap: 0.5rem;
+  }
 }
 
 .login-link {

@@ -1,13 +1,19 @@
 @use '../variables/variables' as vars;
 
-.country-info {
-  margin: 30px;
+.country-page {
+  margin-bottom: 2rem;
+
+  .country-info {
+    margin: 1rem;
+  }
+
+  .country-info > h2 {
+    text-align: center;
+    padding-bottom: 1rem;
+  }
 }
 
-.country-info > h2 {
-  text-align: center;
-  padding-bottom: 30px;
-}
+
 
 .favourite-photos > h2 {
   width: 80%;
@@ -16,12 +22,9 @@
 }
 
 .list-link {
+  @include vars.flex-col;
   text-decoration: none;
   color: vars.$light;
-}
-
-.country-page {
-  margin-bottom: 30px;
 }
 
 .ai-suggestion {

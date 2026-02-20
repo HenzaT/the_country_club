@@ -5,17 +5,36 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin: 30px auto;
-}
+  // margin: 30px auto;
 
-.country-link-card {
-  text-decoration: none;
-  color: vars.$light;
-  border-radius: 30px;
-  transition: transform 0.2s ease-in-out;
+  .country-link {
+    flex-direction: row;
+  }
 
-  &:hover {
-    transform: translateY(-3px);
+  .country-link .card-title {
+    @include vars.flex-col;
+  }
+
+  .card {
+    color: vars.$light;
+    @include vars.flex-row;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: vars.$card-lightest-shadow;
+    padding: 1rem;
+    // width: 80%;
+    transition: transform 0.2s ease-in-out;
+
+    h3 { text-decoration: underline; }
+
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+
+  .country-info.card {
+    flex-direction: column;
+    margin: 0;
   }
 }
 
@@ -26,29 +45,12 @@
   border-radius: 30px;
 }
 
-.show-country-cards {
+.show-country-cards, .cards-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 1rem;
   justify-items: center;
   margin: 0 auto;
-}
-
-.country-card-info {
-  color: vars.$light;
-  @include vars.flex-col;
-  justify-content: center;
-  border-radius: 20px;
-  box-shadow: vars.$card-lightest-shadow;
-  padding: 2rem;
-  width: 80%;
-  transition: transform 0.2s ease-in-out;
-
-  h3 { text-decoration: underline; }
-
-  &:hover {
-    transform: translateY(-3px);
-  }
 }
 
 .show-card-title {
@@ -101,14 +103,6 @@
   flex-direction: column;
 }
 
-.wishlist-favourite-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  width: 60vw;
-  margin: 2rem auto;
-}
-
 .large-icon {
   color: vars.$light;
   font-size: 2rem;
@@ -124,14 +118,6 @@
 
 .individual-flag-image {
   width: 80%;
-}
-
-@media (max-width: 600px) {
-  .country-link-card {width: 270px;}
-
-  .country-info {
-    text-align: center;
-  }
 }
 
 // tablet +

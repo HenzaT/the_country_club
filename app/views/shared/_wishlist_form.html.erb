@@ -1,5 +1,5 @@
-<%= simple_form_for [country, wishlist], class: "form" do |f| %>
-  <%= f.input :desire_rating, collection: 0..5, label: "How much do you want to visit here?", class: "rating" %>
+<%= simple_form_for [country, wishlist], class: "wishlist form" do |f| %>
+  <%= f.input :desire_rating, collection: 0..5, label: "How much do you want to visit?", class: "rating" %>
   <%= f.input :note, label: "Any notes?", class: "note" %>
   <%= f.input :future_visit_date,
               label: "I'm visiting on...",

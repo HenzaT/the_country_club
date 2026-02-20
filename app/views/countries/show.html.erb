@@ -1,7 +1,7 @@
 <%# Country show %>
 <div class="country-page container">
   <% if @country_photo %>
-    <div class="country-banner">
+    <section class="country-banner">
       <%= image_tag(@country_photo.image_url, alt: "#{@country_photo.image_alt}", class: "banner-image") %>
       <div class="banner-image-country-name">
         <h1><%= @country.name %></h1>
@@ -74,7 +74,7 @@
               class: "photographer-link" %>
         </p>
       </div>
-    </div>
+    </section>
   <% end %>
 
   <div
@@ -107,11 +107,12 @@
     </div>
   </div>
 
-  <div class="country-info">
-    <h2>Information</h2>
-    <div class="show-country-cards">
+  <span class="dividing-line"></span>
 
-      <div class="country-card-info">
+  <section class="country-info">
+    <h2>Information</h2>
+    <div class="cards">
+      <div class="country-info card">
         <%= image_tag(@country.flag, alt: @country.flag_alt, class: "individual-flag-image") %>
       </div>
 
@@ -134,7 +135,7 @@
         <%# </div>
       </div> %>
 
-      <div class="country-card-info">
+      <div class="country-info card">
         <h3>Capital City</h3>
         <p><%= @country.capital %></p>
         <div class="mapbox-country"
@@ -144,20 +145,20 @@
         </div>
       </div>
 
-      <div class="country-card-info">
+      <div class="country-info card">
         <h3 class="show-card-title">Languages</h3>
         <% @country.languages.each do |language| %>
           <p><%= language unless language == "None" %></p>
         <% end %>
       </div>
 
-      <div class="country-card-info">
+      <div class="country-info card">
         <h3>Population</h3>
         <p><%= number_with_delimiter(@country.population, :delimiter => ',') %></p>
         <p><%= population_index(@country) %></p>
       </div>
 
-      <div class="country-card-info" data-controller="currency">
+      <div class="country-info card" data-controller="currency">
         <h3>Currency</h3>
         <p><%= "#{@country.currency} (#{@country.currency_code} / #{@country.currency_symbol})" %></p>
         <div class="user-input">
@@ -166,13 +167,16 @@
         <p>(1 GBP = <%= "#{@country_rate} #{@country.currency_code}" %>)</p>
       </div>
 
-      <div class="country-card-info">
+      <div class="country-info card">
         <h3>Area</h3>
         <p><%= number_with_delimiter(@country.area, :delimiter => ',') %> km²</p>
         <p><%= area_index(@country) %></p>
       </div>
     </div>
-  </div>
+
+  </section>
+
+  <%# <span class="dividing-line"></span> %>
 
   <div class="favourite-photos">
   <% if user_signed_in? && @favourite_already_created %>
@@ -185,17 +189,17 @@
   <% end %>
   </div>
 
-  <div class="wishlist-favourite-cards">
+  <section class="cards-grid">
     <% case %>
     <% when @wishlist_already_created && @favourite_already_created %>
-    <div class="wishlist-card">
+    <div class="wishlist card">
       <%= link_to edit_country_wishlist_path(@country), class: "list-link" do %>
         <i class="fa-solid fa-paper-plane icon" alt="solid plane icon"></i>
       <% end %>
       <%= render "delete_wishlist", country: @country %>
       <%= render "shared/wishlist_info", country: @country, wishlists: @user_wishlists %>
     </div>
-    <div class="favourite-card">
+    <div class="favourite card">
       <%= link_to edit_country_favourite_path(@country), class: "list-link" do %>
         <i class="fa-solid fa-heart icon" alt="solid heart icon"></i>
       <% end %>
@@ -204,14 +208,14 @@
     </div>
 
     <% when @wishlist_already_created %>
-    <div class="wishlist-card">
+    <div class="wishlist card">
       <%= link_to edit_country_wishlist_path(@country), class: "list-link" do %>
         <i class="fa-solid fa-paper-plane icon" alt="solid plane icon"></i>
       <% end %>
       <%= render "delete_wishlist", country: @country %>
       <%= render "shared/wishlist_info", country: @country, wishlists: @user_wishlists %>
     </div>
-    <div class="favourite-card">
+    <div class="favourite card">
       <%= link_to new_country_favourite_path(@country), class: "list-link" do %>
         <i class="fa-regular fa-heart icon" alt="empty heart icon"></i>
         <p>Add this country to your favourites if you've been here before.</p>
@@ -219,13 +223,13 @@
     </div>
 
     <% when @favourite_already_created %>
-    <div class="wishlist-card">
+    <div class="wishlist card">
       <%= link_to new_country_wishlist_path(@country), class: "list-link" do %>
         <i class="fa-regular fa-paper-plane icon" alt="empty plane icon"></i>
         <p>Add this country to your wishlist if you'd like to visit here.</p>
       <% end %>
     </div>
-    <div class="favourite-card">
+    <div class="favourite card">
       <%= link_to edit_country_favourite_path(@country), class: "list-link" do %>
         <i class="fa-solid fa-heart icon" alt="solid heart icon"></i>
       <% end %>
@@ -234,18 +238,18 @@
     </div>
 
     <% else %>
-    <div class="wishlist-card">
+    <div class="wishlist card">
       <%= link_to new_country_wishlist_path(@country), class: "list-link" do %>
         <i class="fa-regular fa-paper-plane icon" alt="empty plane icon"></i>
         <p>Add this country to your wishlist if you'd like to visit here.</p>
       <% end %>
     </div>
-    <div class="favourite-card">
+    <div class="favourite card">
       <%= link_to new_country_favourite_path(@country), class: "list-link" do %>
         <i class="fa-regular fa-heart icon" alt="empty heart icon"></i>
         <p>Add this country to your favourites if you've been here before.</p>
       <% end %>
     </div>
     <% end %>
-  </div>
+  </section>
 </div>

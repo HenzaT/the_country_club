@@ -1,8 +1,8 @@
 <div class="add-wishlist container">
-  <h2>Create wishlist</h2>
+  <h1>Create wishlist</h1>
   <% if @wishlist_already_created %>
-    <h3>You have already added this country to a wishlist.</h3>
-    <h3>Update your wishlist instead?</h3>
+    <h1>You have already added this country to a wishlist.</h1>
+    <p>Update your wishlist instead?</p>
   <% else %>
     <%= render "shared/wishlist_form", country: @country, wishlist: @wishlist %>
   <% end %>
