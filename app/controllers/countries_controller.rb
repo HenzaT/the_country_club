@@ -29,7 +29,7 @@ class CountriesController < ApplicationController
     @favourite_already_created = Favourite.exists?(user_id: current_user, country_id: @country)
     @country_photo = CountryPhoto.find_by(country_id: @country)
     capital_address_marker
-    currency_exchange_usd(@country)
+    currency_exchange(@country)
   end
 
   def dashboard
@@ -69,15 +69,8 @@ class CountriesController < ApplicationController
       }]
   end
 
-  def currency_exchange_usd(country)
-    currency_code = country.currency_code
-    url = "https://openexchangerates.org/api/latest.json?app_id=#{ENV.fetch('OPEN_EXCHANGE_APP_ID')}"
-    currency_json = URI.parse(url).read
-    all_currencies = JSON.parse(currency_json)
-    base_country_rate = all_currencies['rates']["#{currency_code}"] || 'Not Found'
-    uk_rate = all_currencies['rates']['GBP']
-    country_rate = base_country_rate / uk_rate
-    @country_rate = country_rate.round(3)
+  def currency_exchange(country)
+    @country_rate = country.currency_rate.rate.round(3)
   end
 
   def claude_suggestions(country)

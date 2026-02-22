@@ -3,17 +3,17 @@
 .country-page {
   margin-bottom: 2rem;
 
-  .country-info {
+  section.country-infos {
     margin: 1rem;
+    border-top: 1px solid vars.$light;
+    border-bottom: 1px solid vars.$light;
   }
 
-  .country-info > h2 {
+  section.country-infos > h2 {
     text-align: center;
     padding-bottom: 1rem;
   }
 }
-
-
 
 .favourite-photos > h2 {
   width: 80%;

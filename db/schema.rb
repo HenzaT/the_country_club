@@ -10,118 +10,128 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_08_27_130831) do
+ActiveRecord::Schema[7.1].define(version: 2026_02_22_172730) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "active_storage_attachments", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.bigint "blob_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  create_table 'active_storage_attachments', force: :cascade do |t|
+    t.string 'name', null: false
+    t.string 'record_type', null: false
+    t.bigint 'record_id', null: false
+    t.bigint 'blob_id', null: false
+    t.datetime 'created_at', null: false
+    t.index ['blob_id'], name: 'index_active_storage_attachments_on_blob_id'
+    t.index ['record_type', 'record_id', 'name', 'blob_id'], name: 'index_active_storage_attachments_uniqueness', unique: true
   end
 
-  create_table "active_storage_blobs", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
-    t.text "metadata"
-    t.string "service_name", null: false
-    t.bigint "byte_size", null: false
-    t.string "checksum"
-    t.datetime "created_at", null: false
-    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  create_table 'active_storage_blobs', force: :cascade do |t|
+    t.string 'key', null: false
+    t.string 'filename', null: false
+    t.string 'content_type'
+    t.text 'metadata'
+    t.string 'service_name', null: false
+    t.bigint 'byte_size', null: false
+    t.string 'checksum'
+    t.datetime 'created_at', null: false
+    t.index ['key'], name: 'index_active_storage_blobs_on_key', unique: true
   end
 
-  create_table "active_storage_variant_records", force: :cascade do |t|
-    t.bigint "blob_id", null: false
-    t.string "variation_digest", null: false
-    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  create_table 'active_storage_variant_records', force: :cascade do |t|
+    t.bigint 'blob_id', null: false
+    t.string 'variation_digest', null: false
+    t.index ['blob_id', 'variation_digest'], name: 'index_active_storage_variant_records_uniqueness', unique: true
   end
 
-  create_table "countries", force: :cascade do |t|
-    t.string "name"
-    t.string "currency"
-    t.string "capital"
-    t.string "language_one"
-    t.string "language_two"
-    t.string "language_three"
-    t.string "continent"
-    t.string "region"
-    t.string "flag"
-    t.string "timezone"
-    t.integer "population"
-    t.float "latitude"
-    t.float "longitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "area"
-    t.text "flag_alt"
-    t.string "currency_symbol"
-    t.float "capital_latitude"
-    t.float "capital_longitude"
-    t.string "currency_code"
+  create_table 'countries', force: :cascade do |t|
+    t.string 'name'
+    t.string 'currency'
+    t.string 'capital'
+    t.string 'language_one'
+    t.string 'language_two'
+    t.string 'language_three'
+    t.string 'continent'
+    t.string 'region'
+    t.string 'flag'
+    t.string 'timezone'
+    t.integer 'population'
+    t.float 'latitude'
+    t.float 'longitude'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.integer 'area'
+    t.text 'flag_alt'
+    t.string 'currency_symbol'
+    t.float 'capital_latitude'
+    t.float 'capital_longitude'
+    t.string 'currency_code'
+    t.bigint 'currency_rate_id', null: false
+    t.index ['currency_rate_id'], name: 'index_countries_on_currency_rate_id'
   end
 
-  create_table "country_photos", force: :cascade do |t|
-    t.text "image_url"
-    t.text "image_alt"
-    t.string "photographer_name"
-    t.text "photographer_url"
-    t.text "image_page_url"
-    t.bigint "country_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["country_id"], name: "index_country_photos_on_country_id"
+  create_table 'country_photos', force: :cascade do |t|
+    t.text 'image_url'
+    t.text 'image_alt'
+    t.string 'photographer_name'
+    t.text 'photographer_url'
+    t.text 'image_page_url'
+    t.bigint 'country_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['country_id'], name: 'index_country_photos_on_country_id'
   end
 
-  create_table "favourites", force: :cascade do |t|
-    t.date "visit_date"
-    t.text "note"
-    t.integer "rating"
-    t.integer "times_visited"
-    t.bigint "country_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["country_id"], name: "index_favourites_on_country_id"
-    t.index ["user_id"], name: "index_favourites_on_user_id"
+  create_table 'currency_rates', force: :cascade do |t|
+    t.string 'code'
+    t.decimal 'rate', precision: 20, scale: 10
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "first_name"
-    t.string "last_name"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  create_table 'favourites', force: :cascade do |t|
+    t.date 'visit_date'
+    t.text 'note'
+    t.integer 'rating'
+    t.integer 'times_visited'
+    t.bigint 'country_id', null: false
+    t.bigint 'user_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['country_id'], name: 'index_favourites_on_country_id'
+    t.index ['user_id'], name: 'index_favourites_on_user_id'
   end
 
-  create_table "wishlists", force: :cascade do |t|
-    t.integer "desire_rating"
-    t.text "note"
-    t.date "future_visit_date"
-    t.bigint "country_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["country_id"], name: "index_wishlists_on_country_id"
-    t.index ["user_id"], name: "index_wishlists_on_user_id"
+  create_table 'users', force: :cascade do |t|
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.string 'first_name'
+    t.string 'last_name'
+    t.index ['email'], name: 'index_users_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "country_photos", "countries"
-  add_foreign_key "favourites", "countries"
-  add_foreign_key "favourites", "users"
-  add_foreign_key "wishlists", "countries"
-  add_foreign_key "wishlists", "users"
+  create_table 'wishlists', force: :cascade do |t|
+    t.integer 'desire_rating'
+    t.text 'note'
+    t.date 'future_visit_date'
+    t.bigint 'country_id', null: false
+    t.bigint 'user_id', null: false
+    t.datetime 'created_at', null: false
+    t.datetime 'updated_at', null: false
+    t.index ['country_id'], name: 'index_wishlists_on_country_id'
+    t.index ['user_id'], name: 'index_wishlists_on_user_id'
+  end
+
+  add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
+  add_foreign_key 'active_storage_variant_records', 'active_storage_blobs', column: 'blob_id'
+  add_foreign_key 'countries', 'currency_rates'
+  add_foreign_key 'country_photos', 'countries'
+  add_foreign_key 'favourites', 'countries'
+  add_foreign_key 'favourites', 'users'
+  add_foreign_key 'wishlists', 'countries'
+  add_foreign_key 'wishlists', 'users'
 end
