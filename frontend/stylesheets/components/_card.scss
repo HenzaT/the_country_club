@@ -5,7 +5,6 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  // margin: 30px auto;
 
   .country-link {
     flex-direction: row;
@@ -43,14 +42,6 @@
   justify-content: space-around;
   align-items: center;
   border-radius: 30px;
-}
-
-.show-country-cards, .cards-grid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 1rem;
-  justify-items: center;
-  margin: 0 auto;
 }
 
 .show-card-title {

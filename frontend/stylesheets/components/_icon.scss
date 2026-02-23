@@ -9,6 +9,10 @@
   animation: pulsate 1s infinite ease-in-out;
 }
 
+.switch-icon {
+  color: vars.$light;
+}
+
 @keyframes pulsate {
   0%    { opacity: 0.5; }
   50%   { opacity: 1;   }

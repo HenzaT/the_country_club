@@ -160,8 +160,11 @@
         <h3>Currency</h3>
         <p><%= "#{@country.currency} (#{@country.currency_code} / #{@country.currency_symbol})" %></p>
         <div class="user-input">
-          <input type="text" placeholder="1" id="currency-input"> GBP = <%= "#{@country_rate} #{@country.currency_code}" %>
+          <input type="text" placeholder="1" id="currency-input">
+            GBP =
+          <%= "#{@country_rate} #{@country.currency_code}" %>
         </div>
+        <button id="switch-btn" data-currency-target="switchBtn" data-action="click->currency#switchInputs">switch</button>
         <p>(1 GBP = <%= "#{@country_rate} #{@country.currency_code}" %>)</p>
       </div>
 
@@ -183,68 +186,69 @@
     <h2>Add a country to your favourites to add any photos from your trip</h2>
   <% end %>
   </div>
+  <section class="wishlist-favourites">
+    <section class="cards">
+      <% case %>
+      <% when @wishlist_already_created && @favourite_already_created %>
+      <div class="wishlist card">
+        <%= link_to edit_country_wishlist_path(@country), class: "list-link" do %>
+          <i class="fa-solid fa-paper-plane icon" alt="solid plane icon"></i>
+        <% end %>
+        <%= render "delete_wishlist", country: @country %>
+        <%= render "shared/wishlist_info", country: @country, wishlists: @user_wishlists %>
+      </div>
+      <div class="favourite card">
+        <%= link_to edit_country_favourite_path(@country), class: "list-link" do %>
+          <i class="fa-solid fa-heart icon" alt="solid heart icon"></i>
+        <% end %>
+        <%= render "delete_favourite", country: @country %>
+        <%= render "shared/favourite_info", country: @country, favourites: @user_favourites %>
+      </div>
 
-  <section class="cards-grid">
-    <% case %>
-    <% when @wishlist_already_created && @favourite_already_created %>
-    <div class="wishlist card">
-      <%= link_to edit_country_wishlist_path(@country), class: "list-link" do %>
-        <i class="fa-solid fa-paper-plane icon" alt="solid plane icon"></i>
-      <% end %>
-      <%= render "delete_wishlist", country: @country %>
-      <%= render "shared/wishlist_info", country: @country, wishlists: @user_wishlists %>
-    </div>
-    <div class="favourite card">
-      <%= link_to edit_country_favourite_path(@country), class: "list-link" do %>
-        <i class="fa-solid fa-heart icon" alt="solid heart icon"></i>
-      <% end %>
-      <%= render "delete_favourite", country: @country %>
-      <%= render "shared/favourite_info", country: @country, favourites: @user_favourites %>
-    </div>
+      <% when @wishlist_already_created %>
+      <div class="wishlist card">
+        <%= link_to edit_country_wishlist_path(@country), class: "list-link" do %>
+          <i class="fa-solid fa-paper-plane icon" alt="solid plane icon"></i>
+        <% end %>
+        <%= render "delete_wishlist", country: @country %>
+        <%= render "shared/wishlist_info", country: @country, wishlists: @user_wishlists %>
+      </div>
+      <div class="favourite card">
+        <%= link_to new_country_favourite_path(@country), class: "list-link" do %>
+          <i class="fa-regular fa-heart icon" alt="empty heart icon"></i>
+          <p>Add this country to your favourites.</p>
+        <% end %>
+      </div>
 
-    <% when @wishlist_already_created %>
-    <div class="wishlist card">
-      <%= link_to edit_country_wishlist_path(@country), class: "list-link" do %>
-        <i class="fa-solid fa-paper-plane icon" alt="solid plane icon"></i>
-      <% end %>
-      <%= render "delete_wishlist", country: @country %>
-      <%= render "shared/wishlist_info", country: @country, wishlists: @user_wishlists %>
-    </div>
-    <div class="favourite card">
-      <%= link_to new_country_favourite_path(@country), class: "list-link" do %>
-        <i class="fa-regular fa-heart icon" alt="empty heart icon"></i>
-        <p>Add this country to your favourites if you've been here before.</p>
-      <% end %>
-    </div>
+      <% when @favourite_already_created %>
+      <div class="wishlist card">
+        <%= link_to new_country_wishlist_path(@country), class: "list-link" do %>
+          <i class="fa-regular fa-paper-plane icon" alt="empty plane icon"></i>
+          <p>Add this country to your wishlist.</p>
+        <% end %>
+      </div>
+      <div class="favourite card">
+        <%= link_to edit_country_favourite_path(@country), class: "list-link" do %>
+          <i class="fa-solid fa-heart icon" alt="solid heart icon"></i>
+        <% end %>
+        <%= render "shared/favourite_info", country: @country, favourites: @user_favourites %>
+        <%= render "delete_favourite", country: @country %>
+      </div>
 
-    <% when @favourite_already_created %>
-    <div class="wishlist card">
-      <%= link_to new_country_wishlist_path(@country), class: "list-link" do %>
-        <i class="fa-regular fa-paper-plane icon" alt="empty plane icon"></i>
-        <p>Add this country to your wishlist if you'd like to visit here.</p>
+      <% else %>
+      <div class="wishlist card">
+        <%= link_to new_country_wishlist_path(@country), class: "list-link" do %>
+          <i class="fa-regular fa-paper-plane icon" alt="empty plane icon"></i>
+          <p>Add this country to your wishlist.</p>
+        <% end %>
+      </div>
+      <div class="favourite card">
+        <%= link_to new_country_favourite_path(@country), class: "list-link" do %>
+          <i class="fa-regular fa-heart icon" alt="empty heart icon"></i>
+          <p>Add this country to your favourites.</p>
+        <% end %>
+      </div>
       <% end %>
-    </div>
-    <div class="favourite card">
-      <%= link_to edit_country_favourite_path(@country), class: "list-link" do %>
-        <i class="fa-solid fa-heart icon" alt="solid heart icon"></i>
-      <% end %>
-      <%= render "shared/favourite_info", country: @country, favourites: @user_favourites %>
-      <%= render "delete_favourite", country: @country %>
-    </div>
-
-    <% else %>
-    <div class="wishlist card">
-      <%= link_to new_country_wishlist_path(@country), class: "list-link" do %>
-        <i class="fa-regular fa-paper-plane icon" alt="empty plane icon"></i>
-        <p>Add this country to your wishlist if you'd like to visit here.</p>
-      <% end %>
-    </div>
-    <div class="favourite card">
-      <%= link_to new_country_favourite_path(@country), class: "list-link" do %>
-        <i class="fa-regular fa-heart icon" alt="empty heart icon"></i>
-        <p>Add this country to your favourites if you've been here before.</p>
-      <% end %>
-    </div>
-    <% end %>
+    </section>
   </section>
 </div>
