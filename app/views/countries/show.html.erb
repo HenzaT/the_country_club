@@ -159,13 +159,34 @@
       <div class="country-info card" data-controller="currency">
         <h3>Currency</h3>
         <p><%= "#{@country.currency} (#{@country.currency_code} / #{@country.currency_symbol})" %></p>
-        <div class="user-input">
-          <input type="text" placeholder="1" id="currency-input">
-            GBP =
-          <%= "#{@country_rate} #{@country.currency_code}" %>
+        <div class="user-inputs">
+          <div class="input">
+            <label for="gbp-input"><%= @base_gbp_code %></label>
+            <input
+              id="gbp-input"
+              type="number"
+              value="<%= @base_gbp_rate * 100 %>"
+              autocomplete="off"
+              inputmode="decimal"
+              data-currency-target="gbpInput"
+              data-action="keyup->currency#exchange"
+            >
+          </div>
+          <p>=</p>
+          <div class="input">
+            <label for="other-input"><%= @country.currency_code %></label>
+            <input
+              id="other-input"
+              type="number"
+              value="<%= @country_rate * 100 %>"
+              autocomplete="off"
+              inputmode="decimal"
+              data-currency-target="foreignCurrencyTarget"
+              data-action="keyup->currency#exchange"
+            >
+          </div>
         </div>
-        <button id="switch-btn" data-currency-target="switchBtn" data-action="click->currency#switchInputs">switch</button>
-        <p>(1 GBP = <%= "#{@country_rate} #{@country.currency_code}" %>)</p>
+        <p>1 GBP = <%= "#{@country_rate_rounded} #{@country.currency_code}" %></p>
       </div>
 
       <div class="country-info card">

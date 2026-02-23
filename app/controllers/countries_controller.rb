@@ -70,7 +70,10 @@ class CountriesController < ApplicationController
   end
 
   def currency_exchange(country)
-    @country_rate = country.currency_rate.rate.round(3)
+    @base_gbp_code = Country.find(176).currency_code
+    @base_gbp_rate = Country.find(176).currency_rate.rate
+    @country_rate = country.currency_rate.rate
+    @country_rate_rounded = country.currency_rate.rate.round(3)
   end
 
   def claude_suggestions(country)
