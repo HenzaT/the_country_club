@@ -48,6 +48,19 @@ form {
   span.dividing-line { width: 100%; }
 }
 
+.devise-links {
+  @include vars.flex-col;
+  gap: 1rem;
+
+  a {
+    transition: color 0.2s ease-in-out;
+    
+    &:hover {
+      color: vars.$orange;
+    }
+  }
+}
+
 .user-inputs {
   @include vars.flex-row;
   justify-content: center;
