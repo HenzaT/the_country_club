@@ -181,10 +181,15 @@
               value="<%= @country_rate * 100 %>"
               autocomplete="off"
               inputmode="decimal"
-              data-currency-target="foreignCurrencyTarget"
+              data-currency-target="foreignCurrencyInput"
               data-action="keyup->currency#exchange"
             >
           </div>
+        </div>
+        <div class="btn-group">
+          <button class="number-btn" data-currency-value-param="200" data-action="click->currency#buttonChange">200</button>
+          <button class="number-btn" data-currency-value-param="400" data-action="click->currency#buttonChange">400</button>
+          <button class="number-btn" data-currency-value-param="600" data-action="click->currency#buttonChange">600</button>
         </div>
         <p>1 GBP = <%= "#{@country_rate_rounded} #{@country.currency_code}" %></p>
       </div>

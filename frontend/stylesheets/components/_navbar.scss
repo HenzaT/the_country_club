@@ -11,7 +11,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 30px;
+  padding: 0 2rem;
 
   .mobile-menu-overlay ul {
     list-style: none;
@@ -28,7 +28,6 @@
     height: 100vh;
     background-color: vars.$dark;
     z-index: 1000;
-    padding-top: 100px;
     pointer-events: none;
     transition: opacity 0.2s ease-in-out;
   }
@@ -81,30 +80,19 @@
     transform: rotate(-45deg) translate(10px, -10px);
   }
 
-  .nav {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 60%;
-  }
-
   ul {
-    list-style: none;
-    padding: 0;
+    @include vars.flex-col;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    top: 15%;
   }
-
-  li {
-    padding-bottom: 30px;
-  }
-
 
   .dividing-line {
     display: block;
     background-color: vars.$light;
     height: 2px;
-    width: 15%;
-    margin-bottom: 30px;
+    width: 50%;
     border-radius: 5px;
   }
 }

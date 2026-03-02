@@ -1,16 +1,14 @@
 <div class="navbar-mobile">
-  <div class="nav-welcome">
-    <%= link_to root_path, class: "nav-link active" do %>
-      <i class="fa-regular fa-map" alt="map icon" id="nav-map-icon"></i>
-    <% end %>
-  </div>
+  <%= link_to root_path, class: "nav-link active" do %>
+    <i class="fa-regular fa-map" alt="map icon" id="nav-map-icon"></i>
+  <% end %>
   <div class="burger-btn" id="burgerButton" data-navbar-target="burger" data-action="click->navbar#toggleNav">
     <span class="line-one" data-navbar-target="lineOne"></span>
     <span class="line-two" data-navbar-target="lineTwo"></span>
     <span class="line-three" data-navbar-target="lineThree"></span>
   </div>
   <div id="mobileMenuOverlay" class="mobile-menu-overlay hidden" data-navbar-target="menuOverlay">
-    <ul class="nav">
+    <ul>
       <% if user_signed_in? %>
         <span class="dividing-line"></span>
         <li><%= link_to "Africa", continent_path("Africa"), class: "nav-link" %></li>

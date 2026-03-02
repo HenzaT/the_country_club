@@ -18,6 +18,24 @@
   }
 }
 
+.btn-group {
+  @include vars.flex-row;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  button.number-btn {
+    border-radius: 5px;
+    border: 2px solid vars.$orange;
+    background: vars.$light;
+    color: vars.$dark;
+
+    &:hover {
+      transform: translateY(0);
+    }
+  }
+}
+
+
 #show-ai-button, #show-season-button {
   margin: 20px 0;
 }
