@@ -16,7 +16,7 @@ Wishlist.destroy_all
 Favourite.destroy_all
 puts '----- database clear! -----'
 
-# base rate is GBP = 1
+# base rate is GBP = 1  
 currency_hash = {
   'AED' => 4.950348,
   'AFN' => 84.920882,

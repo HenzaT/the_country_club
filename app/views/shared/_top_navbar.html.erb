@@ -1,34 +1,18 @@
 <div class="topnav">
   <% if user_signed_in? %>
-    <div class="nav-welcome">
-      <%= link_to root_path, class: "nav-link" do %>
-        <i class="fa-regular fa-map" alt="map icon" id="nav-map-icon"></i>
-      <% end %>
-    </div>
+    <%= link_to root_path, class: "nav-link" do %>
+      <i class="fa-regular fa-map" alt="map icon" id="nav-map-icon"></i>
+    <% end %>
     <%= render "shared/continent_links" %>
-    <%# <div class="down-menu" data-navbar-target="downMenu" data-action="click->navbar#toggleOptionsOverlay">
-      <span class="left-line"></span>
-      <span class="right-line"></span>
-    </div> %>
     <div class="options-overlay" data-navbar-target="optionsOverlay">
-      <%= link_to dashboard_path, class: "nav-link" do %>
-        <p>Member's Area</p>
-      <% end %>
-      <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" do %>
-        <p>Logout</p>
-      <% end %>
+      <%= link_to "Member's Area", dashboard_path, class: "nav-link" %>
+      <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" %>
     </div>
   <% else %>
-    <div class="nav-welcome">
-      <%= link_to root_path, class: "nav-link active" do %>
-        <i class="fa-regular fa-map" alt="map icon" id="nav-map-icon"></i>
-      <% end %>
-    </div>
+    <%= link_to root_path, class: "nav-link active" do %>
+      <i class="fa-regular fa-map" alt="map icon" id="nav-map-icon"></i>
+    <% end %>
     <%= render "shared/continent_links" %>
-    <div class="nav-right">
-      <%= link_to new_user_session_path, class: "nav-link" do %>
-        <p>Login</p>
-      <% end %>
-    </div>
+    <%= link_to "Login", new_user_session_path, class: "nav-link nav-right" %>
   <% end %>
 </div>

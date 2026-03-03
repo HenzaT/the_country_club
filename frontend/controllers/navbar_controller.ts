@@ -33,20 +33,4 @@ export default class extends Controller {
       // body.style.overflow = "auto";
     }
   }
-
-  // toggleOptionsOverlay() {
-  //   const body = (this.targets.find('body') as HTMLElement)
-  //   const downMenu = (this.targets.find('downMenu') as HTMLElement)
-  //   const optionsOverlay = (this.targets.find('optionsOverlay') as HTMLElement)
-
-  //   optionsOverlay.classList.toggle('fade-into');
-
-  //   if (optionsOverlay.classList.contains('fade-into')) {
-  //     downMenu?.classList.add('close');
-  //     body.style.overflow = "hidden";
-  //   } else {
-  //     downMenu?.classList.remove('close');
-  //     body.style.overflow = "auto";
-  //   }
-  // }
 }

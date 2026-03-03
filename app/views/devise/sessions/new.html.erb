@@ -8,11 +8,17 @@
                 input_html: { autocomplete: "email" },
                 placeholder: "type email here...",
                 class: "email" %>
-    <%= f.input :password,
-                required: false,
-                input_html: { autocomplete: "current-password" },
-                placeholder: "type password here...",
-                class: "password" %>
+    <div class="password">
+      <%= f.label :password %>
+      <div class="password-input">
+        <%= f.input_field :password,
+                    required: false,
+                    input_html: { autocomplete: "current-password" },
+                    placeholder: "type password here...",
+                    class: "password" %>
+        <button type="button"><%= image_tag 'eye.svg' %></button>
+      </div>
+    </div>
     <%= f.input :remember_me, class: "remember-me", as: :boolean if devise_mapping.rememberable? %>
 
     <%= f.button :submit, "Log in", class: "submit-button" %>

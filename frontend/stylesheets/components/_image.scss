@@ -13,24 +13,19 @@
     object-fit: cover;
     display: block;
     background-size: cover;
-    // opacity: 0.8;
     transition: transform 1s ease-in-out;
     filter: brightness(50%);
   }
-  // .banner-image:hover {
-  //   transform: scale(1.05);
-  //
 
   .banner-image-country-name {
     position: absolute;
+    width: 100%;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: vars.$light;
     font-size: 5rem;
     white-space: nowrap;
-    // border-radius: 20px;
-    // background: rgba($dark, 0.5);
 
     h1 {
       font-size: 4rem;
@@ -76,6 +71,36 @@
 
   #caribbean-header {
     font-size: 4rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .country-banner {
+    #caribbean-header {
+      font-size: 7rem;
+    }
+  }
+
+  .country-banner .banner-image-country-name {
+    h1 {
+      font-size: 6rem;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .country-banner {
+    #caribbean-header {
+      font-size: 8rem;
+    }
+  }
+}
+
+@media (min-width: 1440px) {
+  .country-banner {
+    #caribbean-header {
+      font-size: 10rem;
+    }
   }
 }
 
