@@ -10,10 +10,11 @@
   padding: 0.5rem 1rem;
   margin: auto;
   cursor: pointer;
-  transition: color 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
   &:hover {
     color: vars.$orange;
+    box-shadow: vars.$card-light-shadow;
   }
 }
 

@@ -54,7 +54,6 @@ section.introduction {
   align-items: normal;
   padding: 1.5rem 1rem;
   gap: 1rem;
-  border-top: 1px solid vars.$light;
   border-bottom: 1px solid vars.$light;
 
   h2#introduction {
@@ -68,7 +67,7 @@ section.introduction {
   }
 }
 
-.introduction-text li a, .info-box > a {
+.introduction-text li a, .info-box .text > a {
   color: vars.$orange;
   text-decoration: underline 0.10em rgba(235, 177, 142, 0);
   transition: text-decoration-color 0.2s ease-in-out;
@@ -94,8 +93,13 @@ section.info-box.grid {
     justify-content: center;
     gap: 0.5rem;
 
-    h3 { font-size: 1.5rem; }
-    ul { line-height: 1.5; }
+    .text {
+      @include vars.flex-col;
+      justify-content: center;
+      gap: 0.5rem;
+      h3 { font-size: 1.5rem; }
+      ul { line-height: 1.5; }
+    }
   }
 }
 
@@ -154,6 +158,12 @@ footer {
     display: flex;
     width: 100%;
     margin: 0;
+  }
+
+  section.info-box.grid {
+    .info-box {
+      @include vars.flex-row;
+    }
   }
 }
 

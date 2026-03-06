@@ -1,20 +1,20 @@
 @use '../variables/variables' as vars;
 
-.fa-chevron-down {
-  font-size: 2.5rem;
+.arrow-container {
+  @include vars.flex-row;
+  justify-content: center;
+  width: 100%;
+  height: 10%;
   position: absolute;
-  top: 80%;
-  left: 48.5%;
-  cursor: pointer;
-  animation: pulsate 1s infinite ease-in-out;
+  top: 90%;
+  background: linear-gradient(to top, vars.$dark 20%, transparent);
+
+  .fa-chevron-down {
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
 }
 
 .switch-icon {
   color: vars.$light;
-}
-
-@keyframes pulsate {
-  0%    { opacity: 0.5; }
-  50%   { opacity: 1;   }
-  100%  { opacity: 0.5; }
 }

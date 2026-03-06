@@ -113,15 +113,21 @@ form {
   }
 }
 
+.search {
+  background: vars.$dark;
+  position: sticky;
+  top: 0;
+  padding: 2rem 0 1rem 0;
+  z-index: 2000;
+  margin: 0 0.8rem;
 
-.search-form {
-  @include vars.flex-col;
-  gap: 0.5rem;
-  margin: 1rem 0;
+  .search-form {
+    width: 100%;
+    margin: 0;
 
-  .search-label {
-    font-size: 1.2rem;
-    align-self: center;
+    input {
+      width: auto;
+    }
   }
 }
 
@@ -162,8 +168,19 @@ form {
     }
   }
 
-  .search-form {
-    @include vars.flex-row;
-    justify-content: center;
+  .search .search-form input {
+    width: 40%;
+    margin: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .search {
+
+    .search-form input {
+      width: 30%;
+      margin: 0;
+      margin-left: 9rem;
+    }
   }
 }

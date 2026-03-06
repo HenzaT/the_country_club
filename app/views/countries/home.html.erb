@@ -21,7 +21,9 @@
                 class: "photographer-link" %>
           </p>
         </div>
-        <i class="fa-solid fa-chevron-down" data-action="click->scroll#scrollToFirstSection"></i>
+        <div class="arrow-container">
+          <i class="fa-solid fa-chevron-down" data-action="click->scroll#scrollToFirstSection"></i>
+        </div>
       </div>
     <% end %>
   </section>
@@ -56,51 +58,61 @@
 
     <section class="info-box grid">
       <article class="info-box">
-        <h3>Where Next?</h3>
-        <ul>
-          <li>Discover your next holiday destination</li>
-          <li>Use AI to get activity suggestions and to find out when the best time to go is</li>
-          <li>Choose a country and add it to your wishlist</li>
-          <li>Rank how much you want to visit there</li>
-        </ul>
+        <div class="text">
+          <h3>Where Next?</h3>
+          <ul>
+            <li>Discover your next holiday destination</li>
+            <li>Use AI to get activity suggestions and to find out when the best time to go is</li>
+            <li>Choose a country and add it to your wishlist</li>
+            <li>Rank how much you want to visit there</li>
+          </ul>
+        </div>
+        <%= image_tag 'plane.jpg', class: "square-img" %>
       </article>
 
       <article class="info-box">
-        <h3>Relive It.</h3>
-        <ul>
-          <li>Revisit your favourite countries by adding a country to your favourites</li>
-          <li>Keep track of how many times you've visited, and when</li>
-          <li>Add any notes about the country</li>
-          <li>You can even upload any photos from your trip (in development)</li>
-        </ul>
-        <%# link %>
+        <div class="text">
+          <h3>Relive It.</h3>
+          <ul>
+            <li>Revisit your favourite countries by adding a country to your favourites</li>
+            <li>Keep track of how many times you've visited, and when</li>
+            <li>Add any notes about the country</li>
+            <li>You can even upload any photos from your trip (in development)</li>
+          </ul>
+        </div>
+        <%= image_tag 'relive.jpg', class: "square-img" %>
       </article>
 
       <article class="info-box">
-        <h3>Be Curious.</h3>
-        <ul>
-          <li>Learn more about a particular country, as each country page has useful facts and figures</li>
-          <li>Find out its capital and where its located</li>
-          <li>Discover how small or large a country is, in terms of population</li>
-          <li>Get your travel money organised by using the currency exchange tool (in development)</li>
-        </ul>
-        <%= link_to "Visit a random country", country_path(@random_country), class: "web-link" %>
+        <div class="text">
+          <h3>Be Curious.</h3>
+          <ul>
+            <li>Learn more about a particular country, as each country page has useful facts and figures</li>
+            <li>Find out its capital and where its located</li>
+            <li>Discover how small or large a country is, in terms of population</li>
+            <li>Get your travel money organised by using the currency exchange tool (in development)</li>
+          </ul>
+          <%= link_to "Visit a random country", country_path(@random_country), class: "web-link" %>
+        </div>
         <%# <div class="info-box-container right-image"> %>
           <%#= image_tag("/images/be-curious.gif", alt: "gif showing website navigation of country page", class: "home-page-gif") %>
         <%# </div> %>
+        <%= image_tag 'learn.jpg', class: "square-img" %>
       </article>
 
       <article class="info-box">
         <%# <div class="info-box-container left-image"> %>
           <%#= image_tag("/images/react-weather.gif", alt: "React Weather app gif", class: "home-page-gif") %>
         <%# </div> %>
-          <h3>Be Prepared.</h3>
-          <ul>
-            <li>Use my weather website to get the weather and some activity suggestions for a city you're visiting</li>
-            <li>Search for a city (or even an area of a particular city) so that you're prepared for the day, whatever the weather may be</li>
-            <li>If you're stuck for ideas, use AI to get some activity suggestions that are weather-appropriate</li>
-          </ul>
-          <%= link_to "Visit React Weather", "https://react-weather-claude-app-af1fc23c96a1.herokuapp.com/", target: "_blank", class: "web-link" %>
+          <div class="text">
+            <h3>Be Prepared.</h3>
+            <ul>
+              <li>Use my weather website to get the weather and some activity suggestions for a city you're visiting</li>
+              <li>Search for a city (or even an area of a particular city) so that you're prepared for the day, whatever the weather may be</li>
+              <li>If you're stuck for ideas, use AI to get some activity suggestions that are weather-appropriate</li>
+            </ul>
+            <%= link_to "Visit React Weather", "https://react-weather-claude-app-af1fc23c96a1.herokuapp.com/", target: "_blank", class: "web-link" %>
+          </div>
       </article>
     </section>
   </section>

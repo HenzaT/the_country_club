@@ -1,27 +1,27 @@
 <%# regions (N, C, S America) show %>
-<%= render "shared/random_photo_banner", photo: @random_photo, continent_or_region: @continent_region %>
+<div class="continent-region container" data-controller="search scroll">
+  <%= render "shared/random_photo_banner", photo: @random_photo, continent_or_region: @continent_region %>
 
-<%# <div class="charts"
-  data-controller="chart"
-  data-chart-labels-value="<%= @countries.map(&:name).to_json %>
-  <%# data-chart-populationdataset-value="<%= @countries.map(&:population).to_json %>
-  <%# data-chart-areadataset-value="<%= @countries.map(&:area).to_json %>
-  <%# <div class="btn-group">
-    <button class="chart-btn" data-chart-target="polarBtn" data-action="click->chart#showPolarChart">Polar Chart</button>
-    <button class="chart-btn" data-chart-target="barBtn" data-action="click->chart#showBarChart">Bar Chart</button>
-    <button class="chart-btn" data-chart-target="lineBtn" data-action="click->chart#showLineChart">Line Chart</button>
-  </div> %>
-  <%# <canvas data-chart-target="populationChart" width="200" id="population-chart"></canvas>
-  <%# <canvas data-chart-target="areaChart" width=800 height=600 id="area"></canvas> %>
-<%# </div> %>
+  <%# <div class="charts"
+    data-controller="chart"
+    data-chart-labels-value="<%= @countries.map(&:name).to_json %>
+    <%# data-chart-populationdataset-value="<%= @countries.map(&:population).to_json %>
+    <%# data-chart-areadataset-value="<%= @countries.map(&:area).to_json %>
+    <%# <div class="btn-group">
+      <button class="chart-btn" data-chart-target="polarBtn" data-action="click->chart#showPolarChart">Polar Chart</button>
+      <button class="chart-btn" data-chart-target="barBtn" data-action="click->chart#showBarChart">Bar Chart</button>
+      <button class="chart-btn" data-chart-target="lineBtn" data-action="click->chart#showLineChart">Line Chart</button>
+    </div> %>
+    <%# <canvas data-chart-target="populationChart" width="200" id="population-chart"></canvas>
+    <%# <canvas data-chart-target="areaChart" width=800 height=600 id="area"></canvas> %>
+  <%# </div> %>
 
-
-<div class="continent-region container" data-controller="search">
-  <%= form_with url: region_path(@continent_region), method: :get, local: false, class: "search-form",
-       data: { turbo_frame: "countries_results", search_target: "form", turbo: true, remote: false } do |form| %>
-    <%= form.label :query, "Search Countries", class: "search-label" %>
-    <%= form.text_field :query, placeholder: "#{@random_country}...", data: { action: "input->search#instantSearch", search_target: "input" } %>
-  <% end %>
+  <div class="search" data-scroll-target="firstSection">
+    <%= form_with url: continent_path(@continent_region), method: :get, local: false, class: "search-form",
+          data: { turbo_frame: "countries_results", search_target: "form", turbo: true, remote: false } do |form| %>
+      <%= form.text_field :query, placeholder: "Search Countries...", data: { action: "input->search#instantSearch", search_target: "input" } %>
+    <% end %>
+  </div>
 
   <div class="map-and-cards">
     <%= turbo_frame_tag "countries_results" do %>

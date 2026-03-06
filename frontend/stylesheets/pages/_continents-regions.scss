@@ -1,14 +1,15 @@
 @use '../variables/variables' as vars;
 
 .continent-region {
-  margin: 1.2rem;
+
 }
 
 .map-and-cards {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
   margin: 0 auto;
+  width: 90%;
 }
 
 .info-explanation {

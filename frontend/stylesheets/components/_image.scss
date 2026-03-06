@@ -74,6 +74,13 @@
   }
 }
 
+.square-img {
+  width: 200px;
+  height: 200px;
+  box-shadow: vars.$card-lightest-shadow;
+  border-radius: 30px;
+}
+
 @media (min-width: 768px) {
   .country-banner {
     #caribbean-header {

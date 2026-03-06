@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
+  margin-top: 1rem;
 
   .country-link {
     flex-direction: row;
@@ -22,13 +23,13 @@
     box-shadow: vars.$card-lightest-shadow;
     padding: 1rem;
     // width: 80%;
-    transition: transform 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     h3 { text-decoration: underline; }
 
-    // &:hover {
-    //   transform: translateY(-3px);
-    // }
+    &:hover {
+      box-shadow: vars.$card-light-shadow;
+    }
   }
 
   .country-info.card {
