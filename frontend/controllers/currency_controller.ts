@@ -9,7 +9,11 @@ export default class extends Controller {
     console.log("Hello from Currency controller")
   }
 
-  exchange() {
+  exchange(event: any) {
+    const value = event.params.value;
+    const gbpAsNum = Number(this.gbpInputTarget.value);
+    const foreignNum = Number(this.foreignCurrencyInputTarget.value);
+    console.log(gbpAsNum)
   }
 
   buttonChange(event: any) {

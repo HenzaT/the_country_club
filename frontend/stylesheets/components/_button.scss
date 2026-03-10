@@ -18,6 +18,11 @@
   }
 }
 
+.btn-close {
+  margin: 0;
+  color: vars.$light;
+}
+
 .btn-group {
   @include vars.flex-row;
   gap: 1rem;

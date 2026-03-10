@@ -126,12 +126,14 @@ footer {
   }
 
   section.info-box.grid {
-    grid-template-columns: repeat(2, 1fr);
-
     .info-box {
       box-shadow: none;
       align-self: flex-start;
+      flex-direction: row;
 
+      ul {
+        width: 90%;
+      }
     }
   }
 }

@@ -15,8 +15,9 @@
                     required: false,
                     input_html: { autocomplete: "current-password" },
                     placeholder: "type password here...",
-                    class: "password" %>
-        <button type="button"><%= image_tag 'eye.svg' %></button>
+                    class: "password",
+                    data: { form_target: 'passwordInput' } %>
+        <button type="button" data-form-target="eyeBtn" data-action="click->form#togglePassword"><%= image_tag 'eye.svg' %></button>
       </div>
     </div>
     <%= f.input :remember_me, class: "remember-me", as: :boolean if devise_mapping.rememberable? %>
