@@ -27,8 +27,7 @@ class Country < ApplicationRecord
   end
 
   def languages
-    languages = []
-    languages.push(language_one, language_two, language_three)
+    [language_one, language_two, language_three]
   end
 end
 

@@ -1,4 +1,4 @@
-@use '../variables/variables' as vars;
+@use '../abstracts/mixins' as mixin;
 
 .cards {
   display: grid;
@@ -12,15 +12,15 @@
   }
 
   .country-link .card-title {
-    @include vars.flex-col;
+    @include mixin.flex-col;
   }
 
   .card {
-    color: vars.$light;
-    @include vars.flex-row;
+    color: var(--light);
+    @include mixin.flex-row;
     justify-content: center;
     border-radius: 20px;
-    box-shadow: vars.$card-lightest-shadow;
+    box-shadow: var(--card-lightest-shadow);
     padding: 1rem;
     // width: 80%;
     transition: all 0.2s ease-in-out;
@@ -28,7 +28,7 @@
     h3 { text-decoration: underline; }
 
     &:hover {
-      box-shadow: vars.$card-light-shadow;
+      box-shadow: var(--card-light-shadow);
     }
   }
 
@@ -63,9 +63,9 @@
 
 .country-card-small, .wishlist-card, .favourite-card {
   border-radius: 10px;
-  box-shadow: vars.$card-lightest-shadow;
+  box-shadow: var(--card-lightest-shadow);
   padding: 20px;
-  @include vars.flex-row;
+  @include mixin.flex-row;
 }
 
 .country-card-small h2 {
@@ -96,7 +96,7 @@
 }
 
 .large-icon {
-  color: vars.$light;
+  color: var(--light);
   font-size: 2rem;
   padding: 20px;
 }
@@ -105,7 +105,7 @@
   width: 60%;
   border-radius: 10px;
   object-fit: cover;
-  box-shadow: vars.$card-lightest-shadow;
+  box-shadow: var(--card-lightest-shadow);
 }
 
 .individual-flag-image {

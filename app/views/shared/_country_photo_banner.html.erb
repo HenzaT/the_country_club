@@ -1,0 +1,24 @@
+<% if photo %>
+  <div class="country-banner">
+    <%= image_tag(photo.image_url, alt: "#{photo.image_alt}", class: "country-banner__image") %>
+    <% if current_page?(root_path) %>
+      <h1 class="country-banner__header">The Country Club.</h1>
+    <% elsif continent_or_region == "Caribbean" %>
+      <h1 class="country-banner__header" id="country-banner__caribbean-header"><%= continent_or_region %></h1>
+    <% else %>
+      <h1 class="country-banner__header"><%= continent_or_region %></h1>
+    <% end %>
+    <div class="country-banner__attributions">
+      <p><%= photo.country.name %></p>
+      <p>
+        Photo by
+        <%= link_to photo.photographer_name, "#{photo.photographer_url}?utm_source=the_country_club&utm_medium=referral", rel: 'noopener', class: "country-banner__link" %>
+        on
+        <%= link_to 'Unsplash', 'https://unsplash.com/?utm_source=the_country_club&utm_medium=referral', rel: 'noopener', class: "country-banner__link" %>
+      </p>
+    </div>
+    <div class="arrow-container">
+      <i class="fa-solid fa-chevron-down" data-action="click->scroll#scrollToFirstSection"></i>
+    </div>
+  </div>
+<% end %>

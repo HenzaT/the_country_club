@@ -1,4 +1,4 @@
-@use '../variables/variables' as vars;
+@use '../abstracts/mixins' as mixin;
 
 .darken {
   filter: brightness(30%);
@@ -26,7 +26,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: vars.$dark;
+    background-color: var(--dark);
     z-index: 1000;
     pointer-events: none;
     transition: opacity 0.2s ease-in-out;
@@ -50,7 +50,7 @@
 
   .line-one, .line-two, .line-three {
     display: block;
-    background-color: vars.$light;
+    background-color: var(--light);
     height: 4px;
     width: 100%;
     border-radius: 5px;
@@ -81,7 +81,7 @@
   }
 
   ul {
-    @include vars.flex-col;
+    @include mixin.flex-col;
     justify-content: center;
     gap: 1rem;
     position: relative;
@@ -90,7 +90,7 @@
 
   .dividing-line {
     display: block;
-    background-color: vars.$light;
+    background-color: var(--light);
     height: 2px;
     width: 50%;
     border-radius: 5px;
@@ -131,7 +131,7 @@
     transition: color 0.2s ease-in-out;
 
     &:hover {
-      color: vars.$orange;
+      color: var(--orange);
     }
   }
 
@@ -154,7 +154,7 @@
 
   .left-line, .right-line {
     display: block;
-    background-color: vars.$light;
+    background-color: var(--light);
     height: 4px;
     width: 100%;
     border-radius: 5px;
@@ -183,11 +183,11 @@
 }
 
 .fa-bars {
-  color: vars.$light;
+  color: var(--light);
 }
 
 .fa-xmark {
-  color: vars.$dark;
+  color: var(--dark);
   margin: 0 0 0px 20px;
   cursor: pointer;
 }

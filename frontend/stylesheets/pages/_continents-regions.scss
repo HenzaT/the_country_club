@@ -1,14 +1,11 @@
-@use '../variables/variables' as vars;
-
-.continent-region {
-
-}
+@use '../abstracts/mixins' as mixin;
 
 .map-and-cards {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   margin: 0 auto;
+  margin-bottom: 2rem;
   width: 90%;
 }
 

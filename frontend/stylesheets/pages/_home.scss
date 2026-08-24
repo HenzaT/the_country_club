@@ -1,23 +1,7 @@
-@use '../variables/variables' as vars;
+@use '../abstracts/mixins' as mixin;
 
 section.home {
   height: 100%;
-}
-
-h1.page-header {
-  width: 100%;
-  font-size: 5rem;
-  text-wrap: auto;
-  margin: 30px 0;
-  text-align: center;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-section.banner, section.explanation {
-  color: vars.$light;
 }
 
 section.explanation {
@@ -31,7 +15,8 @@ section.explanation {
 .home-info {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 4rem;
+  padding: 1.5rem 1rem;
 
   .info-box-container {
     width: 85%;
@@ -50,15 +35,13 @@ section.explanation {
 }
 
 section.introduction {
-  @include vars.flex-col;
+  @include mixin.flex-col;
   align-items: normal;
-  padding: 1.5rem 1rem;
   gap: 1rem;
-  border-bottom: 1px solid vars.$light;
+  scroll-margin-top: 3rem;
 
   h2#introduction {
     font-size: 1.4rem;
-    // text-align: center;
   }
 
   ul.introduction-text {
@@ -68,7 +51,7 @@ section.introduction {
 }
 
 .introduction-text li a, .info-box .text > a {
-  color: vars.$orange;
+  color: var(--orange);
   text-decoration: underline 0.10em rgba(235, 177, 142, 0);
   transition: text-decoration-color 0.2s ease-in-out;
 
@@ -77,44 +60,27 @@ section.introduction {
   }
 }
 
-section.info-box.grid {
+section.features.grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   align-items: center;
-  gap: 1rem;
-  margin: 0 1rem;
+  gap: 4rem;
 
-  .info-box {
-    color: vars.$light;
-    padding: 1rem 2rem;
-    border-radius: 30px;
-    box-shadow: vars.$card-lightest-shadow;
-    @include vars.flex-col;
-    justify-content: center;
-    gap: 0.5rem;
-
-    .text {
-      @include vars.flex-col;
-      justify-content: center;
-      gap: 0.5rem;
-      h3 { font-size: 1.5rem; }
-      ul { line-height: 1.5; }
-    }
+  header {
+    @include mixin.flex-col;
+    padding-bottom: 1rem;
   }
 }
 
 footer {
-  color: vars.$light;
+  color: var(--light);
   text-align: center;
   margin: 1rem;
 }
 
 // tablet
 @media (min-width: 768px) {
-  h1.page-header {
-    font-size: 7rem;
-    white-space: auto;
-  }
+
 
   section.introduction {
     h2#introduction { text-align: center; }
@@ -155,7 +121,7 @@ footer {
 
   .home-info .info-box-container {
     transform-style: preserve-3d;
-    box-shadow: vars.$card-lightest-shadow;
+    box-shadow: var(--card-lightest-shadow);
     align-self: stretch;
     display: flex;
     width: 100%;
@@ -164,7 +130,7 @@ footer {
 
   section.info-box.grid {
     .info-box {
-      @include vars.flex-row;
+      @include mixin.flex-row;
     }
   }
 }

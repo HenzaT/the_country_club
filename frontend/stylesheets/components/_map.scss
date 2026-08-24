@@ -1,8 +1,8 @@
-@use '../variables/variables' as vars;
+@use '../abstracts/mixins' as mixin;
 
 .mapbox-continent-region, .mapbox-country {
   border-radius: 20px;
-  box-shadow: vars.$card-lightest-shadow;
+  box-shadow: var(--card-lightest-shadow);
   object-fit: cover;
 }
 
@@ -33,7 +33,7 @@
   background: white;
 
   a {
-    color: vars.$dark;
+    color: var(--dark);
     text-decoration: none;
   }
 }

@@ -1,5 +1,3 @@
-@use '../variables/variables' as vars;
-
 .clock {
   width: 5rem;
   height: 5rem;
@@ -88,7 +86,7 @@
     background: #4d4b63;
     z-index: 11;
   }
-  
+
   .hand {
     width: 50%;
     right: 50%;

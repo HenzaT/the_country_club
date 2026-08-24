@@ -1,13 +1,13 @@
-@use '../variables/variables' as vars;
+@use '../abstracts/mixins' as mixin;
 
 .arrow-container {
-  @include vars.flex-row;
+  @include mixin.flex-row;
   justify-content: center;
   width: 100%;
   height: 15%;
   position: absolute;
   top: 85%;
-  background: linear-gradient(to top, vars.$dark 20%, transparent);
+  background: linear-gradient(to top, var(--dark) 20%, transparent);
 
   .fa-chevron-down {
     font-size: 2.5rem;
@@ -16,5 +16,6 @@
 }
 
 .switch-icon {
-  color: vars.$light;
+  color: var(--light);
 }
+

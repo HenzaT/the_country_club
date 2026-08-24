@@ -14,83 +14,29 @@
  *= require_self
  */
 
-@use 'variables/variables' as vars;
-
 @use 'mapbox-gl';
 
+@use 'base/base';
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+
 // components
-@use './components/button.scss';
-@use './components/canvas.scss';
-@use './components/card.scss';
-@use './components/clock.scss';
-@use './components/container.scss';
-@use './components/form.scss';
-@use './components/icon';
-@use './components/image.scss';
-@use './components/map.scss';
-@use './components/navbar.scss';
+@use 'components/banner';
+@use 'components/button';
+@use 'components/canvas';
+@use 'components/card';
+@use 'components/clock';
+@use 'components/container';
+@use 'components/features_list';
+@use 'components/form';
+@use 'components/icon';
+@use 'components/image';
+@use 'components/map';
+@use 'components/navbar';
+@use 'components/pill';
 
 // pages
-@use './pages/home.scss';
-@use './pages/continents-regions.scss';
-@use './pages/show-country.scss';
-@use './pages/dashboard.scss';
-
-* {
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
-  height: 100%;
-  background-color: vars.$dark;
-  color: vars.$light;
-  overflow-y: scroll;
-}
-
-h1 {
-  font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-}
-
-h2 {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
-h3 {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-}
-
-a, p, li, button, .ai-text, form, input[type="submit"], input, label, .alert {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
-}
-
-p {
-  line-height: 2;
-}
-
-a {
-  text-decoration: none;
-  text-underline-offset: 5px;
-  color: white;
-}
-
-span.dividing-line {
-  display: block;
-  margin: auto;
-  background-color: vars.$light;
-  border-radius: 30px;
-  height: 0.08rem;
-  width: 80%;
-}
+@use 'pages/home';
+@use 'pages/continents-regions';
+@use 'pages/show-country';
+@use 'pages/dashboard';

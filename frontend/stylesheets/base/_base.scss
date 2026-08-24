@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background-color: var(--dark);
+  color: var(--light);
+  overflow-y: scroll;
+}
+
+.btn {
+  font-size: 1rem;
+}
+
+h1, h2, h3, h4,
+a, p, li, .btn, form, input, label, .alert {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+h1 {
+  font-family: "Playfair Display", serif;
+  font-weight: 500;
+}
+
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}
+
+h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300 bold;
+}
+
+a, p, li, button, .ai-text, form, input, label, .alert {
+  font-weight: 300;
+}
+
+p {
+  line-height: 2;
+}
+
+a {
+  text-decoration: none;
+  text-underline-offset: 5px;
+  color: var(--orange);
+}
+
+hr {
+  display: block;
+  margin: auto;
+  background-color: var(--light);
+  border: none;
+  border-radius: 30px;
+  height: 0.1px;
+  width: 100%;
+}

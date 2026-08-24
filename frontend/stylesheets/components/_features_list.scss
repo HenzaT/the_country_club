@@ -1,0 +1,83 @@
+@use '../abstracts/mixins' as mixin;
+
+ul.features-list {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+
+  .feature-card, .feature-row {
+    list-style-type: none;
+    @include mixin.flex-row;
+    gap: 1rem;
+
+    &__icon {
+      font-size: 1.5rem;
+    }
+
+    &__icon.orange {
+      color: var(--orange);
+    }
+  }
+
+  .feature-card {
+    border-radius: 10px;
+    box-shadow: var(--card-lightest-shadow);
+    padding: 1rem;
+    height: 6rem;
+    transition: all 0.2s ease-in-out;
+
+    &__text {
+      @include mixin.flex-col;
+      align-items: flex-start;
+      gap: 0.2rem;
+    }
+
+    &__icon-box {
+      @include mixin.flex-row;
+      justify-content: center;
+      width: 30px;
+      border: 1px solid var(--orange);
+      border-radius: 10px;
+      padding: 0.5rem;
+    }
+
+    &__link {
+      @include mixin.flex-row;
+      gap: 0.5rem;
+    }
+
+    &:hover {
+      box-shadow: var(--card-light-shadow);
+    }
+  }
+
+  .feature-card#centered {
+    justify-content: center;
+  }
+
+  @include mixin.media(tabletAndUp) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+ul.features-list#list-column {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+
+  .feature-row {
+    border-bottom: 0.1px solid var(--light);
+  }
+
+  .feature-row:last-of-type {
+    justify-content: space-between;
+
+    .left-group {
+      @include mixin.flex-row;
+      gap: 1rem;
+    }
+  }
+
+  @include mixin.media(tabletAndUp) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

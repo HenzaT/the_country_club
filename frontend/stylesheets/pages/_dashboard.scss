@@ -1,4 +1,4 @@
-@use '../variables/variables' as vars;
+@use '../abstracts/mixins' as mixin;
 
 .dashboard {
   margin: 1.2rem;
@@ -8,7 +8,7 @@
   }
 
   .stats {
-    @include vars.flex-col;
+    @include mixin.flex-col;
     margin-top: 1rem;
   }
 }
@@ -16,7 +16,7 @@
 @media (min-width: "768px") {
   .dashboard {
     .stats {
-      @include vars.flex-row;
+      @include mixin.flex-row;
       justify-content: center;
       gap: 4rem;
     }

@@ -1,0 +1,26 @@
+@mixin media($query) {
+  @if $query == tabletAndUp {
+    @media (min-width: 768px) { @content; }
+  }
+  @else if $query == laptopAndUp {
+    @media (min-width: 1024px) { @content; }
+  }
+  @else if $query == largeLaptopAndUp {
+    @media (min-width: 1440px) { @content; }
+  }
+  @else if $query == largest {
+    @media (min-width: 1700px) { @content; }
+  }
+}
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}

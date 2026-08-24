@@ -1,36 +1,12 @@
 <div class="home container" data-controller="scroll">
-  <section class="banner">
-    <% if @photo %>
-      <div class="country-banner">
-        <%= image_tag(@photo.image_url, alt: "#{@photo.image_alt}", class: "banner-image") %>
-        <h1 class="page-header">The Country Club.</h1>
-        <div class="banner-image-attributions">
-          <p><%= @photo.country.name %></p>
-          <p>
-            Photo by
-            <%= link_to @photo.photographer_name,
-                "#{@photo.photographer_url}?utm_source=the_country_club&utm_medium=referral",
-                target: '_blank',
-                rel: 'noopener',
-                class: "photographer-link" %>
-            on
-            <%= link_to 'Unsplash',
-                'https://unsplash.com/?utm_source=the_country_club&utm_medium=referral',
-                target: '_blank',
-                rel: 'noopener',
-                class: "photographer-link" %>
-          </p>
-        </div>
-        <div class="arrow-container">
-          <i class="fa-solid fa-chevron-down" data-action="click->scroll#scrollToFirstSection"></i>
-        </div>
-      </div>
-    <% end %>
-  </section>
+  <%= render 'shared/country_photo_banner', photo: @photo %>
 
   <section class="home-info">
     <section class="introduction" data-scroll-target="firstSection">
-      <h2 id="introduction">A travel tracker. <br> For the curious traveller.</h2>
+      <header>
+        <h2 id="introduction">A travel tracker</h2>
+        <p>For the curious traveller</p>
+      </header>
       <ul class="introduction-text">
         <li>
           As someone who loves travelling and going down geography rabbit holes on Wikipedia, I built this app to
@@ -56,64 +32,158 @@
       <% end %>
     </section>
 
-    <section class="info-box grid">
-      <article class="info-box">
-        <div class="text">
+    <hr>
+
+    <section class="features grid">
+      <div>
+        <header>
           <h3>Where Next?</h3>
-          <ul>
-            <li>Discover your next holiday destination</li>
-            <li>Use AI to get activity suggestions and to find out when the best time to go is</li>
-            <li>Choose a country and add it to your wishlist</li>
-            <li>Rank how much you want to visit there</li>
-          </ul>
-        </div>
-        <%= image_tag 'plane.jpg', class: "square-img" %>
-      </article>
+          <p>Discover your next destination</p>
+        </header>
+        <ul class="features-list">
+          <li class="feature-card">
+            <div class="feature-card__icon-box">
+              <i class="feature-card__icon fa-solid fa-map-location-dot"></i>
+            </div>
+            <div class="feature-card__text">
+              <h4 class="feature-card__title">Discover destinations</h4>
+              <p class="feature-card__subtitle">Find your next holiday spot</p>
+            </div>
+          </li>
+          <li class="feature-card">
+            <div class="feature-card__icon-box">
+              <i class="feature-card__icon fa-regular fa-lightbulb"></i>
+            </div>
+            <div class="feature-card__text">
+              <h4 class="feature-card__title">AI activity suggestions</h4>
+              <p class="feature-card__subtitle">Ideas and best time to visit</p>
+            </div>
+          </li>
+          <li class="feature-card">
+            <div class="feature-card__icon-box">
+              <i class="feature-card__icon fa-regular fa-heart"></i>
+            </div>
+            <div class="feature-card__text">
+              <h4 class="feature-card__title">Wishlist</h4>
+              <p class="feature-card__subtitle">Track your dream destinations</p>
+            </div>
+          </li>
+          <li class="feature-card">
+            <div class="feature-card__icon-box">
+              <i class="feature-card__icon fa-solid fa-list-check"></i>
+            </div>
+            <div class="feature-card__text">
+              <h4 class="feature-card__title">Track your list</h4>
+              <p class="feature-card__subtitle">See every country in one place</p>
+            </div>
+          </li>
+        </ul>
+      </div>
 
-      <article class="info-box">
-        <div class="text">
-          <h3>Relive It.</h3>
-          <ul>
-            <li>Revisit your favourite countries by adding a country to your favourites</li>
-            <li>Keep track of how many times you've visited, and when</li>
-            <li>Add any notes about the country</li>
-            <li>You can even upload any photos from your trip (in development)</li>
-          </ul>
-        </div>
-        <%= image_tag 'relive.jpg', class: "square-img" %>
-      </article>
+      <hr>
 
-      <article class="info-box">
-        <div class="text">
-          <h3>Be Curious.</h3>
-          <ul>
-            <li>Learn more about a particular country, as each country page has useful facts and figures</li>
-            <li>Find out its capital and where its located</li>
-            <li>Discover how small or large a country is, in terms of population</li>
-            <li>Get your travel money organised by using the currency exchange tool (in development)</li>
-          </ul>
-          <%= link_to "Visit a random country", country_path(@random_country), class: "web-link" %>
-        </div>
-        <%# <div class="info-box-container right-image"> %>
-          <%#= image_tag("/images/be-curious.gif", alt: "gif showing website navigation of country page", class: "home-page-gif") %>
-        <%# </div> %>
-        <%= image_tag 'learn.jpg', class: "square-img" %>
-      </article>
+      <div>
+        <header>
+          <h3>Relive it</h3>
+          <p>Everywhere you've been</p>
+        </header>
+        <ul class="features-list" id="list-column">
+          <li class="feature-row">
+            <i class="feature-row__icon fa-regular fa-star"></i>
+            <p class="feature-row__text">Add to favourites</p>
+          </li>
+          <li class="feature-row">
+            <i class="feature-row__icon fa-regular fa-calendar"></i>
+            <p class="feature-row__text">Track visits and dates</p>
+          </li>
+          <li class="feature-row">
+            <i class="feature-row__icon fa-regular fa-rectangle-list"></i>
+            <p class="feature-row__text">Add personal notes</p>
+          </li>
+          <li class="feature-row" id="coming-soon">
+            <div class="left-group">
+              <i class="feature-row__icon fa-regular fa-image"></i>
+              <p class="feature-row__text">Upload trip photos</p>
+            </div>
+            <span class="pill">Coming soon</span>
+          </li>
+        </ul>
+      </div>
 
-      <article class="info-box">
-        <%# <div class="info-box-container left-image"> %>
-          <%#= image_tag("/images/react-weather.gif", alt: "React Weather app gif", class: "home-page-gif") %>
-        <%# </div> %>
-          <div class="text">
-            <h3>Be Prepared.</h3>
-            <ul>
-              <li>Use my weather website to get the weather and some activity suggestions for a city you're visiting</li>
-              <li>Search for a city (or even an area of a particular city) so that you're prepared for the day, whatever the weather may be</li>
-              <li>If you're stuck for ideas, use AI to get some activity suggestions that are weather-appropriate</li>
-            </ul>
-            <%= link_to "Visit React Weather", "https://react-weather-claude-app-af1fc23c96a1.herokuapp.com/", target: "_blank", class: "web-link" %>
-          </div>
-      </article>
+      <hr>
+
+      <div>
+        <header>
+          <h3>Be Curious</h3>
+          <p>Learn something new about every country</p>
+        </header>
+        <ul class="features-list">
+          <li class="feature-card">
+            <div class="feature-card__icon-box">
+              <i class="feature-card__icon fa-solid fa-info"></i>
+            </div>
+            <div class="feature-card__text">
+              <h4 class="feature-card__title">Country facts</h4>
+              <p class="feature-card__subtitle">Key information at a glance</p>
+            </div>
+          </li>
+          <li class="feature-card">
+            <div class="feature-card__icon-box">
+              <i class="feature-card__icon fa-solid fa-user-group"></i>
+            </div>
+            <div class="feature-card__text">
+              <h4 class="feature-card__title">Population size</h4>
+              <p class="feature-card__subtitle">See how small or large a country is</p>
+            </div>
+          </li>
+          <li class="feature-card">
+            <div class="feature-card__icon-box">
+              <i class="feature-card__icon fa-solid fa-dollar-sign"></i>
+            </div>
+            <div class="feature-card__text">
+              <h4 class="feature-card__title">Currency exchange</h4>
+              <p class="feature-card__subtitle">Get your travel money organised</p>
+              <span class="pill">Coming soon</span>
+            </div>
+          </li>
+          <li class="feature-card" id="centered">
+            <%= link_to country_path(@random_country), class: "feature-card__link" do %>
+              <i class="feature-card__icon orange fa-solid fa-arrow-up-right-from-square"></i>
+              Visit a random country
+            <% end %>
+          </li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <div>
+        <header>
+          <h3>Be prepared</h3>
+          <p>Know what to expect before you land</p>
+        </header>
+        <ul class="features-list" id="list-column">
+          <li class="feature-row">
+            <i class="feature-row__icon fa-regular fa-star"></i>
+            <p class="feature-row__text">Check the weather</p>
+          </li>
+          <li class="feature-row">
+            <i class="feature-row__icon fa-regular fa-calendar"></i>
+            <p class="feature-row__text">Search for a city or specific area</p>
+          </li>
+          <li class="feature-row">
+            <i class="feature-row__icon fa-regular fa-rectangle-list"></i>
+            <p class="feature-row__text">Get AI activity suggestions that fit the weather</p>
+          </li>
+          <li class="feature-row">
+            <i class="feature-row__icon fa-regular fa-image"></i>
+            <%= link_to "Visit React Weather", "https://react-weather-claude-app-af1fc23c96a1.herokuapp.com/", class: "web-link" %>
+          </li>
+        </ul>
+      </div>
+
+      <hr>
+
     </section>
   </section>
 

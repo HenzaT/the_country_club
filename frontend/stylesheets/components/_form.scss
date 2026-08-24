@@ -1,7 +1,7 @@
-@use '../variables/variables' as vars;
+@use '../abstracts/mixins' as mixin;
 
 form {
-  @include vars.flex-col;
+  @include mixin.flex-col;
   align-items: normal;
   margin: 1rem 0 2rem 0;
   gap: 1.5rem;
@@ -10,7 +10,7 @@ form {
     font-size: 1rem;
     padding: 8px;
     border-radius: 10px;
-    border: 2px solid vars.$light;
+    border: 2px solid var(--light);
   }
 
   input, textarea {
@@ -28,13 +28,13 @@ form {
   }
 
   label {
-    @include vars.flex-row;
+    @include mixin.flex-row;
     gap: 0.5rem;
     align-self: flex-start;
   }
 
   .input {
-    @include vars.flex-col;
+    @include mixin.flex-col;
     gap: 0.2rem;
   }
 
@@ -43,21 +43,21 @@ form {
   }
 
   .password {
-    @include vars.flex-col;
+    @include mixin.flex-col;
     gap: 0.2rem;
   }
 
   .password-input {
     width: 100%;
     position: relative;
-    @include vars.flex-col;
+    @include mixin.flex-col;
 
     input {
       // padding-right: 3rem;
     }
 
     button {
-      @include vars.flex-row;
+      @include mixin.flex-row;
       position: absolute;
       right: 0.1rem;
       top: 50%;
@@ -75,7 +75,7 @@ form {
 }
 
 .alert {
-  @include vars.flex-row;
+  @include mixin.flex-row;
   justify-content: center;
   gap: 1rem;
   margin-top: 1rem;
@@ -86,25 +86,25 @@ form {
 }
 
 .devise-links {
-  @include vars.flex-col;
+  @include mixin.flex-col;
   gap: 1rem;
 
   a {
     transition: color 0.2s ease-in-out;
 
     &:hover {
-      color: vars.$orange;
+      color: var(--orange);
     }
   }
 }
 
 .user-inputs {
-  @include vars.flex-row;
+  @include mixin.flex-row;
   justify-content: center;
   margin: 1rem 0;
 
   .input {
-    @include vars.flex-col;
+    @include mixin.flex-col;
     gap: 0.5rem;
   }
 
@@ -123,7 +123,7 @@ form {
 }
 
 .search {
-  background: vars.$dark;
+  background: var(--dark);
   position: sticky;
   top: 0;
   padding: 2rem 0 1rem 0;
@@ -137,6 +137,10 @@ form {
     input {
       width: auto;
     }
+  }
+
+  .search-filter {
+    @include mixin.flex-row;
   }
 }
 
@@ -153,18 +157,18 @@ form {
 
 .new_favourite, .new_wishlist {
   .input.favourite_rating {
-    @include vars.flex-row;
+    @include mixin.flex-row;
     gap: 0.5rem;
   }
 
   .input {
-    @include vars.flex-col;
+    @include mixin.flex-col;
     gap: 0.5rem;
   }
 }
 
 .login-link {
-  @include vars.flex-col;
+  @include mixin.flex-col;
   justify-content: center;
   margin: 1rem 0 2rem 0;
 }

@@ -1,4 +1,4 @@
-@use '../variables/variables' as vars;
+@use '../abstracts/mixins' as mixin;
 
 .country-page {
   margin-bottom: 2rem;
@@ -6,8 +6,8 @@
   section.country-infos, section.wishlist-favourites {
     margin: 1rem;
     padding: 1rem 0 2rem 0;
-    border-top: 1px solid vars.$light;
-    border-bottom: 1px solid vars.$light;
+    border-top: 1px solid vars(--light);
+    border-bottom: 1px solid vars(--light);
   }
 
   section.wishlist-favourites {
@@ -27,9 +27,9 @@
 }
 
 .list-link {
-  @include vars.flex-col;
+  @include mixin.flex-col;
   text-decoration: none;
-  color: vars.$light;
+  color: var(--light);
 }
 
 .ai-suggestion {

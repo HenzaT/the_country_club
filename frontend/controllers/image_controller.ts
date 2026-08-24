@@ -8,6 +8,6 @@ export default class extends Controller {
   timeout: number | undefined
 
   connect() {
-    fetch()
+    // fetch()
   }
 }

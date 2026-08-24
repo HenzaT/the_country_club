@@ -1,38 +1,38 @@
-@use '../variables/variables' as vars;
+@use '../abstracts/mixins' as mixin;
 
 .btn, .submit-button, #show-ai-button, #show-season-button, button {
   background: transparent;
-  color: vars.$light;
+  color: inherit;
   font-size: 1rem;
   border-radius: 20px;
-  border: 0.5px solid vars.$orange;
-  box-shadow: vars.$card-lightest-shadow;
+  border: 1px solid var(--orange);
+  box-shadow: var(--card-lightest-shadow);
   padding: 0.5rem 1rem;
   margin: auto;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    color: vars.$orange;
-    box-shadow: vars.$card-light-shadow;
+    color: var(--orange);
+    box-shadow: var(--card-light-shadow);
   }
 }
 
 .btn-close {
   margin: 0;
-  color: vars.$light;
+  color: var(--light);
 }
 
 .btn-group {
-  @include vars.flex-row;
+  @include mixin.flex-row;
   gap: 1rem;
   margin-bottom: 1rem;
 
   button.number-btn {
     border-radius: 5px;
-    border: 2px solid vars.$orange;
-    background: vars.$light;
-    color: vars.$dark;
+    border: 2px solid var(--orange);
+    background: var(--light);
+    color: var(--dark);
 
     &:hover {
       transform: translateY(0);
@@ -47,13 +47,13 @@
 
 #show-ai-button:disabled, #show-season-button:disabled {
   cursor: not-allowed;
-  background-color: vars.$light;
-  color: vars.$dark;
+  background-color: var(--light);
+  color: var(--dark);
 }
 
 #show-ai-button:disabled:hover, .continent-button:disabled:hover {
-  background-color: vars.$light;
-  color: vars.$dark;
+  background-color: var(--light);
+  color: var(--dark);
 }
 
 .button-group {
@@ -72,13 +72,13 @@
 
 .continent-button {
   cursor: pointer;
-  background: vars.$orange;
-  color: vars.$light;
+  background: var(--orange);
+  color: var(--light);
   padding: 10px;
   width: 200px;
   border-radius: 20px;
   border: none;
-  box-shadow: vars.$card-lightest-shadow;
+  box-shadow: var(--card-lightest-shadow);
   transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 

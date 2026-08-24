@@ -1,0 +1,17 @@
+:root {
+  // colors
+  --light: rgb(237, 234, 212);
+  --dark: rgb(11, 5, 2);
+  --orange: rgb(235, 177, 142);
+  --purple: #524a8f;
+  --dark-orange: rgb(78, 21, 6);
+  --selected-orange: #bf3a15;
+
+  // shadow
+  --card-heavy-shadow: 0 0 0 0 var(--light), 0 0 10px 0 var(--light);
+  --card-light-shadow: 0 0 0 0 var(--light), 0 0 7px 0 var(--light);
+  --card-lightest-shadow: 0 0 0 0 var(--light), 0 0 3px 0 var(--light);
+
+  --font-family-montserrat: "Montserrat", sans-serif;
+  --font-family-playfair: "Playfair Display", serif;
+}
