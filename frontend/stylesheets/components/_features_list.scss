@@ -13,10 +13,6 @@ ul.features-list {
     &__icon {
       font-size: 1.5rem;
     }
-
-    &__icon.orange {
-      color: var(--orange);
-    }
   }
 
   .feature-card {
@@ -51,8 +47,10 @@ ul.features-list {
     }
   }
 
-  .feature-card#centered {
+  #centered {
+    @include mixin.flex-row;
     justify-content: center;
+    gap: 0.5rem;
   }
 
   @include mixin.media(tabletAndUp) {

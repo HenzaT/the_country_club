@@ -14,27 +14,33 @@
   .country-link .card-title {
     @include mixin.flex-col;
   }
+}
 
-  .card {
-    color: var(--light);
-    @include mixin.flex-row;
-    justify-content: center;
-    border-radius: 20px;
-    box-shadow: var(--card-lightest-shadow);
-    padding: 1rem;
-    // width: 80%;
-    transition: all 0.2s ease-in-out;
+.card {
+  color: var(--light);
+  @include mixin.flex-col;
+  justify-content: center;
+  border-radius: 20px;
+  box-shadow: var(--card-lightest-shadow);
+  padding: 2rem;
+  transition: all 0.2s ease-in-out;
 
-    h3 { text-decoration: underline; }
+  h3 { text-decoration: underline; }
 
-    &:hover {
-      box-shadow: var(--card-light-shadow);
-    }
+  &:hover {
+    box-shadow: var(--card-light-shadow);
+  }
+}
+
+.country-fact {
+  header {
+    align-self: flex-start;
   }
 
-  .country-info.card {
-    flex-direction: column;
-    margin: 0;
+  &__flag {
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
   }
 }
 
@@ -101,15 +107,11 @@
   padding: 20px;
 }
 
-.flag-image, .individual-flag-image {
+.flag-image {
   width: 60%;
   border-radius: 10px;
   object-fit: cover;
   box-shadow: var(--card-lightest-shadow);
-}
-
-.individual-flag-image {
-  width: 80%;
 }
 
 // tablet +

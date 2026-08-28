@@ -1,7 +1,7 @@
-<div class="home container" data-controller="scroll">
+<div class="home" data-controller="scroll">
   <%= render 'shared/country_photo_banner', photo: @photo %>
 
-  <section class="home-info">
+  <section class="container">
     <section class="introduction" data-scroll-target="firstSection">
       <header>
         <h2 id="introduction">A travel tracker</h2>
@@ -146,12 +146,12 @@
               <span class="pill">Coming soon</span>
             </div>
           </li>
-          <li class="feature-card" id="centered">
-            <%= link_to country_path(@random_country), class: "feature-card__link" do %>
+          <%= link_to country_path(@random_country), class: "feature-card" do %>
+          <li id="centered">
               <i class="feature-card__icon orange fa-solid fa-arrow-up-right-from-square"></i>
               Visit a random country
-            <% end %>
           </li>
+          <% end %>
         </ul>
       </div>
 

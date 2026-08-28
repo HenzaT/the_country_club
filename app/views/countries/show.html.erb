@@ -1,34 +1,26 @@
 <%# Country show %>
-<div class="country-page container">
+<div class="country-page">
   <% if @country_photo %>
     <section class="country-banner">
       <%= image_tag(@country_photo.image_url, alt: "#{@country_photo.image_alt}", class: "country-banner__image") %>
-      <div class="banner-image-country-name">
-        <h1><%= @country.name %></h1>
-      </div>
+      <h1 class="country-banner__header"><%= @country.name %></h1>
 
       <div class="image-icons">
         <% case %>
         <% when @wishlist_already_created && @favourite_already_created %>
           <div class="icons">
-            <div class="wishlist">
-              <%= link_to edit_country_wishlist_path(@country) do %>
-                <i class="fa-solid fa-paper-plane icon" alt="solid plane icon"></i>
-              <% end %>
-            </div>
-            <div class="favourite">
-              <%= link_to edit_country_favourite_path(@country) do %>
-                <i class="fa-solid fa-heart icon" alt="solid heart icon"></i>
-              <% end %>
-            </div>
+            <%= link_to edit_country_wishlist_path(@country) do %>
+              <i class="fa-solid fa-paper-plane icon" alt="solid plane icon"></i>
+            <% end %>
+            <%= link_to edit_country_favourite_path(@country) do %>
+              <i class="fa-solid fa-heart icon" alt="solid heart icon"></i>
+            <% end %>
           </div>
         <% when @wishlist_already_created %>
           <div class="icons">
-            <div class="wishlist">
-              <%= link_to edit_country_wishlist_path(@country) do %>
-                <i class="fa-solid fa-paper-plane icon" alt="solid plane icon"></i>
-              <% end %>
-            </div>
+            <%= link_to edit_country_wishlist_path(@country) do %>
+              <i class="fa-solid fa-paper-plane icon" alt="solid plane icon"></i>
+            <% end %>
             <%= link_to new_country_favourite_path(@country) do %>
               <i class="fa-regular fa-heart icon" alt="empty heart icon"></i>
             <% end %>
@@ -38,11 +30,9 @@
             <%= link_to new_country_wishlist_path(@country) do %>
               <i class="fa-regular fa-paper-plane icon" alt="empty plane icon"></i>
             <% end %>
-            <div class="favourite">
-              <%= link_to edit_country_favourite_path(@country) do %>
-                <i class="fa-solid fa-heart icon" alt="solid heart icon"></i>
-              <% end %>
-            </div>
+            <%= link_to edit_country_favourite_path(@country) do %>
+              <i class="fa-solid fa-heart icon" alt="solid heart icon"></i>
+            <% end %>
           </div>
         <% else %>
           <div class="icons">
@@ -56,41 +46,33 @@
         <% end %>
       </div>
 
-      <div class="banner-image-attributions">
+      <div class="country-banner__attributions">
         <p>
           Photo by
-          <%= link_to @country_photo.photographer_name,
-              "#{@country_photo.photographer_name}?utm_source=the_country_club&utm_medium=referral",
-              target: '_blank', rel: 'noopener',
-              class: "photographer-link" %>
+          <%= link_to @country_photo.photographer_name, "#{@country_photo.photographer_name}?utm_source=the_country_club&utm_medium=referral", rel: 'noopener', class: "country-banner__link" %>
           on
-          <%= link_to 'Unsplash',
-              'https://unsplash.com/?utm_source=the_country_club&utm_medium=referral',
-              target: '_blank',
-              rel: 'noopener',
-              class: "photographer-link" %>
+          <%= link_to 'Unsplash', 'https://unsplash.com/?utm_source=the_country_club&utm_medium=referral', rel: 'noopener', class: "country-banner__link" %>
         </p>
       </div>
     </section>
   <% end %>
-
+<%#
   <div
     class="ai-suggestion"
     data-controller="claude"
-    data-claude-suggest-claude-url-value="<%= suggest_claude_country_path(@country) %>"
-    data-claude-suggest-season-url-value="<%= suggest_season_country_path(@country) %>"
-  >
-    <div class="suggest-claude">
-      <h2 class="ai-h2">What can I see and do in <%= @country.name %>?</h2>
-      <button
+    data-claude-suggest-claude-url-value="<%= suggest_claude_country_path(@country) %>
+    <%# data-claude-suggest-season-url-value="= suggest_season_country_path(@country)" %>
+    <%# <div class="suggest-claude">
+      <%# <h2 class="ai-h2">What can I see and do in <%= @country.name %>
+      <%# <button
         type="button"
         id="show-ai-button"
         data-claude-target="askClaudeButton"
         data-action="click->claude#showAi">
         Ask Claude
-      </button>
-      <div class="ai-text" data-claude-target="aiText"></div>
-    </div>
+      </button> %>
+      <%# <div class="ai-text" data-claude-target="aiText"></div> %>
+    <%# </div>
     <div class="suggest-season">
       <h2 class="ai-h2">What is the best time of year to go?</h2>
       <button
@@ -102,14 +84,16 @@
       </button>
       <div class="ai-text" data-claude-target="seasonalText"></div>
     </div>
-  </div>
+  </div> %>
 
-  <section class="country-infos">
-    <h2>Information</h2>
-    <div class="cards">
-      <div class="country-info card">
-        <%= image_tag(@country.flag, alt: @country.flag_alt, class: "individual-flag-image") %>
-      </div>
+  <section class="container">
+    <header>
+      <h2>Information</h2>
+    </header>
+    <section class="grid">
+      <article class="country-fact card">
+        <%= image_tag(@country.flag, alt: @country.flag_alt, class: "country-fact__flag") %>
+      </article>
 
       <%# <div class="country-card-info">
         <div class="clock" data-controller="clock">
@@ -130,30 +114,38 @@
         <%# </div>
       </div> %>
 
-      <div class="country-info card">
-        <h3>Capital City</h3>
-        <p><%= @country.capital %></p>
-        <div class="mapbox-country"
+      <article class="country-fact card">
+        <header>
+          <h3>Capital City</h3>
+          <p><%= @country.capital %></p>
+        </header>
+        <div class="mapbox"
           data-controller="map"
           data-map-markers-value="<%= @capital_markers.to_json %>"
           data-map-api-key-value="<%= ENV['MAPBOX_TOKEN_KEY'] %>">
         </div>
-      </div>
+      </article>
 
-      <div class="country-info card">
-        <h3 class="show-card-title">Languages</h3>
+      <article class="country-fact">
+        <h3>Languages</h3>
         <% @country.languages.each do |language| %>
           <p><%= language unless language == "None" %></p>
         <% end %>
-      </div>
+      </article>
 
-      <div class="country-info card">
+      <article class="country-fact">
         <h3>Population</h3>
         <p><%= number_with_delimiter(@country.population, :delimiter => ',') %></p>
         <p><%= population_index(@country) %></p>
-      </div>
+      </article>
 
-      <div class="country-info card" data-controller="currency">
+      <article class="country-fact">
+        <h3>Area</h3>
+        <p><%= number_with_delimiter(@country.area, :delimiter => ',') %> km²</p>
+        <p><%= area_index(@country) %></p>
+      </article>
+
+      <article class="country-fact card" data-controller="currency">
         <h3>Currency</h3>
         <p><%= "#{@country.currency} (#{@country.currency_code} / #{@country.currency_symbol})" %></p>
         <div class="user-inputs">
@@ -189,89 +181,79 @@
           <button class="number-btn" data-currency-value-param="600" data-action="click->currency#buttonChange">600</button>
         </div>
         <p>1 GBP = <%= "#{@country_rate_rounded} #{@country.currency_code}" %></p>
-      </div>
-
-      <div class="country-info card">
-        <h3>Area</h3>
-        <p><%= number_with_delimiter(@country.area, :delimiter => ',') %> km²</p>
-        <p><%= area_index(@country) %></p>
-      </div>
-    </div>
-  </section>
-
-  <div class="favourite-photos">
-  <% if user_signed_in? && @favourite_already_created %>
-    <h2>Here are your photos from your trip</h2>
-    <% @favourite.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-    <% end %>
-  <% else %>
-    <h2>Add a country to your favourites to add any photos from your trip</h2>
-  <% end %>
-  </div>
-  <section class="wishlist-favourites">
-    <section class="cards">
+      </article>
       <% case %>
       <% when @wishlist_already_created && @favourite_already_created %>
-      <div class="wishlist card">
-        <%= link_to edit_country_wishlist_path(@country), class: "list-link" do %>
-          <i class="fa-solid fa-paper-plane icon" alt="solid plane icon"></i>
-        <% end %>
-        <%= render "delete_wishlist", country: @country %>
-        <%= render "shared/wishlist_info", country: @country, wishlists: @user_wishlists %>
-      </div>
-      <div class="favourite card">
-        <%= link_to edit_country_favourite_path(@country), class: "list-link" do %>
-          <i class="fa-solid fa-heart icon" alt="solid heart icon"></i>
-        <% end %>
-        <%= render "delete_favourite", country: @country %>
-        <%= render "shared/favourite_info", country: @country, favourites: @user_favourites %>
-      </div>
+        <article class="wishlist card">
+          <%= link_to edit_country_wishlist_path(@country), class: "list-link" do %>
+            <i class="fa-solid fa-paper-plane icon" alt="solid plane icon"></i>
+          <% end %>
+          <%= render "delete_wishlist", country: @country %>
+          <%= render "shared/wishlist_info", country: @country, wishlists: @user_wishlists %>
+        </article>
+        <article class="favourite card">
+          <%= link_to edit_country_favourite_path(@country), class: "list-link" do %>
+            <i class="fa-solid fa-heart icon" alt="solid heart icon"></i>
+          <% end %>
+          <%= render "delete_favourite", country: @country %>
+          <%= render "shared/favourite_info", country: @country, favourites: @user_favourites %>
+        </article>
 
       <% when @wishlist_already_created %>
-      <div class="wishlist card">
-        <%= link_to edit_country_wishlist_path(@country), class: "list-link" do %>
-          <i class="fa-solid fa-paper-plane icon" alt="solid plane icon"></i>
-        <% end %>
-        <%= render "delete_wishlist", country: @country %>
-        <%= render "shared/wishlist_info", country: @country, wishlists: @user_wishlists %>
-      </div>
-      <div class="favourite card">
-        <%= link_to new_country_favourite_path(@country), class: "list-link" do %>
-          <i class="fa-regular fa-heart icon" alt="empty heart icon"></i>
-          <p>Add this country to your favourites.</p>
-        <% end %>
-      </div>
+        <article class="wishlist card">
+          <%= link_to edit_country_wishlist_path(@country), class: "list-link" do %>
+            <i class="fa-solid fa-paper-plane icon" alt="solid plane icon"></i>
+          <% end %>
+          <%= render "delete_wishlist", country: @country %>
+          <%= render "shared/wishlist_info", country: @country, wishlists: @user_wishlists %>
+        </article>
+        <article class="favourite card">
+          <%= link_to new_country_favourite_path(@country), class: "list-link" do %>
+            <i class="fa-regular fa-heart icon" alt="empty heart icon"></i>
+            <p>Add this country to your favourites.</p>
+          <% end %>
+        </article>
 
       <% when @favourite_already_created %>
-      <div class="wishlist card">
-        <%= link_to new_country_wishlist_path(@country), class: "list-link" do %>
-          <i class="fa-regular fa-paper-plane icon" alt="empty plane icon"></i>
-          <p>Add this country to your wishlist.</p>
-        <% end %>
-      </div>
-      <div class="favourite card">
-        <%= link_to edit_country_favourite_path(@country), class: "list-link" do %>
-          <i class="fa-solid fa-heart icon" alt="solid heart icon"></i>
-        <% end %>
-        <%= render "shared/favourite_info", country: @country, favourites: @user_favourites %>
-        <%= render "delete_favourite", country: @country %>
-      </div>
+        <article class="wishlist card">
+          <%= link_to new_country_wishlist_path(@country), class: "list-link" do %>
+            <i class="fa-regular fa-paper-plane icon" alt="empty plane icon"></i>
+            <p>Add this country to your wishlist.</p>
+          <% end %>
+        </article>
+        <article class="favourite card">
+          <%= link_to edit_country_favourite_path(@country), class: "list-link" do %>
+            <i class="fa-solid fa-heart icon" alt="solid heart icon"></i>
+          <% end %>
+          <%= render "shared/favourite_info", country: @country, favourites: @user_favourites %>
+          <%= render "delete_favourite", country: @country %>
+        </article>
 
       <% else %>
-      <div class="wishlist card">
-        <%= link_to new_country_wishlist_path(@country), class: "list-link" do %>
-          <i class="fa-regular fa-paper-plane icon" alt="empty plane icon"></i>
-          <p>Add this country to your wishlist.</p>
-        <% end %>
-      </div>
-      <div class="favourite card">
-        <%= link_to new_country_favourite_path(@country), class: "list-link" do %>
-          <i class="fa-regular fa-heart icon" alt="empty heart icon"></i>
-          <p>Add this country to your favourites.</p>
-        <% end %>
-      </div>
+        <article class="wishlist card">
+          <%= link_to new_country_wishlist_path(@country), class: "list-link" do %>
+            <i class="fa-regular fa-paper-plane icon" alt="empty plane icon"></i>
+            <p>Add this country to your wishlist.</p>
+          <% end %>
+        </article>
+        <article class="favourite card">
+          <%= link_to new_country_favourite_path(@country), class: "list-link" do %>
+            <i class="fa-regular fa-heart icon" alt="empty heart icon"></i>
+            <p>Add this country to your favourites.</p>
+          <% end %>
+        </article>
       <% end %>
+      <section class="favourite-photos">
+        <% if user_signed_in? && @favourite_already_created %>
+          <h2>Here are your photos from your trip</h2>
+          <% @favourite.photos.each do |photo| %>
+            <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+          <% end %>
+        <% else %>
+          <h2>Add a country to your favourites to add any photos from your trip</h2>
+        <% end %>
+      </section>
     </section>
   </section>
+
 </div>
