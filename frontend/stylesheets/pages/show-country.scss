@@ -27,9 +27,8 @@
 }
 
 .list-link {
-  @include mixin.flex-col;
-  text-decoration: none;
-  color: var(--light);
+  @include mixin.flex-row;
+  gap: 0.5rem
 }
 
 .ai-suggestion {

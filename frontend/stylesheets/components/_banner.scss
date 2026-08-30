@@ -29,21 +29,6 @@
     transform: translate(-50%, -50%);
   }
 
-  .banner-image-country-name {
-    position: absolute;
-    width: 100%;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--light);
-    font-size: 5rem;
-    white-space: nowrap;
-
-    h1 {
-      font-size: 4rem;
-    }
-  }
-
   .icons {
     position: absolute;
     top: 70%;
@@ -87,18 +72,12 @@
 
   @include mixin.media(tabletAndUp) {
     &__header {
-      font-size: 7rem;
+      font-size: 9rem;
       white-space: auto;
     }
 
     #caribbean-header {
       font-size: 7rem;
-    }
-
-    .country-banner .banner-image-country-name {
-      h1 {
-        font-size: 6rem;
-      }
     }
   }
 

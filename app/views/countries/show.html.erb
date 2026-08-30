@@ -126,20 +126,14 @@
         </div>
       </article>
 
-      <article class="country-fact">
+      <article class="country-fact card">
         <h3>Languages</h3>
         <% @country.languages.each do |language| %>
           <p><%= language unless language == "None" %></p>
         <% end %>
-      </article>
-
-      <article class="country-fact">
         <h3>Population</h3>
         <p><%= number_with_delimiter(@country.population, :delimiter => ',') %></p>
         <p><%= population_index(@country) %></p>
-      </article>
-
-      <article class="country-fact">
         <h3>Area</h3>
         <p><%= number_with_delimiter(@country.area, :delimiter => ',') %> km²</p>
         <p><%= area_index(@country) %></p>
@@ -182,6 +176,7 @@
         </div>
         <p>1 GBP = <%= "#{@country_rate_rounded} #{@country.currency_code}" %></p>
       </article>
+
       <% case %>
       <% when @wishlist_already_created && @favourite_already_created %>
         <article class="wishlist card">
@@ -210,7 +205,7 @@
         <article class="favourite card">
           <%= link_to new_country_favourite_path(@country), class: "list-link" do %>
             <i class="fa-regular fa-heart icon" alt="empty heart icon"></i>
-            <p>Add this country to your favourites.</p>
+            <p>Add to favourites</p>
           <% end %>
         </article>
 
@@ -218,7 +213,7 @@
         <article class="wishlist card">
           <%= link_to new_country_wishlist_path(@country), class: "list-link" do %>
             <i class="fa-regular fa-paper-plane icon" alt="empty plane icon"></i>
-            <p>Add this country to your wishlist.</p>
+            <p>Add to wishlist</p>
           <% end %>
         </article>
         <article class="favourite card">
@@ -233,16 +228,17 @@
         <article class="wishlist card">
           <%= link_to new_country_wishlist_path(@country), class: "list-link" do %>
             <i class="fa-regular fa-paper-plane icon" alt="empty plane icon"></i>
-            <p>Add this country to your wishlist.</p>
+            <p>Add to wishlist</p>
           <% end %>
         </article>
         <article class="favourite card">
           <%= link_to new_country_favourite_path(@country), class: "list-link" do %>
             <i class="fa-regular fa-heart icon" alt="empty heart icon"></i>
-            <p>Add this country to your favourites.</p>
+            <p>Add to favourites</p>
           <% end %>
         </article>
       <% end %>
+      
       <section class="favourite-photos">
         <% if user_signed_in? && @favourite_already_created %>
           <h2>Here are your photos from your trip</h2>

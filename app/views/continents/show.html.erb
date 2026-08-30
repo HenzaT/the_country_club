@@ -1,5 +1,5 @@
 <%# Continent show %>
-<div class="continent-region container" data-controller="search scroll">
+<div class="continent-region" data-controller="search scroll">
   <%= render "shared/country_photo_banner", photo: @random_photo, continent_or_region: @continent %>
   <%# <div class="charts"
     data-controller="chart"
@@ -14,28 +14,29 @@
     <%# <canvas data-chart-target="populationChart" width="200" id="population-chart"></canvas>
     <%# <canvas data-chart-target="areaChart" width=800 height=600 id="area"></canvas> %>
   <%# </div> %>
-
-  <div class="search" data-scroll-target="firstSection">
-    <div class="search-filter">
-      <%= form_with url: continent_path(@continent), method: :get, local: false, class: "search-form",
-            data: { turbo_frame: "countries_results", search_target: "form", turbo: true, remote: false } do |form| %>
-        <%= form.text_field :query, placeholder: "Search Countries...", data: { action: "input->search#instantSearch", search_target: "input" } %>
-      <% end %>
-      <i class="fa-solid fa-filter"></i>
-    </div>
-  </div>
-
-  <div class="map-and-cards">
-    <%= turbo_frame_tag "countries_results" do %>
-      <div class="cards">
-        <%= render "shared/continent_region_page", countries: @countries %>
+  <section class="container">
+    <div class="search" data-scroll-target="firstSection">
+      <div class="search-filter">
+        <%= form_with url: continent_path(@continent), method: :get, local: false, class: "search-form",
+              data: { turbo_frame: "countries_results", search_target: "form", turbo: true, remote: false } do |form| %>
+          <%= form.text_field :query, placeholder: "Search Countries...", data: { action: "input->search#instantSearch", search_target: "input" } %>
+        <% end %>
+        <i class="fa-solid fa-filter"></i>
       </div>
-    <% end %>
-
-    <div class="mapbox-continent-region"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_TOKEN_KEY'] %>">
     </div>
-  </div>
+
+    <div class="map-and-cards">
+      <%= turbo_frame_tag "countries_results" do %>
+        <div class="cards">
+          <%= render "shared/continent_region_page", countries: @countries %>
+        </div>
+      <% end %>
+
+      <div class="mapbox-continent-region"
+        data-controller="map"
+        data-map-markers-value="<%= @markers.to_json %>"
+        data-map-api-key-value="<%= ENV['MAPBOX_TOKEN_KEY'] %>">
+      </div>
+    </div>
+  </section>
 </div>

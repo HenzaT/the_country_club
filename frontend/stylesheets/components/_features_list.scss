@@ -1,8 +1,7 @@
 @use '../abstracts/mixins' as mixin;
 
 ul.features-list {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  @include mixin.grid-mobile;
   gap: 1rem;
 
   .feature-card, .feature-row {
@@ -44,6 +43,15 @@ ul.features-list {
 
     &:hover {
       box-shadow: var(--card-light-shadow);
+    }
+  }
+
+  .feature-row {
+    &__icon-box {
+      @include mixin.flex-row;
+      justify-content: center;
+      width: 30px;
+      padding: 0.5rem 0 ;
     }
   }
 

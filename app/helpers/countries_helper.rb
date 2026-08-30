@@ -6,7 +6,7 @@ module CountriesHelper
       'Largest population'
     elsif country.population == populations.last
       'Smallest population'
-    elsif index.to_s.end_with?('1') && index != 1
+    elsif index.to_s.end_with?('1') && index != 1 || index != 11
       "#{index}st largest"
     elsif index.to_s.end_with?('2')
       "#{index}nd largest"

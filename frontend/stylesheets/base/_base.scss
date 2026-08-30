@@ -30,7 +30,7 @@ h1 {
 
 h2 {
   font-family: "Montserrat", sans-serif;
-  font-weight: 400;
+  font-weight: 400 bold;
 }
 
 h3 {
@@ -69,6 +69,11 @@ hr {
 
 .grid {
   @include mixin.grid-mobile;
+  gap: 1rem;
+
+  @include mixin.media(tabletAndUp) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .container {

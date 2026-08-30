@@ -18,14 +18,15 @@ section.introduction {
   gap: 1rem;
   scroll-margin-top: 3rem;
 
-  h2#introduction {
-    font-size: 1.4rem;
-  }
-
   ul.introduction-text {
     line-height: 1.5;
     margin-left: 1rem;
   }
+}
+
+section.features {
+  @include mixin.grid-mobile;
+  gap: 4rem;
 }
 
 .introduction-text li a, .info-box .text > a {

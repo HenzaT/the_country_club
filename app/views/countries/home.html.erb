@@ -4,7 +4,7 @@
   <section class="container">
     <section class="introduction" data-scroll-target="firstSection">
       <header>
-        <h2 id="introduction">A travel tracker</h2>
+        <h2>A travel tracker</h2>
         <p>For the curious traveller</p>
       </header>
       <ul class="introduction-text">
@@ -25,10 +25,10 @@
           for the best time to visit.
         </li>
       </ul>
-      <% if !user_signed_in? %>
-        <%= link_to "Join the Club", new_user_registration_path, class: "btn" %>
-      <% elsif %>
+      <% if user_signed_in? %>
         <%= link_to "Member's Area", dashboard_path, class: "btn" %>
+      <% else %>
+        <%= link_to "Join the Club", new_user_registration_path, class: "btn" %>
       <% end %>
     </section>
 
@@ -89,20 +89,28 @@
         </header>
         <ul class="features-list" id="list-column">
           <li class="feature-row">
-            <i class="feature-row__icon fa-regular fa-star"></i>
+            <div class="feature-row__icon-box">
+              <i class="feature-row__icon fa-regular fa-star"></i>
+            </div>
             <p class="feature-row__text">Add to favourites</p>
           </li>
           <li class="feature-row">
-            <i class="feature-row__icon fa-regular fa-calendar"></i>
+            <div class="feature-row__icon-box">
+              <i class="feature-row__icon fa-regular fa-calendar"></i>
+            </div>
             <p class="feature-row__text">Track visits and dates</p>
           </li>
           <li class="feature-row">
-            <i class="feature-row__icon fa-regular fa-rectangle-list"></i>
+            <div class="feature-row__icon-box">
+              <i class="feature-row__icon fa-regular fa-rectangle-list"></i>
+            </div>
             <p class="feature-row__text">Add personal notes</p>
           </li>
           <li class="feature-row" id="coming-soon">
             <div class="left-group">
-              <i class="feature-row__icon fa-regular fa-image"></i>
+              <div class="feature-row__icon-box">
+                <i class="feature-row__icon fa-regular fa-image"></i>
+              </div>
               <p class="feature-row__text">Upload trip photos</p>
             </div>
             <span class="pill">Coming soon</span>
