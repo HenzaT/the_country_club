@@ -1,6 +1,6 @@
-<div class="navbar-mobile">
-  <%= link_to root_path, class: "nav-link active" do %>
-    <i class="fa-regular fa-map" alt="map icon" id="nav-map-icon"></i>
+<nav class="navbar-mobile">
+  <%= link_to root_path, class: "active" do %>
+    <i class="fa-regular fa-map" id="nav-map-icon"></i>
   <% end %>
   <div class="burger-btn" id="burgerButton" data-navbar-target="burger" data-action="click->navbar#toggleNav">
     <span class="line-one" data-navbar-target="lineOne"></span>
@@ -9,35 +9,24 @@
   </div>
   <div id="mobileMenuOverlay" class="mobile-menu-overlay hidden" data-navbar-target="menuOverlay">
     <ul>
+      <hr/>
+      <li><%= link_to "Africa", continent_path("Africa") %></li>
+      <li><%= link_to "Asia", continent_path("Asia") %></li>
+      <li><%= link_to "Europe", continent_path("Europe") %></li>
+      <li><%= link_to "Oceania", continent_path("Oceania") %></li>
+      <li><%= link_to "North America", region_path("North America") %></li>
+      <li><%= link_to "Central America", region_path("Central America") %></li>
+      <li><%= link_to "South America", region_path("South America") %></li>
+      <li><%= link_to "Caribbean", region_path("Caribbean") %></li>
+      <hr/>
       <% if user_signed_in? %>
-        <hr/>
-        <li><%= link_to "Africa", continent_path("Africa"), class: "nav-link" %></li>
-        <li><%= link_to "Asia", continent_path("Asia"), class: "nav-link" %></li>
-        <li><%= link_to "Europe", continent_path("Europe"), class: "nav-link" %></li>
-        <li><%= link_to "Oceania", continent_path("Oceania"), class: "nav-link" %></li>
-        <li><%= link_to "North America", region_path("North America"), class: "nav-link" %></li>
-        <li><%= link_to "Central America", region_path("Central America"), class: "nav-link" %></li>
-        <li><%= link_to "South America", region_path("South America"), class: "nav-link" %></li>
-        <li><%= link_to "Caribbean", region_path("Caribbean"), class: "nav-link" %></li>
-        <hr/>
-        <li><%= link_to "Member's Area", dashboard_path, class: "nav-link" %></li>
-        <li><%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" %></li>
-        <hr/>
+        <li><%= link_to "Member's Area", dashboard_path %></li>
+        <li><%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete } %></li>
       <% else %>
-        <hr/>
-        <li><%= link_to "Africa", continent_path("Africa"), class: "nav-link" %></li>
-        <li><%= link_to "Asia", continent_path("Asia"), class: "nav-link" %></li>
-        <li><%= link_to "Europe", continent_path("Europe"), class: "nav-link" %></li>
-        <li><%= link_to "Oceania", continent_path("Oceania"), class: "nav-link" %></li>
-        <li><%= link_to "North America", region_path("North America"), class: "nav-link" %></li>
-        <li><%= link_to "Central America", region_path("Central America"), class: "nav-link" %></li>
-        <li><%= link_to "South America", region_path("South America"), class: "nav-link" %></li>
-        <li><%= link_to "Caribbean", region_path("Caribbean"), class: "nav-link" %></li>
-        <hr/>
-        <li><%= link_to "Login", new_user_session_path, class: "nav-link" %></li>
-        <li><%= link_to "Sign up", new_user_registration_path, class: "nav-link" %></li>
-        <hr/>
+        <li><%= link_to "Login", new_user_session_path %></li>
+        <li><%= link_to "Sign up", new_user_registration_path %></li>
       <% end %>
+      <hr/>
     </ul>
   </div>
-</div>
+</nav>

@@ -5,7 +5,7 @@ require 'open-uri'
 class CountriesController < ApplicationController
   include ActionView::Helpers::NumberHelper
 
-  skip_before_action :authenticate_user!, only: %i[home show suggest_claude suggest_season]
+  skip_before_action :authenticate_user!, only: %i[home show]
 
   def home
     @continents = Country.select('continent').group('continent')
@@ -22,11 +22,6 @@ class CountriesController < ApplicationController
   # show individual country
   def show
     @country = Country.find(params[:id])
-    @user_wishlists = @country.wishlists.where(user_id: current_user)
-    @user_favourites = @country.favourites.where(user_id: current_user)
-    @favourite = Favourite.find_by(user_id: current_user, country_id: @country)
-    @wishlist_already_created = Wishlist.exists?(user_id: current_user, country_id: @country)
-    @favourite_already_created = Favourite.exists?(user_id: current_user, country_id: @country)
     @country_photo = CountryPhoto.find_by(country_id: @country)
     capital_address_marker
     currency_exchange(@country)
@@ -39,25 +34,25 @@ class CountriesController < ApplicationController
     @user_favourites = current_user.favourites.count
   end
 
-  def suggest_claude
-    country = Country.find(params[:id])
-    result = claude_suggestions(country.name)
-    if result
-      render json: { response: result }
-    else
-      return 'Claude is currently overloaded'
-    end
-  end
+  # def suggest_claude
+  #   country = Country.find(params[:id])
+  #   result = claude_suggestions(country.name)
+  #   if result
+  #     render json: { response: result }
+  #   else
+  #     return 'Claude is currently overloaded'
+  #   end
+  # end
 
-  def suggest_season
-    country = Country.find(params[:id])
-    result = seasonal_suggestions(country.name)
-    if result
-      render json: { response: result }
-    else
-      return 'Claude is currently overloaded'
-    end
-  end
+  # def suggest_season
+  #   country = Country.find(params[:id])
+  #   result = seasonal_suggestions(country.name)
+  #   if result
+  #     render json: { response: result }
+  #   else
+  #     return 'Claude is currently overloaded'
+  #   end
+  # end
 
   private
 
@@ -76,31 +71,31 @@ class CountriesController < ApplicationController
     @country_rate_rounded = country.currency_rate.rate.round(3)
   end
 
-  def claude_suggestions(country)
-    claude = AiAgent.new.claude
-    message =
-      "Write 1 or 2 opening sentences about #{country} as a travel destination.
-      Then, return a list of key attractions containing 5 popular tourist attractions as <ol> elements.
-      Describe each attraction with 1 or 2 sentences. Don't ask any questions.
-      Leave a <br> between the opening paragraph and the list."
-    response = claude.messages(
-      claude.user_message(message),
-      { model: Claude::Model::CLAUDE_FASTEST }
-    )
-    AiAgent.new.format_claude_response(response)
-  end
+  # def claude_suggestions(country)
+  #   claude = AiAgent.new.claude
+  #   message =
+  #     "Write 1 or 2 opening sentences about #{country} as a travel destination.
+  #     Then, return a list of key attractions containing 5 popular tourist attractions as <ol> elements.
+  #     Describe each attraction with 1 or 2 sentences. Don't ask any questions.
+  #     Leave a <br> between the opening paragraph and the list."
+  #   response = claude.messages(
+  #     claude.user_message(message),
+  #     { model: Claude::Model::CLAUDE_FASTEST }
+  #   )
+  #   AiAgent.new.format_claude_response(response)
+  # end
 
-  def seasonal_suggestions(country)
-    claude = AiAgent.new.claude
-    message =
-      "Write 1 or 2 opening sentences about the best time of year to visit #{country} as a travel destination.
-      Then, return a list of other alternative times of year as <ol> elements.
-      If a particular time of year is cheaper, mention it.
-      Leave a <br> between the opening paragraph and the list."
-    response = claude.messages(
-      claude.user_message(message),
-      { model: Claude::Model::CLAUDE_FASTEST }
-    )
-    AiAgent.new.format_claude_response(response)
-  end
+  # def seasonal_suggestions(country)
+  #   claude = AiAgent.new.claude
+  #   message =
+  #     "Write 1 or 2 opening sentences about the best time of year to visit #{country} as a travel destination.
+  #     Then, return a list of other alternative times of year as <ol> elements.
+  #     If a particular time of year is cheaper, mention it.
+  #     Leave a <br> between the opening paragraph and the list."
+  #   response = claude.messages(
+  #     claude.user_message(message),
+  #     { model: Claude::Model::CLAUDE_FASTEST }
+  #   )
+  #   AiAgent.new.format_claude_response(response)
+  # end
 end

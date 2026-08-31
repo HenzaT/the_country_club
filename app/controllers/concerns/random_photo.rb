@@ -7,11 +7,8 @@ module RandomPhoto
     private
 
     def random_unsplash_photo(countries)
-      random_photos = []
-      countries.each do |country|
-        random_photos << CountryPhoto.where(country_id: country.id)
-      end
-      @random_photo = random_photos.sample.first
+      random_photos = countries.map(&:country_photo)
+      @random_photo = random_photos.sample
     end
   end
 end

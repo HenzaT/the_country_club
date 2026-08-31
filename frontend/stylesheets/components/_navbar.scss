@@ -1,16 +1,11 @@
 @use '../abstracts/mixins' as mixin;
 
-.darken {
-  filter: brightness(30%);
-}
-
 .navbar-mobile {
   background: transparent;
   z-index: 3000;
   height: 60px;
-  display: flex;
+  @include mixin.flex-row;
   justify-content: space-between;
-  align-items: center;
   padding: 0 2rem;
 
   .mobile-menu-overlay ul {
@@ -39,12 +34,10 @@
   }
 
   .burger-btn {
+    @include mixin.flex-col;
+    justify-content: center;
     height: 40px;
     width: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     z-index: 2000;
   }
 
@@ -102,17 +95,20 @@
   z-index: 9000;
 }
 
-.topnav {
+.top-nav {
   display: block;
   background: transparent;
   z-index: 3000;
   height: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 0 0 0 30px;
 
-  .continent-links {
+  ul {
+    @include mixin.flex-row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__to-continents {
     width: 80%;
     display: flex;
     justify-content: space-evenly;
@@ -127,51 +123,11 @@
     padding-right: 30px;
   }
 
-  .down-menu {
-    height: 40px;
-    width: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    z-index: 2000;
-    transform: rotate(90deg);
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .down-menu.close {
-    transform: rotate(270deg);
-  }
-
-  .left-line, .right-line {
-    display: block;
-    background-color: var(--light);
-    height: 4px;
-    width: 100%;
-    border-radius: 5px;
-  }
-
-  .left-line {
-    width: 60%;
-    margin-bottom: 10px;
-    transform: rotate(45deg);
-  }
-
-  .right-line {
-    width: 60%;
-    transform: rotate(-45deg)
-  }
-
-  .options-overlay {
+  &__user-options {
     display: flex;
     justify-content: space-evenly;
     width: 20%;
   }
-}
-
-.nav-item {
-  list-style-type: none;
 }
 
 .fa-bars {
@@ -185,19 +141,19 @@
 }
 
 @media screen and (max-width: 768px) {
-  .topnav {
+  .top-nav {
     display: none;
   }
 }
 
 @media screen and (max-width: 1024px) {
-  .topnav {
+  .top-nav {
     display: none;
   }
 }
 
 @media screen and (min-width: 1025px) {
-  .topnav {
+  .top-nav {
     display: none;
   }
 }
@@ -207,7 +163,7 @@
     display: none;
   }
 
-  .topnav {
+  .top-nav {
     display: flex;
   }
 }
@@ -223,7 +179,7 @@
     display: none;
   }
 
-  .topnav {
+  .top-nav {
     display: flex;
   }
 }

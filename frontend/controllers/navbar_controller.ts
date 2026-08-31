@@ -8,7 +8,6 @@ export default class extends Controller {
     'lineThree',
     'body',
     'menuOverlay',
-    'optionsOverlay',
     'downMenu'
   ]
   declare readonly sectionTarget: HTMLElement

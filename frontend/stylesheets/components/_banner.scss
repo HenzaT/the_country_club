@@ -29,9 +29,9 @@
     transform: translate(-50%, -50%);
   }
 
-  .icons {
+  &__icons {
     position: absolute;
-    top: 70%;
+    top: 75%;
     left: 50%;
     transform: translate(-50%, -50%);
     white-space: nowrap;
@@ -40,7 +40,7 @@
     justify-content: space-between;
   }
 
-  .icon {
+  &__icon {
     color: var(--light);
     font-size: 2rem;
     padding: 20px;
@@ -100,7 +100,7 @@
       text-wrap: balance;
     }
 
-    .image-icons > .icons {
+    .country-banner__icons {
       margin-top: 100px;
     }
   }

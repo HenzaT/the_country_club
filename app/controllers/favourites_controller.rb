@@ -1,6 +1,10 @@
 class FavouritesController < ApplicationController
   before_action :set_country, only: %i[new create edit update]
 
+  def index
+    @favourites = Favourite.all
+  end
+
   def new
     @favourite = Favourite.new
     @favourite_already_created = Favourite.exists?(user_id: current_user, country_id: @country)
